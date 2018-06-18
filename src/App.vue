@@ -48,3 +48,7 @@
     color: #42b983;
   }
 </style>
+<style lang="scss">
+  @import '../node_modules/bootstrap/scss/bootstrap.scss';
+  @import '../src/assets/custom-bootstrap.scss';
+</style>
