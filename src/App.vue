@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img src="./assets/meta2logo.png">
+    <img src="./assets/meta2logo.png" style="margin-bottom: 10px; width: 40%">
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
