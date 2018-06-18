@@ -1,31 +1,38 @@
 <template>
   <div id="app">
     <img src="./assets/meta2logo.png">
-    <div>
-      <ul>
-        <li><router-link to="/">Tables</router-link></li>
-        <li><router-link to="/notes">Notes</router-link></li>
-        <li><router-link to="/firstroute/Sebastian">FirstRoute</router-link></li>
-        <li><router-link to="/firstroute/Sebastian/child">FirstRouteChild</router-link></li>
-      </ul>
-    </div>
-    <button type="button" class="btn">Basic</button>
-    <button type="button" class="btn btn-primary">Primary</button>
-    <button type="button" class="btn btn-secondary">Secondary</button>
-    <button type="button" class="btn btn-success">Success</button>
-    <button type="button" class="btn btn-info">Info</button>
-    <button type="button" class="btn btn-warning">Warning</button>
-    <button type="button" class="btn btn-danger">Danger</button>
-    <button type="button" class="btn btn-dark">Dark</button>
-    <button type="button" class="btn btn-light">Light</button>
-    <button type="button" class="btn btn-link">Link</button>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <router-link class="nav-link" to="/">Tables</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/notes">Notes</router-link>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Routes Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <router-link class="nav-link" to="/firstroute/Sebastian">FirstRoute</router-link>
+              <router-link class="nav-link" to="/firstroute/Sebastian/child">FirstRouteChild</router-link>
+            </div>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
     <router-view></router-view>
   </div>
 </template>
 <script>
-  export default {
-    name: 'app'
-  }
+    export default {
+      name: 'app'
+    }
 </script>
 <style>
   #app {

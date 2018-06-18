@@ -14,6 +14,9 @@ import {
   transitions
 } from 'vuetify'
 import '../node_modules/vuetify/src/stylus/app.styl'
+import '../static/jquery-3.3.1.slim'
+import '../static/bootstrap'
+import '../static/popper.min'
 
 Vue.use(Vuetify, {
   components: {
