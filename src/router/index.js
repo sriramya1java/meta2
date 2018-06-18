@@ -22,11 +22,11 @@ export default new Router({
     },
     {
       path: '/firstroute/:name',
-      name: 'FirstRoute',
       component: FirstRoute,
       children: [
         {
           path: 'child',
+          name: 'firstroutechild',
           component: FirstRouteChild
         }
       ]
