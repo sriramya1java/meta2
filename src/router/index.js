@@ -1,11 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import FirstRoute from '@/components/FirstRoute'
 import Tables from '@/components/Tables'
 import TableDetail from '@/components/TableDetail'
 import Notes from '@/components/Notes'
 import NoteDetail from '@/components/NoteDetail'
-import FirstRouteChild from '@/components/FirstRouteChild'
 import VueBreadcrumbs from 'vue-2-breadcrumbs'
 
 Vue.use(Router)
@@ -27,7 +25,7 @@ export default new Router({
           name: 'TableDetail',
           component: TableDetail,
           meta: {
-            breadcrumb: 'TableDetail'
+            breadcrumb: 'Table Metadata'
           }
         }
       ]
@@ -45,24 +43,7 @@ export default new Router({
           name: 'NoteDetail',
           component: NoteDetail,
           meta: {
-            breadcrumb: 'NoteDetail'
-          }
-        }
-      ]
-    },
-    {
-      path: '/firstroute/:name',
-      component: FirstRoute,
-      meta: {
-        breadcrumb: 'FirstRoute'
-      },
-      children: [
-        {
-          path: 'child',
-          name: 'firstroutechild',
-          component: FirstRouteChild,
-          meta: {
-            breadcrumb: 'FirstRouteChild'
+            breadcrumb: 'Note Metadata'
           }
         }
       ]

@@ -4,7 +4,9 @@
       <div class="card-body">
         <div class="row">
           <div class="col-md-12">
-            <button type="button" class="btn btn-primary float-left">Create a New Table ></button>
+              <router-link to="/details">
+                <button type="button" class="btn btn-primary float-left">Create a New Table ></button>
+              </router-link>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -28,7 +30,7 @@
               </thead>
               <tbody>
               <tr v-for="tableItem in tables">
-                <th scope="row"><i class="fa fa-edit" v-bind:id="tableItem.programId" @click='iconClick'></i></th>
+                <th scope="row"><i class="fa fa-edit" @click=""></i></th>
                 <td>{{ tableItem.programId }}</td>
                 <td>{{ tableItem.datasetId }}</td>
                 <td>{{ tableItem.tableId }}</td>
@@ -37,7 +39,7 @@
                 <td>{{ tableItem.lastUpdatdeBy }}</td>
                 <td>{{ tableItem.lastUpdated }}</td>
                 <td>{{ tableItem.lastDelivered }}</td>
-                <td><i class="fa fa-trash" v-bind:id="tableItem.tableId" @click='iconClick'></i> </td>
+                <td><i class="fa fa-trash"></i> </td>
                 <td><input type="checkbox"></td>
               </tr>
               <!--<tr>
@@ -76,6 +78,7 @@
         <button type="button" class="btn btn-primary float-right">Create Delivery File</button>
       </div>
     </div>
+    <router-view></router-view>
   </div>
 </template>
 <script>
@@ -84,50 +87,36 @@
       return {
         tables: [
           {
-            edit: 'icon',
-            programId: 'MTA1',
+            programId: 'MTA',
             datasetId: '2018',
             tableId: 'deevi1',
             tableType: 'detailed table',
             displayLabel: 'this is test table',
             lastUpdatdeBy: 'deevi',
             lastUpdated: 'june 16, 2018',
-            lastDelivered: '--',
-            delete: 'icon'
+            lastDelivered: '--'
           },
           {
-            edit: 'icon',
-            programId: 'MTA2',
+            programId: 'MTA',
             datasetId: '2018',
-            tableId: 'deevi2',
+            tableId: 'deevi1',
             tableType: 'detailed table',
             displayLabel: 'this is test table',
             lastUpdatdeBy: 'deevi',
             lastUpdated: 'june 16, 2018',
-            lastDelivered: '--',
-            delete: 'icon'
+            lastDelivered: '--'
           },
           {
-            edit: 'icon',
-            programId: 'MTA3',
+            programId: 'MTA',
             datasetId: '2018',
-            tableId: 'deevi3',
+            tableId: 'deevi1',
             tableType: 'detailed table',
             displayLabel: 'this is test table',
             lastUpdatdeBy: 'deevi',
             lastUpdated: 'june 16, 2018',
-            lastDelivered: '--',
-            delete: 'icon'
+            lastDelivered: '--'
           }
         ]
-      }
-    },
-    methods: {
-      iconClick: function (event) {
-              // `event` is the native DOM event
-        if (event) {
-          alert(event.target.id)
-        }
       }
     }
   }
