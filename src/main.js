@@ -17,6 +17,7 @@ import '../node_modules/vuetify/src/stylus/app.styl'
 import '../static/jquery-3.3.1.slim'
 import '../static/bootstrap'
 import '../static/popper.min'
+import '../node_modules/font-awesome/css/font-awesome.min.css'
 
 Vue.use(Vuetify, {
   components: {

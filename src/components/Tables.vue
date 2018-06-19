@@ -28,7 +28,7 @@
               </thead>
               <tbody>
               <tr v-for="tableItem in tables">
-                <th scope="row">{{ tableItem.edit }}</th>
+                <th scope="row"><i class="fa fa-edit"></i></th>
                 <td>{{ tableItem.programId }}</td>
                 <td>{{ tableItem.datasetId }}</td>
                 <td>{{ tableItem.tableId }}</td>
@@ -38,8 +38,7 @@
                 <td>{{ tableItem.lastUpdated }}</td>
                 <td>{{ tableItem.lastDelivered }}</td>
                 <td><i class="fa fa-trash"></i> </td>
-                <td><input type="checkbox"
-                               v-model="selectedAll"></td>
+                <td><input type="checkbox"></td>
               </tr>
               <!--<tr>
                 <th scope="row">2</th>
