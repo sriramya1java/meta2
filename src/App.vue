@@ -1,8 +1,26 @@
 <template>
   <div id="app">
-    <img src="./assets/meta2logo.png" style="margin-bottom: 10px; width: 40%">
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="row">
+      <div class="col-7"><img src="./assets/meta2logo.png" style="margin-bottom: 10px; width: 40%; height:100%;"></div>
+      <div class="col-3">welcome: Sri Ramya </div>
+      <div class="col-2"><a href="#">Logout</a> </div>
+    </div>
+    <!--<div>
+      <div>
+        <div class="row">
+          <div class="col">
+            <img src="./assets/meta2logo.png" style="margin-bottom: 10px; width: 60%; height:100%;">
+          </div>
+          <div class="col">
+            2 of 3
+          </div>
+          <div class="col">
+            3 of 3
+          </div>
+      </div>
+      </div>
+
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #d3d3d3;">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <router-link class="nav-link" to="/">Tables</router-link>
@@ -10,31 +28,48 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/notes">Notes</router-link>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Routes Dropdown
+        </ul>
+      </nav>
+    </div>-->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTables" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Tables Dropdown
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <router-link class="nav-link" to="/firstroute/Sebastian">FirstRoute</router-link>
-              <router-link class="nav-link" to="/firstroute/Sebastian/child">FirstRouteChild</router-link>
+              <router-link class="nav-link" to="/">Table</router-link>
+              <router-link class="nav-link" to="/details">Table Details</router-link>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownNotes" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Notes Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <router-link class="nav-link" to="/notes">Notes</router-link>
+              <router-link class="nav-link" to="/notes/details">Notes Detail</router-link>
             </div>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
       </div>
     </nav>
+    <br>
+    <br>
+    <breadcrumbs/>
+    <br>
+    <br>
     <router-view></router-view>
   </div>
 </template>
 <script>
-    export default {
-      name: 'app'
-    }
+  export default {
+    name: 'app'
+  }
 </script>
 <style>
+
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
