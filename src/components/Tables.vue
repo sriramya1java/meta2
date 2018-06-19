@@ -28,7 +28,7 @@
               </thead>
               <tbody>
               <tr v-for="tableItem in tables">
-                <th scope="row"><i class="fa fa-edit"></i></th>
+                <th scope="row"><i class="fa fa-edit" v-bind:id="tableItem.programId" @click='iconClick'></i></th>
                 <td>{{ tableItem.programId }}</td>
                 <td>{{ tableItem.datasetId }}</td>
                 <td>{{ tableItem.tableId }}</td>
@@ -37,7 +37,7 @@
                 <td>{{ tableItem.lastUpdatdeBy }}</td>
                 <td>{{ tableItem.lastUpdated }}</td>
                 <td>{{ tableItem.lastDelivered }}</td>
-                <td><i class="fa fa-trash"></i> </td>
+                <td><i class="fa fa-trash" v-bind:id="tableItem.tableId" @click='iconClick'></i> </td>
                 <td><input type="checkbox"></td>
               </tr>
               <!--<tr>
@@ -85,7 +85,7 @@
         tables: [
           {
             edit: 'icon',
-            programId: 'MTA',
+            programId: 'MTA1',
             datasetId: '2018',
             tableId: 'deevi1',
             tableType: 'detailed table',
@@ -97,9 +97,9 @@
           },
           {
             edit: 'icon',
-            programId: 'MTA',
+            programId: 'MTA2',
             datasetId: '2018',
-            tableId: 'deevi1',
+            tableId: 'deevi2',
             tableType: 'detailed table',
             displayLabel: 'this is test table',
             lastUpdatdeBy: 'deevi',
@@ -109,9 +109,9 @@
           },
           {
             edit: 'icon',
-            programId: 'MTA',
+            programId: 'MTA3',
             datasetId: '2018',
-            tableId: 'deevi1',
+            tableId: 'deevi3',
             tableType: 'detailed table',
             displayLabel: 'this is test table',
             lastUpdatdeBy: 'deevi',
@@ -120,6 +120,14 @@
             delete: 'icon'
           }
         ]
+      }
+    },
+    methods: {
+      iconClick: function (event) {
+              // `event` is the native DOM event
+        if (event) {
+          alert(event.target.id)
+        }
       }
     }
   }
