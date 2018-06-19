@@ -42,34 +42,6 @@
                 <td><i class="fa fa-trash"></i> </td>
                 <td><input type="checkbox"></td>
               </tr>
-              <!--<tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td>@fat<input type="checkbox"
-                               v-model="selectedAll"></td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
-                <td>@twitter<input type="checkbox"
-                                   v-model="selectedAll"></td>
-              </tr>-->
               </tbody>
             </table>
           </div>
