@@ -31,7 +31,7 @@
               <tbody>
               <tr v-for="tableItem in tables">
                 <th scope="row">
-                  <router-link :to="{ name: 'CreateEditTable', params: { tableString: 'test' }, query: { debug: true }}">
+                  <router-link :to="{ name: 'CreateEditTable', params: { tableString: tableItem.programId }, query: { debug: true }}">
                     <i class="fa fa-edit" v-bind:id="tableItem.programId"></i>
                   </router-link>
                 </th>
@@ -99,7 +99,8 @@
             delete: 'icon'
           }
         ],
-        selected: []
+        selected: [],
+        tableId: null
       }
     },
     computed: {
@@ -112,8 +113,8 @@
       iconClick: function (event) {
         // `event` is the native DOM event
         if (event) {
-          console.log(event)
           confirm('Do you want to delete the table ' + event.target.id + ' ?')
+          this.tableId = event.target.id
         }
       }
     }
