@@ -11,6 +11,9 @@
           <router-link to="/notes">
             <a class="nav-link" href="#" id="navbarNotes" role="button">Notes</a>
           </router-link>
+          <router-link to="/page1">
+            <a class="nav-link" href="#" id="navbarPage" role="button">Page1</a>
+          </router-link>
          <!-- <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Notes Dropdown
           </a>

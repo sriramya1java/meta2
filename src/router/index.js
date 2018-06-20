@@ -5,6 +5,8 @@ import TableDetail from '@/components/TableDetail'
 import Notes from '@/components/Notes'
 import NoteDetail from '@/components/NoteDetail'
 import VueBreadcrumbs from 'vue-2-breadcrumbs'
+import Page1 from '@/components/page1'
+import Page2 from '@/components/page2'
 
 Vue.use(Router)
 Vue.use(VueBreadcrumbs)
@@ -47,6 +49,16 @@ export default new Router({
           }
         }
       ]
+    },
+    {
+      path: '/page1',
+      name: 'Page1',
+      component: Page1
+    },
+    {
+      path: '/page2/:id',
+      name: 'Page2',
+      component: Page2
     }
   ]
 })
