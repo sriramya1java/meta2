@@ -12,7 +12,7 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <table class="table table-bordered">
+            <table class="table table-bordered table-striped">
               <thead class="thead-light">
               <tr>
                 <th scope="col">Edit</th>
@@ -101,12 +101,6 @@
         ],
         selected: [],
         tableId: null
-      }
-    },
-    computed: {
-      getProgramId: function () {
-        console.log(this.tables.programId)
-        return this.tables.programId
       }
     },
     methods: {

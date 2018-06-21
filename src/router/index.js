@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Tables from '@/components/Tables'
-import TableDetail from '@/components/TableDetail'
-import Notes from '@/components/Notes'
-import NoteDetail from '@/components/NoteDetail'
 import VueBreadcrumbs from 'vue-2-breadcrumbs'
-import Page1 from '@/components/page1'
+/* import Page1 from '@/components/page1'
 import Page2 from '@/components/page2'
+ import NoteDetail from '@/components/NoteDetail'
+ import TableDetail from '@/components/TableDetail'
+  import Tables from '@/components/Tables'
+import Notes from '@/components/Notes' */
 import UpdatedTablesList from '@/components/Tables/UpdatedTablesList'
 import CreateEditTable from '@/components/CreateEditTable'
 import UpdatedNotesList from '@/components/Notes/UpdatedNotesList'
@@ -18,8 +18,8 @@ Vue.use(VueBreadcrumbs)
 export default new Router({
   mode: 'history',
   routes: [
-    {
-      path: '/',
+    /* {
+      path: '/tables',
       name: 'Tables',
       component: Tables,
       meta: {
@@ -63,9 +63,9 @@ export default new Router({
       path: '/page2/:id',
       name: 'Page2',
       component: Page2
-    },
+    }, */
     {
-      path: '/updatedTablesList',
+      path: '/',
       name: 'UpdatedTablesList',
       component: UpdatedTablesList,
       meta: {
