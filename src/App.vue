@@ -49,8 +49,10 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
+    font-size: 15px;
+    margin-top: 30px;
+    margin-left: 30px; /* this is not working at this point */
+    margin-right: 30px; /* this is not working at this point */
   }
   ul {
     list-style-type: none;

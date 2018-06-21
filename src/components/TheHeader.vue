@@ -1,11 +1,15 @@
 <template>
-  <div class=" container">
-    <div class="row">
-    <div class="col-7">
-      <img src="../assets/meta2logo.png">
-    </div>
-    <div class="col-3">welcome: DEEVI001 </div>
-    <div class="col-2"><a href="#">Logout</a> </div>
+  <div>
+    <div class="container">
+      <div class="row">
+        <div class="col-8">
+          <img src="../assets/meta2logo.png">
+        </div>
+        <div class="col-4">
+          Welcome: DEEVI001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="#">Logout</a>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -14,5 +18,21 @@
     name: 'Meta2Header'
   }
 </script>
-<style>
+<style scoped>
+  img {
+    height: 80px;
+    width: 400px;
+  }
+  .col-8{
+    position: relative;
+    top: 0px;
+    left: 0px;
+    text-align: left;
+  }
+  .col-4{
+    position: relative;
+    top: 0px;
+    right: 0px;
+    text-align: right;
+  }
 </style>

@@ -25,7 +25,7 @@
                 <th scope="col">Last Updated</th>
                 <th scope="col">Last Delivered</th>
                 <th scope="col">Delete</th>
-                <th scope="col">Deliver&nbsp;<input type="checkbox" @click='selectAll()'></th>
+                <th scope="col">Deliver&nbsp;<input type="checkbox"></th>
               </tr>
               </thead>
               <tbody>
