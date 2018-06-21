@@ -28,7 +28,7 @@
               <tbody>
               <tr v-for="noteItem in notes">
                 <th scope="row">
-                  <router-link :to="{ name: 'CreateEditTable', params: { noteString: getNoteTitle }, query: { debug: true }}">
+                  <router-link :to="{ name: 'CreateEditNote', params: { noteString: noteItem.noteTitle }, query: { debug: true }}">
                     <i class="fa fa-edit" v-bind:id="noteItem.noteTitle"></i>
                   </router-link>
                 </th>
@@ -40,34 +40,6 @@
                 <td>{{ noteItem.lastUpdated }}</td>
                 <td><i class="fa fa-trash" v-bind:id="noteItem.noteTitle" @click='iconClick'></i> </td>
               </tr>
-              <!--<tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td>@fat<input type="checkbox"
-                               v-model="selectedAll"></td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
-                <td>@twitter<input type="checkbox"
-                                   v-model="selectedAll"></td>
-              </tr>-->
               </tbody>
             </table>
           </div>
@@ -109,7 +81,8 @@
             lastUpdatdeBy: 'deevi',
             lastUpdated: 'june 16, 2018'
           }
-        ]
+        ],
+        noteTitle: null
       }
     },
     computed: {
@@ -124,6 +97,7 @@
         // `event` is the native DOM event
         if (event) {
           confirm('Do you want to delete the note ' + event.target.id + ' ?')
+          this.noteTitle = event.target.id
         }
       }
     }

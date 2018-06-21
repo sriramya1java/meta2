@@ -1,7 +1,6 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}, your id is {{ id }}</h1>
-    <p>Debug mode is currently set to {{ debug }}</p>
     <h1 v-if="id === 'new'">This is create table page</h1>
     <h1 v-else>this is edit table page</h1>
   </div>

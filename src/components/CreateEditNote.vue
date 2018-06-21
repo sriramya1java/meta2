@@ -1,7 +1,6 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}, your id is {{ id }}</h1>
-    <p>Debug mode is currently set to {{ debug }}</p>
     <h1 v-if="id === 'new'">This is create note page</h1>
     <h1 v-else>this is edit note page</h1>
   </div>
@@ -11,7 +10,7 @@
   import router from '../router'
 
   export default {
-    name: 'CreateEditTable',
+    name: 'CreateEditNote',
     data () {
       return {
         debug: false,
