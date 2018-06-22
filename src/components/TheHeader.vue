@@ -6,8 +6,8 @@
           <img src="../assets/meta2logo.png">
         </div>
         <div class="col-4">
-          Welcome: DEEVI001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <a href="#">Logout</a>
+          Welcome: {{ user }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="#" @click="logout">Logout</a>
         </div>
       </div>
     </div>
@@ -15,7 +15,17 @@
 </template>
 <script>
   export default {
-    name: 'Meta2Header'
+    name: 'Meta2Header',
+    data () {
+      return {
+        user: 'DEEVI001'
+      }
+    },
+    methods: {
+      logout () {
+        confirm(this.user + ' Do you want to logout?')
+      }
+    }
   }
 </script>
 <style scoped>

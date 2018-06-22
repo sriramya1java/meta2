@@ -1,9 +1,8 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}, your id is {{ id }}</h1>
+    <h5>{{ msg }}, your id is {{ id }}</h5>
     <h1 v-if="id === 'new'">This is create note page</h1>
     <h1 v-else>this is edit note page</h1>
-    <h1>{{ id }}</h1>
   </div>
 </template>
 

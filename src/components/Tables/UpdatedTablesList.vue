@@ -51,7 +51,7 @@
           </div>
         </div>
         <div class="clearfix"></div>
-        <button type="button" class="btn btn-primary float-right">Create Delivery File</button>
+        <button type="button" class="btn btn-primary float-right" @click='fileDelivery'>Create Delivery File</button>
       </div>
     </div>
     <router-view></router-view>
@@ -120,6 +120,9 @@
           }
           console.log(this.selected)
         }
+      },
+      fileDelivery () {
+        confirm('Do you want to generate XML for the selected tables? The selected tables are ' + this.selected)
       }
     }
   }
