@@ -1,9 +1,9 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}, your id is {{ tableString }}</h1>
-    <h1 v-if="tableString === 'new'">This is create table page</h1>
+    <h1>{{ msg }}, your id is {{ id }}</h1>
+    <h1 v-if="id === 'new'">This is create table page</h1>
     <h1 v-else>this is edit table page</h1>
-    <h1>{{ tableString }}</h1>
+    <h1>{{ id }}</h1>
   </div>
 </template>
 
@@ -15,19 +15,19 @@
     data () {
       return {
         debug: false,
-        // id: 0,
+        id: 0,
         msg: 'META2'
       }
     },
     props: [
       'tableString'
     ],
-    /* created () {
+    created () {
       this.id = this.$route.params.tableString
       if (this.$route.query.debug) {
         this.debug = this.$route.query.debug
       }
-    }, */
+    },
     methods: {
       navigate () {
         router.go(-1)

@@ -25,7 +25,7 @@
                 <th scope="col">Last Updated</th>
                 <th scope="col">Last Delivered</th>
                 <th scope="col">Delete</th>
-                <th scope="col">Deliver&nbsp;<input type="checkbox"></th>
+                <th scope="col">Deliver&nbsp;<input type="checkbox" v-model="selectAll" @click="select"></th>
               </tr>
               </thead>
               <tbody>
@@ -44,7 +44,7 @@
                 <td>{{ tableItem.lastUpdated }}</td>
                 <td>{{ tableItem.lastDelivered }}</td>
                 <td><i class="fa fa-trash" v-bind:id="tableItem.tableId" @click='iconClick'></i> </td>
-                <td><input type="checkbox"></td>
+                <td><input type="checkbox" v-model="selected" :value="tableItem.tableId"></td>
               </tr>
               </tbody>
             </table>
@@ -99,7 +99,9 @@
             delete: 'icon'
           }
         ],
-        tableId: null
+        tableId: null,
+        selected: [],
+        selectAll: false
       }
     },
     methods: {
@@ -108,6 +110,15 @@
         if (event) {
           confirm('Do you want to delete the table ' + event.target.id + ' ?')
           this.tableId = event.target.id
+        }
+      },
+      select () {
+        this.selected = []
+        if (!this.selectAll) {
+          for (let i in this.tables) {
+            this.selected.push(this.tables[i].tableId)
+          }
+          console.log(this.selected)
         }
       }
     }
