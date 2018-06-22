@@ -31,8 +31,8 @@
               <tbody>
               <tr v-for="tableItem in tables">
                 <th scope="row">
-                  <router-link :to="{ name: 'CreateEditTable', params: { tableString: tableItem.programId }, query: { debug: true }}">
-                    <i class="fa fa-edit" v-bind:id="tableItem.programId"></i>
+                  <router-link :to="{ name: 'CreateEditTable', params: { tableString: tableItem }, query: { debug: true }}">
+                    <i class="fa fa-edit" v-bind:id="tableItem.tableId"></i>
                   </router-link>
                 </th>
                 <td>{{ tableItem.programId }}</td>
@@ -99,7 +99,6 @@
             delete: 'icon'
           }
         ],
-        selected: [],
         tableId: null
       }
     },

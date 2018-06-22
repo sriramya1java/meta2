@@ -28,7 +28,7 @@
               <tbody>
               <tr v-for="noteItem in notes">
                 <th scope="row">
-                  <router-link :to="{ name: 'CreateEditNote', params: { noteString: noteItem.noteTitle }, query: { debug: true }}">
+                  <router-link :to="{ name: 'CreateEditNote', params: { noteString: noteItem }, query: { debug: true }}">
                     <i class="fa fa-edit" v-bind:id="noteItem.noteTitle"></i>
                   </router-link>
                 </th>
@@ -84,13 +84,6 @@
         ],
         noteTitle: null
       }
-    },
-    computed: {
-      getNoteTitle: function () {
-        console.log()
-        return this.notes.noteTitle
-      }
-
     },
     methods: {
       iconClick: function (event) {

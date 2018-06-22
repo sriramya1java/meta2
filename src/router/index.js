@@ -76,6 +76,7 @@ export default new Router({
       path: '/createedittable/:tableString',
       name: 'CreateEditTable',
       component: CreateEditTable,
+      props: true,
       meta: {
         breadcrumb: 'Tables > Table Metadata'
       }
@@ -92,6 +93,7 @@ export default new Router({
       path: '/createeditnote/:noteString',
       name: 'CreateEditNote',
       component: CreateEditNote,
+      props: true,
       meta: {
         breadcrumb: 'Notes > Note Metadata'
       }
