@@ -114,3 +114,8 @@
     }
   }
 </script>
+<style>
+  .card {
+    border-color: #808080;
+  }
+</style>

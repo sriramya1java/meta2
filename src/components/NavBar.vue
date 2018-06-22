@@ -1,5 +1,6 @@
-<template><div class="container">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light border rounded">
+<template>
+  <div class="container">
+  <nav class="navbar navbar-expand-lg border rounded">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <!--<li class="nav-item active">
@@ -21,13 +22,13 @@
           <!--<router-link to="/updatedTablesList">
             <a class="nav-link" href="#" id="navbarUpdatedTablesList" role="button">Updated Tables</a>
           </router-link>-->
-          <a class="nav-link" href="#" @click="getTablesList" id="navbarUpdatedTablesList" role="button">Updated Tables</a>
+          <a class="nav-link" href="#" @click="getTablesList" id="navbarUpdatedTablesList" role="button">Tables</a>
         </li>
         <li>
           <!--<router-link to="/updatedNotesList">-->
             <!--<a class="nav-link" href="#" id="navbarUpdatedNotesList" role="button">Updated Notes</a>-->
           <!--</router-link>-->
-          <a class="nav-link" href="#" @click="getNotesList" id="navbarUpdatedNotesList" role="button">Updated Notes</a>
+          <a class="nav-link" href="#" @click="getNotesList" id="navbarUpdatedNotesList" role="button">Notes</a>
         </li>
          <!-- <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Notes Dropdown
@@ -40,6 +41,7 @@
     </div>
   </nav>
   <span><breadcrumbs/></span>
+  <hr>
 </div>
 </template>
 <script>
@@ -57,8 +59,11 @@
   }
 </script>
 <style scoped>
-  a {
-    font-weight: bold;
+  .container {
+    border-color: #808080;
     color: #000000;
+  }
+  a {
+    font-weight: bold
   }
 </style>
