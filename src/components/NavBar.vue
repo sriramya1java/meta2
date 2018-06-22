@@ -50,10 +50,13 @@
     name: 'NavBar',
     methods: {
       getTablesList: function () {
-        router.push({ name: 'UpdatedTablesList' })
+        this.$router.push({ path: '/' })
       },
       getNotesList: function () {
-        router.push({ name: 'UpdatedNotesList' })
+        this.$router.push({ path: '/updatedNotesList' })
+      },
+      navigate () {
+        router.go(-1)
       }
     }
   }
