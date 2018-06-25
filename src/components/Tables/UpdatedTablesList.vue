@@ -1,5 +1,5 @@
 <template>
-  <div class="container" id="app2">
+  <div id="app2">
     <div class="card">
       <div class="card-body">
         <div class="row">
@@ -10,6 +10,7 @@
             <div class="clearfix"></div>
           </div>
         </div>
+        <br>
         <div class="row">
           <div class="col-md-12">
             <table class="table table-bordered table-striped">
@@ -51,7 +52,7 @@
           </div>
         </div>
         <div class="clearfix"></div>
-        <button type="button" class="btn btn-primary float-right" @click='fileDelivery'>Create Delivery File</button>
+        <button type="button" class="btn btn-primary float-right" :class="{ disabled:isDisabled }" @click='fileDelivery'>Create Delivery File</button>
       </div>
     </div>
     <router-view></router-view>
@@ -102,6 +103,17 @@
         tableId: null,
         selected: [],
         selectAll: false
+      }
+    },
+    computed: {
+      isDisabled () {
+        if (this.selected.length === 0) {
+          console.log(this.selected.length)
+          return true
+        } else {
+          console.log(this.selected.length)
+          return false
+        }
       }
     },
     methods: {

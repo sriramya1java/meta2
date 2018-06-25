@@ -1,15 +1,11 @@
 <template>
-  <div>
-    <div class="container">
-      <div class="row">
-        <div class="col-8">
-          <img src="../assets/meta2logo.png">
-        </div>
-        <div class="col-4">
-          Welcome: {{ user }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <a href="#" @click="logout">Logout</a>
-        </div>
-      </div>
+  <div class="row">
+    <div class="col-8">
+      <img src="../assets/meta2logo.png">
+    </div>
+    <div class="col-4">
+      Welcome: {{ user }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="#" @click="logout">Logout</a>
     </div>
   </div>
 </template>

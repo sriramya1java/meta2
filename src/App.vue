@@ -26,9 +26,12 @@
         </ul>
       </nav>
     </div>-->
-    <meta2-header></meta2-header>
-    <nav-bar></nav-bar>
-    <router-view></router-view>
+    <div class="container-fluid">
+      <meta2-header></meta2-header>
+      <br>
+      <nav-bar></nav-bar>
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 <script>
