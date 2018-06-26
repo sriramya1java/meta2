@@ -102,11 +102,12 @@
         ],
         tableId: null,
         selected: [],
-        selectAll: false
+        selectAll: false,
+        tablesResponse: []
       }
     },
     computed: {
-      isDisabled () {
+      isDisabled: function () {
         if (this.selected.length === 0) {
           console.log(this.selected.length)
           return true
@@ -135,6 +136,13 @@
       },
       fileDelivery () {
         confirm('Do you want to generate XML for the selected tables? The selected tables are ' + this.selected)
+      },
+      fetchTables () {
+        this.$http.get('')
+          .then(response => {
+            const data = response.json()
+            console.log(data)
+          })
       }
     }
   }
