@@ -31,15 +31,19 @@
       <br>
       <nav-bar></nav-bar>
       <router-view></router-view>
+      <meta2-footer></meta2-footer>
     </div>
   </div>
 </template>
 <script>
   import Meta2Header from '@/components/TheHeader'
   import NavBar from '@/components/NavBar'
+  import Meta2Footer from './components/TheFooter'
+
   export default {
     name: 'app',
     components: {
+      Meta2Footer,
       Meta2Header,
       NavBar
     }
