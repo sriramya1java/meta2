@@ -7,7 +7,7 @@
 </template>
 
 <script>
-  import router from '../router'
+  import router from '../../router/index'
 
   export default {
     name: 'CreateEditNote',

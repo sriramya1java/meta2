@@ -36,9 +36,9 @@
   </div>
 </template>
 <script>
-  import Meta2Header from '@/components/TheHeader'
-  import NavBar from '@/components/NavBar'
-  import Meta2Footer from './components/TheFooter'
+  import Meta2Header from '@/components/common/TheHeader'
+  import NavBar from '@/components/common/NavBar'
+  import Meta2Footer from './components/common/TheFooter'
 
   export default {
     name: 'app',
