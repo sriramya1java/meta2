@@ -30,6 +30,7 @@
       <meta2-header></meta2-header>
       <br>
       <nav-bar></nav-bar>
+      <bread-crumbs></bread-crumbs>
       <router-view></router-view>
       <meta2-footer></meta2-footer>
     </div>
@@ -38,14 +39,18 @@
 <script>
   import Meta2Header from '@/components/common/TheHeader'
   import NavBar from '@/components/common/NavBar'
-  import Meta2Footer from './components/common/TheFooter'
+  import Meta2Footer from '@/components/common/TheFooter'
+  import BreadCrumbs from '@/components/BreadCrumbTest'
+  import 'bootstrap/dist/css/bootstrap.css'
+  import 'bootstrap-vue/dist/bootstrap-vue.css'
 
   export default {
     name: 'app',
     components: {
       Meta2Footer,
       Meta2Header,
-      NavBar
+      NavBar,
+      BreadCrumbs
     }
   }
 </script>

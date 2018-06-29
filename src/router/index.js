@@ -5,14 +5,16 @@ import UpdatedTablesList from '@/components/Tables/UpdatedTablesList'
 import CreateEditTable from '@/components/Tables/CreateEditTable'
 import UpdatedNotesList from '@/components/Notes/UpdatedNotesList'
 import CreateEditNote from '@/components/Notes/CreateEditNote'
+import BootstrapVue from 'bootstrap-vue'
 
 Vue.use(Router)
 Vue.use(VueBreadcrumbs)
+Vue.use(BootstrapVue)
 
 export default new Router({
   mode: 'history',
   routes: [
-    {
+    /* {
       path: '/',
       name: 'UpdatedTablesList',
       component: UpdatedTablesList,
@@ -29,7 +31,27 @@ export default new Router({
         breadcrumb: 'Tables > Table Metadata'
       }
     },
+    */
     {
+      path: '/',
+      name: 'UpdatedTablesList',
+      component: UpdatedTablesList,
+      meta: {
+        breadCrumb: 'Tables'
+      },
+      children: [
+        {
+          path: 'edittable/:tableString',
+          name: 'edittable',
+          props: true,
+          component: CreateEditTable,
+          meta: {
+            breadCrumb: 'Table Metadata'
+          }
+        }
+      ]
+    },
+    /* {
       path: '/updatedNotesList',
       name: 'UpdatedNotesList',
       component: UpdatedNotesList,
@@ -38,13 +60,37 @@ export default new Router({
       }
     },
     {
-      path: '/createeditnote/:noteString',
-      name: 'CreateEditNote',
+      path: '/editnote/:noteString',
+      name: 'editnote',
       component: CreateEditNote,
       props: true,
       meta: {
-        breadcrumb: 'Notes > Note Metadata'
+        breadcrumb: 'Note Metadata'
       }
+    }
+    */
+    {
+      path: '/updatedNotesList',
+      name: 'UpdatedNotesList',
+      component: UpdatedNotesList,
+      meta: {
+        breadCrumb: 'Notes'
+      },
+      children: [
+        {
+          path: 'editnote/:noteString',
+          name: 'editnote',
+          props: true,
+          component: CreateEditNote,
+          meta: {
+            breadCrumb: 'Note Metadata'
+          }
+        }
+      ]
+    },
+    {
+      path: '*',
+      redirect: '/'
     }
   ]
 })

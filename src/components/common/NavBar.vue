@@ -4,28 +4,14 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
           <li>
-            <!--<router-link to="/updatedTablesList">
-              <a class="nav-link" href="#" id="navbarUpdatedTablesList" role="button">Updated Tables</a>
-            </router-link>-->
-            <a class="nav-link" @click="getTablesList" id="navbarUpdatedTablesList" role="button">Tables</a>
+            <a class="nav-link" :class="pathVal === 'UpdatedTablesList' ? 'active-nav' : ''" @click="getTablesList" id="navbarUpdatedTablesList" role="button"> Tables</a>
           </li>
           <li>
-            <!--<router-link to="/updatedNotesList">-->
-            <!--<a class="nav-link" href="#" id="navbarUpdatedNotesList" role="button">Updated Notes</a>-->
-            <!--</router-link>-->
-            <a class="nav-link" @click="getNotesList" id="navbarUpdatedNotesList" role="button">Notes</a>
+            <a class="nav-link" :class="pathVal === 'UpdatedNotesList' ? 'active-nav' : ''" @click="getNotesList" id="navbarUpdatedNotesList" role="button">Notes</a>
           </li>
-          <!-- <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             Notes Dropdown
-           </a>
-           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-             <router-link class="nav-link" to="/notes">Notes</router-link>
-             <router-link class="nav-link" to="/notes/details">Notes Detail</router-link>
-           </div>-->
         </ul>
       </div>
     </nav>
-    <span><breadcrumbs/></span>
     <hr>
   </div>
 </template>
@@ -33,6 +19,11 @@
   import router from '../../router/index'
   export default {
     name: 'NavBar',
+    data () {
+      return {
+        pathVal: ''
+      }
+    },
     methods: {
       getTablesList: function () {
         this.$router.push({ path: '/' })
@@ -42,6 +33,21 @@
       },
       navigate () {
         router.go(-1)
+      }
+    },
+    computed: {
+      crumbs () {
+        this.pathVal = this.$route.name
+        if (this.pathVal === 'editnote') {
+          this.pathVal = 'UpdatedNotesList'
+        } else if (this.pathVal === 'edittable') {
+          this.pathVal = 'UpdatedTablesList'
+        }
+        console.log(this.pathVal)
+      }
+    },
+    watch: {
+      crumbs () {
       }
     }
   }
@@ -53,5 +59,9 @@
   }
   a {
     font-weight: bold
+  }
+  .active-nav{
+    background-color: #0056b3;
+    color: #ffffff !important;
   }
 </style>

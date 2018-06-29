@@ -1,11 +1,11 @@
 <template>
   <div id="app2">
-    <div class="card">
+    <div class="card" v-if="pathVal === 'UpdatedTablesList'">
       <div class="card-body">
         <div class="row">
           <div class="col-md-12">
-            <router-link :to="{ name: 'CreateEditTable', params: { tableString: 'new' }, query: { debug: true }}">
-              <button type="button" class="btn btn-primary float-left">Create a New Table ></button>
+            <router-link :to="{ name: 'edittable', params: { tableString: 'new' }, query: { debug: true }}">
+              <button type="button" class="btn btn-primary float-left" tableString="new">Create a New Table ></button>
             </router-link>
             <div class="clearfix"></div>
           </div>
@@ -32,8 +32,8 @@
               <tbody>
               <tr v-for="tableItem in tables">
                 <th scope="row">
-                  <router-link :to="{ name: 'CreateEditTable', params: { tableString: tableItem }, query: { debug: true }}">
-                    <i class="fa fa-edit" v-bind:id="tableItem.tableId"></i>
+                  <router-link :to="{ name: 'edittable', params: { tableString: tableItem.tableId }, query: { debug: true }}">
+                    <i class="fa fa-edit"></i>
                   </router-link>
                 </th>
                 <td>{{ tableItem.programId }}</td>
@@ -52,10 +52,12 @@
           </div>
         </div>
         <div class="clearfix"></div>
-        <button type="button" class="btn btn-primary float-right" :class="{ disabled:isDisabled }" @click='fileDelivery'>Create Delivery File</button>
+        <button type="button" class="btn btn-primary float-right" :disabled = isDisabled @click='fileDelivery'>Create Delivery File</button>
       </div>
     </div>
-    <router-view></router-view>
+    <span v-if="pathVal === 'edittable'">
+      <router-view></router-view>
+    </span>
   </div>
 </template>
 <script>
@@ -103,7 +105,8 @@
         tableId: null,
         selected: [],
         selectAll: false,
-        tablesResponse: []
+        tablesResponse: [],
+        pathVal: ''
       }
     },
     computed: {
@@ -115,6 +118,10 @@
           console.log(this.selected.length)
           return false
         }
+      },
+      crumbs () {
+        this.pathVal = this.$route.name
+        console.log(this.pathVal)
       }
     },
     methods: {
@@ -143,6 +150,10 @@
             const data = response.json()
             console.log(data)
           })
+      }
+    },
+    watch: {
+      crumbs () {
       }
     }
   }

@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="card">
+    <div class="card" v-if="pathVal === 'UpdatedNotesList'">
       <div class="card-body">
         <div class="row">
           <div class="col-md-12">
-            <router-link :to="{ name: 'CreateEditNote', params: { noteString: 'new' }, query: { debug: true }}">
+            <router-link :to="{ path: 'editnote', params: { noteString: 'new' }, query: { debug: true }}">
               <button type="button" class="btn btn-primary float-left">Create a New Note ></button>
             </router-link>
             <div class="clearfix"></div>
@@ -29,7 +29,7 @@
               <tbody>
               <tr v-for="noteItem in notes">
                 <th scope="row">
-                  <router-link :to="{ name: 'CreateEditNote', params: { noteString: noteItem }, query: { debug: true }}">
+                  <router-link :to="{ name: 'editnote', params: { noteString: noteItem.contentsPreview }, query: { debug: true }}">
                     <i class="fa fa-edit" v-bind:id="noteItem.noteTitle"></i>
                   </router-link>
                 </th>
@@ -46,8 +46,10 @@
           </div>
         </div>
       </div>
-      <router-view></router-view>
     </div>
+    <span v-if="pathVal === 'editnote'">
+        <router-view></router-view>
+    </span>
   </div>
 </template>
 <script>
@@ -83,7 +85,8 @@
             lastUpdated: 'june 16, 2018'
           }
         ],
-        noteTitle: null
+        noteTitle: null,
+        pathVal: ''
       }
     },
     methods: {
@@ -93,6 +96,16 @@
           confirm('Do you want to delete the note ' + event.target.id + ' ?')
           this.noteTitle = event.target.id
         }
+      }
+    },
+    computed: {
+      crumbs () {
+        this.pathVal = this.$route.name
+        console.log(this.pathVal)
+      }
+    },
+    watch: {
+      crumbs () {
       }
     }
   }
