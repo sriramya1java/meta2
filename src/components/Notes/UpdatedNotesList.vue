@@ -4,8 +4,8 @@
       <div class="card-body">
         <div class="row">
           <div class="col-md-12">
-            <router-link :to="{ path: 'editnote', params: { noteString: 'new' }, query: { debug: true }}">
-              <button type="button" class="btn btn-primary float-left">Create a New Note ></button>
+            <router-link :to="{ name: 'editnote', params: { noteString: 'new' }, query: { debug: true }}">
+              <button type="button" class="btn btn-primary float-left" noteString="new">Create a New Note ></button>
             </router-link>
             <div class="clearfix"></div>
           </div>
@@ -29,7 +29,7 @@
               <tbody>
               <tr v-for="noteItem in notes">
                 <th scope="row">
-                  <router-link :to="{ name: 'editnote', params: { noteString: noteItem.contentsPreview }, query: { debug: true }}">
+                  <router-link :to="{ name: 'editnote', params: { noteString: noteItem.noteTitle }, query: { debug: true }}">
                     <i class="fa fa-edit" v-bind:id="noteItem.noteTitle"></i>
                   </router-link>
                 </th>

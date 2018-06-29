@@ -18,11 +18,9 @@
         msg: 'META2'
       }
     },
-    props: [
-      'noteString'
-    ],
     created () {
       this.id = this.$route.params.noteString
+      console.log(this.id)
       if (this.$route.query.debug) {
         this.debug = this.$route.query.debug
       }
