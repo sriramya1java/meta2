@@ -39,7 +39,7 @@
                 <td>{{ noteItem.position }}</td>
                 <td>{{ noteItem.lastUpdatdeBy }}</td>
                 <td>{{ noteItem.lastUpdated }}</td>
-                <td><i class="fa fa-trash" v-bind:id="noteItem.noteTitle" @click='iconClick'></i> </td>
+                <td><i class="fa fa-trash" v-bind:id="noteItem.noteTitle" style="cursor: pointer" @click='iconClick'></i> </td>
               </tr>
               </tbody>
             </table>
