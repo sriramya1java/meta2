@@ -12,7 +12,6 @@
         </ul>
       </div>
     </nav>
-    <hr>
   </div>
 </template>
 <script>
