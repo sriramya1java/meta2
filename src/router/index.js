@@ -14,24 +14,6 @@ Vue.use(BootstrapVue)
 export default new Router({
   mode: 'history',
   routes: [
-    /* {
-      path: '/',
-      name: 'UpdatedTablesList',
-      component: UpdatedTablesList,
-      meta: {
-        breadcrumb: 'Tables'
-      }
-    },
-    {
-      path: '/createedittable/:tableString',
-      name: 'CreateEditTable',
-      component: CreateEditTable,
-      props: true,
-      meta: {
-        breadcrumb: 'Tables > Table Metadata'
-      }
-    },
-    */
     {
       path: '/',
       name: 'UpdatedTablesList',
@@ -51,24 +33,6 @@ export default new Router({
         }
       ]
     },
-    /* {
-      path: '/updatedNotesList',
-      name: 'UpdatedNotesList',
-      component: UpdatedNotesList,
-      meta: {
-        breadcrumb: 'Notes'
-      }
-    },
-    {
-      path: '/editnote/:noteString',
-      name: 'editnote',
-      component: CreateEditNote,
-      props: true,
-      meta: {
-        breadcrumb: 'Note Metadata'
-      }
-    }
-    */
     {
       path: '/updatedNotesList',
       name: 'UpdatedNotesList',

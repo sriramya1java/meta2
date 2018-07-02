@@ -30,7 +30,7 @@
       <meta2-header></meta2-header>
       <br>
       <nav-bar></nav-bar>
-      <bread-crumbs></bread-crumbs>
+      <span><bread-crumbs></bread-crumbs></span>
       <router-view></router-view>
       <meta2-footer></meta2-footer>
     </div>
