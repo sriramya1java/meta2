@@ -18,7 +18,6 @@ import '../static/jquery-3.3.1.slim'
 import '../static/bootstrap'
 import '../static/popper.min'
 import VueResource from 'vue-resource'
-import '../node_modules/font-awesome/css/font-awesome.min.css'
 
 Vue.use(Vuetify, {
   components: {
