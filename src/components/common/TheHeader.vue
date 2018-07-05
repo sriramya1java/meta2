@@ -4,8 +4,8 @@
       <img src="../../assets/meta2logo.png">
     </div>
     <div class="col-4">
-      Welcome: {{ user }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="#" @click="logout">Logout</a>
+    <div class="d-inline">Welcome: {{ user }}</div>
+    <div class="d-inline"><a href="#" @click="logout">Logout</a></div>
     </div>
   </div>
 </template>
