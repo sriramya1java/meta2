@@ -155,6 +155,9 @@
     watch: {
       crumbs () {
       }
+    },
+    beforeCreate: function () {
+      console.log(this.$baseUrl)
     }
   }
 </script>

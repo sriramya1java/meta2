@@ -21,6 +21,9 @@
       logout () {
         confirm(this.user + ' Do you want to logout?')
       }
+    },
+    beforeCreate: function () {
+      console.log(this.$baseUrl)
     }
   }
 </script>
@@ -29,19 +32,19 @@
     height: 80px;
     width: 400px;
   }
-  .col-8{
+  .col-8 {
     position: relative;
     top: 0px;
     left: 0px;
     text-align: left;
   }
-  .col-4{
+  .col-4 {
     position: relative;
     top: 0px;
     right: 0px;
     text-align: right;
   }
-  a{
+  a {
     margin-left: 50px;
   }
 </style>
