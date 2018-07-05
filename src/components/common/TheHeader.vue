@@ -4,7 +4,7 @@
       <img src="../../assets/meta2logo.png">
     </div>
     <div class="col-4">
-      Welcome: {{ user }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Welcome: {{ user }}
       <a href="#" @click="logout">Logout</a>
     </div>
   </div>
@@ -40,5 +40,8 @@
     top: 0px;
     right: 0px;
     text-align: right;
+  }
+  a{
+    margin-left: 50px;
   }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    &nbsp;&nbsp;&nbsp;{{ version }}
+    {{ version }}
   </div>
 </template>
 <script>
@@ -16,5 +16,6 @@
 <style scoped>
   .row {
     color: #808080;
+    margin-left: 3px;
   }
 </style>
