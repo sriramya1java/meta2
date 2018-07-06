@@ -67,38 +67,26 @@
         tables: [
           {
             edit: 'icon',
-            programId: 'MTA1',
-            datasetId: '2018',
-            tableId: 'deevi1',
-            tableType: 'detailed table',
-            displayLabel: 'this is test table',
-            lastUpdatdeBy: 'deevi',
-            lastUpdated: 'june 16, 2018',
-            lastDelivered: '--',
+            programId: 'ACS',
+            datasetId: 'ACSDT1Y2016',
+            tableId: 'B25045',
+            tableType: 'HIERARCHICAL1',
+            displayLabel: 'TENURE BY VEHICLES AVAILABLE BY AGE OF HOUSEHOLDER',
+            lastUpdatdeBy: 'Matthew Curtiss',
+            lastUpdated: '--',
+            lastDelivered: 'June 19, 2018 09:25:04 am',
             delete: 'icon'
           },
           {
             edit: 'icon',
-            programId: 'MTA2',
-            datasetId: '2018',
-            tableId: 'deevi2',
-            tableType: 'detailed table',
-            displayLabel: 'this is test table',
-            lastUpdatdeBy: 'deevi',
-            lastUpdated: 'june 16, 2018',
-            lastDelivered: '--',
-            delete: 'icon'
-          },
-          {
-            edit: 'icon',
-            programId: 'MTA3',
-            datasetId: '2018',
-            tableId: 'deevi3',
-            tableType: 'detailed table',
-            displayLabel: 'this is test table',
-            lastUpdatdeBy: 'deevi',
-            lastUpdated: 'june 16, 2018',
-            lastDelivered: '--',
+            programId: 'PEP',
+            datasetId: 'POPESTCHARAGEGROUPS2016',
+            tableId: 'PEPAGESEX',
+            tableType: 'HIERARCHICAL1',
+            displayLabel: 'Annual Estimates of the Resident Population for Selected Age Groups by Sex for the United States, St...',
+            lastUpdatdeBy: 'Matthew Curtiss',
+            lastUpdated: '--',
+            lastDelivered: 'June 28, 2018 02:48:01 pm',
             delete: 'icon'
           }
         ],
@@ -145,7 +133,7 @@
         confirm('Do you want to generate XML for the selected tables? The selected tables are ' + this.selected)
       },
       fetchTables () {
-        this.$http.get('')
+        this.$http.get('/meta2/api/datasets/testdataset/tables')
           .then(response => {
             const data = response.json()
             console.log(data)
