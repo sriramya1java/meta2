@@ -40,7 +40,7 @@
   import Meta2Header from '@/components/common/TheHeader'
   import NavBar from '@/components/common/NavBar'
   import Meta2Footer from '@/components/common/TheFooter'
-  import BreadCrumbs from '@/components/BreadCrumbNav'
+  import BreadCrumbs from '@/components/common/BreadCrumbNav'
   import 'bootstrap/dist/css/bootstrap.css'
   import 'bootstrap-vue/dist/bootstrap-vue.css'
 
