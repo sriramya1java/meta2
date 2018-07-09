@@ -133,7 +133,7 @@
         confirm('Do you want to generate XML for the selected tables? The selected tables are ' + this.selected)
       },
       fetchTables () {
-        this.$http.get('/meta2/api/datasets/testdataset/tables')
+        this.$http.get('api/datasets/ALL/tables')
           .then(response => {
             const data = response.json()
             console.log(data)

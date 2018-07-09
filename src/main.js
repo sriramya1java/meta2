@@ -44,7 +44,7 @@ Vue.use(Vuetify, {
 Vue.use(VueResource)
 
 Vue.config.productionTip = false
-Vue.prototype.$baseUrl = '/meta2'
+Vue.http.options.root = '/meta2'
 
 /* eslint-disable no-new */
 new Vue({

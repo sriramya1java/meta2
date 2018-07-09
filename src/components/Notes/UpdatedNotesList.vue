@@ -107,6 +107,13 @@
     watch: {
       crumbs () {
       }
+    },
+    fetchNotes () {
+      this.$http.get('api/programs/ALL/notes')
+        .then(response => {
+          const data = response.json()
+          console.log(data)
+        })
     }
   }
 </script>
