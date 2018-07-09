@@ -14,7 +14,8 @@
     name: 'Meta2Header',
     data () {
       return {
-        user: 'DEEVI001'
+        user: 'DEEVI001' // comment this out when the api is turned on.
+        /* user: null // when the api is turned on */
       }
     },
     methods: {
@@ -24,6 +25,14 @@
     },
     beforeCreate: function () {
       console.log(this.$baseUrl)
+      /* fetchUser () // used to get the user dynamically when the api is turned on
+      {
+        this.$http.get('userInfo')
+          .then(response => {
+            const data = response.json()
+            console.log(data)
+          })
+      } */
     }
   }
 </script>
