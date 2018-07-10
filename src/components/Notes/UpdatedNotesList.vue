@@ -96,6 +96,13 @@
           confirm('Do you want to delete the note ' + event.target.id + ' ?')
           this.noteTitle = event.target.id
         }
+      },
+      fetchNotes () { // used to fetch all the notes when the rest api is turned on.
+        this.$http.get('api/programs/ALL/notes')
+          .then(response => {
+            const data = response.json()
+            console.log(data)
+          })
       }
     },
     computed: {
