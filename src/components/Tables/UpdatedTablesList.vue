@@ -66,7 +66,7 @@
     methods: {
       createColDefs () {
         return [
-          {headerName: 'Edit', field: 'edit', cellRenderer: percentCellRenderer, suppressSorting: true},
+          {headerName: 'Edit', field: 'edit', cellRenderer: tableCellRenderer, suppressSorting: true},
           {headerName: 'Program ID', field: 'programId', icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}, sort: 'asc'},
           {headerName: 'Dataset ID', field: 'datasetId'},
           {headerName: 'Table ID', field: 'tableId'},
@@ -218,7 +218,6 @@
     computed: {
       crumbs () {
         this.pathVal = this.$route.name
-        console.log(this.pathVal)
       }
     },
     watch: {
@@ -229,15 +228,14 @@
       console.log(this.$baseUrl)
     }
   }
-  function percentCellRenderer (params) {
-    console.log(params.data.datasetId)
-    console.log(params.data)
-    let aTag = document.createElement('a')
-    let abc = JSON.stringify(params.data)
-    aTag.setAttribute('href', '#/edittable/' + abc)
-    aTag.innerHTML = '<i class="fa fa-edit">'
-    console.log(aTag)
-    return aTag
+  function tableCellRenderer (params) {
+    if (params !== undefined && params !== null) {
+      let aTag = document.createElement('a')
+      let abc = JSON.stringify(params.data)
+      aTag.setAttribute('href', '#/edittable/' + abc)
+      aTag.innerHTML = '<i class="fa fa-edit">'
+      return aTag
+    }
   }
 </script>
 <style>

@@ -107,7 +107,7 @@
       this.rowData = [
         {
           programId: 'ACS',
-          noteString: 'test',
+          noteString: 'test1',
           contentsPreview: 'meta testing',
           position: 'header',
           lastUpdatedBy: 'Matthew Curtiss',
@@ -115,7 +115,7 @@
         },
         {
           programId: 'ACS',
-          noteString: 'test',
+          noteString: 'test2',
           contentsPreview: 'meta testing',
           position: 'header',
           lastUpdatedBy: 'Matthew Curtiss',
@@ -123,7 +123,7 @@
         },
         {
           programId: 'ACS',
-          noteString: 'test',
+          noteString: 'test3',
           contentsPreview: 'meta testing',
           position: 'header',
           lastUpdatedBy: 'Matthew Curtiss',
@@ -131,7 +131,23 @@
         },
         {
           programId: 'ACS',
-          noteString: 'test',
+          noteString: 'test4',
+          contentsPreview: 'meta testing',
+          position: 'header',
+          lastUpdatedBy: 'Matthew Curtiss',
+          lastUpdated: 'June 19, 2018 09:25:04 am'
+        },
+        {
+          programId: 'ACS',
+          noteString: 'test5',
+          contentsPreview: 'meta testing',
+          position: 'header',
+          lastUpdatedBy: 'Matthew Curtiss',
+          lastUpdated: 'June 19, 2018 09:25:04 am'
+        },
+        {
+          programId: 'ACS',
+          noteString: 'test6',
           contentsPreview: 'meta testing',
           position: 'header',
           lastUpdatedBy: 'Matthew Curtiss',
@@ -142,7 +158,6 @@
     computed: {
       crumbs () {
         this.pathVal = this.$route.name
-        console.log(this.pathVal)
       }
     },
     watch: {
@@ -157,14 +172,14 @@
         })
     }
   }
+
   function noteCellRenderer (params) {
-    console.log(params.data.noteString)
-    console.log(params.data)
-    let aTag = document.createElement('a')
-    let abc = JSON.stringify(params.data)
-    aTag.setAttribute('href', '#/editnote/' + abc)
-    aTag.innerHTML = '<i class="fa fa-edit">'
-    console.log(aTag)
-    return aTag
+    if (params !== undefined && params !== null) {
+      let aTag = document.createElement('a')
+      let abc = JSON.stringify(params.data)
+      aTag.setAttribute('href', '#/updatedNotesList/editnote/' + abc)
+      aTag.innerHTML = '<i class="fa fa-edit">'
+      return aTag
+    }
   }
 </script>
