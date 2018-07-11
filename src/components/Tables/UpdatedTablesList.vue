@@ -231,6 +231,7 @@
   }
   function percentCellRenderer (params) {
     console.log(params.data.datasetId)
+    console.log(params.data)
     let aTag = document.createElement('a')
     let abc = JSON.stringify(params.data)
     aTag.setAttribute('href', '#/edittable/' + abc)
