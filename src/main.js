@@ -17,6 +17,8 @@ import '../node_modules/vuetify/src/stylus/app.styl'
 import '../static/jquery-3.3.1.slim'
 import '../static/bootstrap'
 import '../static/popper.min'
+import '../node_modules/ag-grid/dist/styles/ag-grid.css'
+import '../node_modules/ag-grid/dist/styles/ag-theme-balham.css'
 import VueResource from 'vue-resource'
 
 Vue.use(Vuetify, {

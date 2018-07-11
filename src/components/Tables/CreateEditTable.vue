@@ -25,9 +25,7 @@
     },
     created () {
       this.id = this.$route.params.tableString
-      if (this.$route.query.debug) {
-        this.debug = this.$route.query.debug
-      }
+      console.log(JSON.parse(this.id))
     },
     methods: {
       navigate () {
