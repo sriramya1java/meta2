@@ -1,21 +1,15 @@
 <template>
   <div id="app2">
-    <div class="card" v-if="pathVal === 'UpdatedTablesList'">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-12">
-            <ag-grid-vue style="width: 1000px; height: 116px;"
+    <div v-if="pathVal === 'UpdatedTablesList'">
+            <ag-grid-vue style="width: 100%; height: 200px;"
                          class="ag-theme-balham"
                          :gridOptions="gridOptions"
                          :rowDataChanged="onRowDataChanged"
                          :rowSelected="onRowSelected"
                          :rowData="rowData">
             </ag-grid-vue>
-          </div>
-        </div>
         <div class="clearfix"></div>
         <button type="button" class="btn btn-primary float-right" :disabled = isDisabled @click='fileDelivery'>Create Delivery File</button>
-      </div>
     </div>
     <span v-if="pathVal === 'edittable'">
       <router-view></router-view>
@@ -49,7 +43,7 @@
           template: '<router-link to="/edittable">edit table</router-link>'
         },
         'delete-component': {
-          template: '<a @click="deleteTable">delete icon</a>',
+          template: '<a @click="deleteTable"><i class="fa fa-trash"></i></a>',
           created () {
                     // console.log(this.rowData.tableId)
           },
@@ -148,6 +142,76 @@
             lastUpdatdeBy: 'Matthew Curtiss',
             lastUpdated: '--',
             lastDelivered: 'June 28, 2018 02:48:01 pm'
+          },
+          {
+            programId: 'PEP',
+            datasetId: 'POPESTCHARAGEGROUPS2016',
+            tableId: 'PEPAGESEX',
+            tableType: 'HIERARCHICAL1',
+            displayLabel: 'Annual Estimates of the Resident Population for Selected Age Groups by Sex for the United States, St...',
+            lastUpdatdeBy: 'Matthew Curtiss',
+            lastUpdated: '--',
+            lastDelivered: 'June 28, 2018 02:48:01 pm'
+          },
+          {
+            programId: 'PEP',
+            datasetId: 'POPESTCHARAGEGROUPS2016',
+            tableId: 'PEPAGESEX',
+            tableType: 'HIERARCHICAL1',
+            displayLabel: 'Annual Estimates of the Resident Population for Selected Age Groups by Sex for the United States, St...',
+            lastUpdatdeBy: 'Matthew Curtiss',
+            lastUpdated: '--',
+            lastDelivered: 'June 28, 2018 02:48:01 pm'
+          },
+          {
+            programId: 'PEP',
+            datasetId: 'POPESTCHARAGEGROUPS2016',
+            tableId: 'PEPAGESEX',
+            tableType: 'HIERARCHICAL1',
+            displayLabel: 'Annual Estimates of the Resident Population for Selected Age Groups by Sex for the United States, St...',
+            lastUpdatdeBy: 'Matthew Curtiss',
+            lastUpdated: '--',
+            lastDelivered: 'June 28, 2018 02:48:01 pm'
+          },
+          {
+            programId: 'PEP',
+            datasetId: 'POPESTCHARAGEGROUPS2016',
+            tableId: 'PEPAGESEX',
+            tableType: 'HIERARCHICAL1',
+            displayLabel: 'Annual Estimates of the Resident Population for Selected Age Groups by Sex for the United States, St...',
+            lastUpdatdeBy: 'Matthew Curtiss',
+            lastUpdated: '--',
+            lastDelivered: 'June 28, 2018 02:48:01 pm'
+          },
+          {
+            programId: 'PEP',
+            datasetId: 'POPESTCHARAGEGROUPS2016',
+            tableId: 'PEPAGESEX',
+            tableType: 'HIERARCHICAL1',
+            displayLabel: 'Annual Estimates of the Resident Population for Selected Age Groups by Sex for the United States, St...',
+            lastUpdatdeBy: 'Matthew Curtiss',
+            lastUpdated: '--',
+            lastDelivered: 'June 28, 2018 02:48:01 pm'
+          },
+          {
+            programId: 'PEP',
+            datasetId: 'POPESTCHARAGEGROUPS2016',
+            tableId: 'PEPAGESEX',
+            tableType: 'HIERARCHICAL1',
+            displayLabel: 'Annual Estimates of the Resident Population for Selected Age Groups by Sex for the United States, St...',
+            lastUpdatdeBy: 'Matthew Curtiss',
+            lastUpdated: '--',
+            lastDelivered: 'June 28, 2018 02:48:01 pm'
+          },
+          {
+            programId: 'PEP',
+            datasetId: 'POPESTCHARAGEGROUPS2016',
+            tableId: 'PEPAGESEX',
+            tableType: 'HIERARCHICAL1',
+            displayLabel: 'Annual Estimates of the Resident Population for Selected Age Groups by Sex for the United States, St...',
+            lastUpdatdeBy: 'Matthew Curtiss',
+            lastUpdated: '--',
+            lastDelivered: 'June 28, 2018 02:48:01 pm'
           }
         ]
       },
@@ -170,7 +234,7 @@
       let aTag = document.createElement('a')
       let abc = JSON.stringify(params.data)
       aTag.setAttribute('href', '#/edittable/' + abc)
-      aTag.innerHTML = 'edit table'
+      aTag.innerHTML = '<i class="fa fa-edit">'
       console.log(aTag)
       return aTag
     }
