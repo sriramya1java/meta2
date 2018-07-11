@@ -18,12 +18,14 @@
         msg: 'META2'
       }
     },
+    watch: {
+      '$route' (to, from) {
+        this.id = to.params.id
+      }
+    },
     created () {
       this.id = this.$route.params.noteString
-      console.log(this.id)
-      if (this.$route.query.debug) {
-        this.debug = this.$route.query.debug
-      }
+      console.log(JSON.parse(this.id))
     },
     methods: {
       navigate () {

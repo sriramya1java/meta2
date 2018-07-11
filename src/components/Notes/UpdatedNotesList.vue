@@ -13,36 +13,12 @@
         <br>
         <div class="row">
           <div class="col-md-12">
-            <table class="table table-bordered">
-              <thead class="thead-light">
-              <tr>
-                <th scope="col">Edit</th>
-                <th scope="col">Program ID</th>
-                <th scope="col">Note Title</th>
-                <th scope="col">Contents Preview</th>
-                <th scope="col">Position</th>
-                <th scope="col">Last Updated By</th>
-                <th scope="col">Last Updated</th>
-                <th scope="col">Delete</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr v-for="noteItem in notes">
-                <th scope="row">
-                  <router-link :to="{ name: 'editnote', params: { noteString: noteItem.noteTitle }, query: { debug: true }}">
-                    <i class="fa fa-edit" v-bind:id="noteItem.noteTitle"></i>
-                  </router-link>
-                </th>
-                <td>{{ noteItem.programId }}</td>
-                <td>{{ noteItem.noteTitle }}</td>
-                <td>{{ noteItem.contentsPreview }}</td>
-                <td>{{ noteItem.position }}</td>
-                <td>{{ noteItem.lastUpdatdeBy }}</td>
-                <td>{{ noteItem.lastUpdated }}</td>
-                <td><i class="fa fa-trash" v-bind:id="noteItem.noteTitle" style="cursor: pointer" @click='iconClick'></i> </td>
-              </tr>
-              </tbody>
-            </table>
+            <ag-grid-vue style="width: 100%; height: 200px;"
+                         class="ag-theme-balham"
+                         :gridOptions="gridOptions"
+                         :rowDataChanged="onRowDataChanged"
+                         :rowData="rowData">
+            </ag-grid-vue>
           </div>
         </div>
       </div>
@@ -53,43 +29,55 @@
   </div>
 </template>
 <script>
+  import {AgGridVue} from 'ag-grid-vue'
+  import Vue from 'vue'
+  import VueRouter from 'vue-router'
+
+  const router = new VueRouter()
   export default {
     data () {
       return {
-        notes: [
-          {
-            programId: 'MTA',
-            noteTitle: 'meta testing',
-            contentsPreview: 'meta testing 1',
-            position: 'header',
-            displayLabel: 'this is test table',
-            lastUpdatdeBy: 'deevi',
-            lastUpdated: 'june 16, 2018'
-          },
-          {
-            programId: 'MTA',
-            noteTitle: 'meta testing 2',
-            contentsPreview: 'meta testing',
-            position: 'header',
-            displayLabel: 'this is test table',
-            lastUpdatdeBy: 'deevi',
-            lastUpdated: 'june 16, 2018'
-          },
-          {
-            programId: 'MTA',
-            noteTitle: 'meta testing 3',
-            contentsPreview: 'meta testing',
-            position: 'header',
-            displayLabel: 'this is test table',
-            lastUpdatdeBy: 'deevi',
-            lastUpdated: 'june 16, 2018'
+        columnDefs: null,
+        rowData: null,
+        gridOptions: null,
+        tableId: null,
+        pathVal: '',
+        noteTitle: null
+      }
+    },
+    components: {
+      'ag-grid-vue': AgGridVue,
+      'edit-component': {
+        router,
+        template: '<router-link to="/edittable">edit table</router-link>'
+      },
+      'delete-component': {
+        template: '<a @click="deleteTable"><i class="fa fa-trash"></i></a>',
+        methods: {
+          deleteTable () {
+            confirm('Do you want to delete the table')
           }
-        ],
-        noteTitle: null,
-        pathVal: ''
+        }
       }
     },
     methods: {
+      createColDefs () {
+        return [
+          {headerName: 'Edit', field: 'edit', cellRenderer: noteCellRenderer, suppressSorting: true},
+          {headerName: 'Program ID', field: 'programId', icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}, sort: 'asc'},
+          {headerName: 'Note Title', field: 'noteString'},
+          {headerName: 'Contents Preview', field: 'contentsPreview'},
+          {headerName: 'Position', field: 'c'},
+          {headerName: 'Last Updated By', field: 'lastUpdatedBy'},
+          {headerName: 'Last Updated', field: 'lastUpdated'},
+          {headerName: 'Delete', field: 'delete', cellRendererFramework: 'delete-component', suppressSorting: true}
+        ]
+      },
+      onRowDataChanged () {
+        Vue.nextTick(() => {
+          this.gridOptions.api.sizeColumnsToFit()
+        })
+      },
       iconClick: function (event) {
         // `event` is the native DOM event
         if (event) {
@@ -104,6 +92,52 @@
             console.log(data)
           })
       }
+    },
+    created () {
+      this.gridOptions = {
+        enableColResize: true,
+        enableSorting: true,
+        rowSelection: 'multiple',
+        suppressRowClickSelection: true,
+        columnDefs: this.createColDefs(),
+        onGridReady: function (params) {
+          params.api.sizeColumnsToFit()
+        }
+      }
+      this.rowData = [
+        {
+          programId: 'ACS',
+          noteString: 'test',
+          contentsPreview: 'meta testing',
+          position: 'header',
+          lastUpdatedBy: 'Matthew Curtiss',
+          lastUpdated: 'June 19, 2018 09:25:04 am'
+        },
+        {
+          programId: 'ACS',
+          noteString: 'test',
+          contentsPreview: 'meta testing',
+          position: 'header',
+          lastUpdatedBy: 'Matthew Curtiss',
+          lastUpdated: 'June 19, 2018 09:25:04 am'
+        },
+        {
+          programId: 'ACS',
+          noteString: 'test',
+          contentsPreview: 'meta testing',
+          position: 'header',
+          lastUpdatedBy: 'Matthew Curtiss',
+          lastUpdated: 'June 19, 2018 09:25:04 am'
+        },
+        {
+          programId: 'ACS',
+          noteString: 'test',
+          contentsPreview: 'meta testing',
+          position: 'header',
+          lastUpdatedBy: 'Matthew Curtiss',
+          lastUpdated: 'June 19, 2018 09:25:04 am'
+        }
+      ]
     },
     computed: {
       crumbs () {
@@ -122,5 +156,15 @@
           console.log(data)
         })
     }
+  }
+  function noteCellRenderer (params) {
+    console.log(params.data.noteString)
+    console.log(params.data)
+    let aTag = document.createElement('a')
+    let abc = JSON.stringify(params.data)
+    aTag.setAttribute('href', '#/editnote/' + abc)
+    aTag.innerHTML = '<i class="fa fa-edit">'
+    console.log(aTag)
+    return aTag
   }
 </script>
