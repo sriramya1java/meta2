@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="clearfix"></div>
-        <button type="button" class="btn btn-primary float-right" :disabled = isDisabled @click='fileDelivery'>Create Delivery File</button>
+        <button type="button" class="btn btn-primary float-right" :disabled="!checked" @click='fileDelivery'>Create Delivery File</button>
       </div>
     </div>
     <span v-if="pathVal === 'edittable'">
@@ -45,7 +45,8 @@
         gridOptions: null,
         tableId: null,
         tablesResponse: [],
-        pathVal: ''
+        pathVal: '',
+        checked: false
       }
     },
     components: {
@@ -84,24 +85,25 @@
         })
       },
       onRowSelected () {
-        console.log(this.gridOptions.api.getSelectedRows())
-        console.log(this.gridOptions.api.getSelectedRows().length)
+        if (this.gridOptions.api.getSelectedRows().length > 0) {
+          console.log(this.gridOptions.api.getSelectedRows().length)
+          console.log(this.gridOptions.api.getSelectedRows())
+          this.checked = true
+        } else {
+          console.log(this.gridOptions.api.getSelectedRows().length)
+          this.checked = false
+        }
       },
       fileDelivery () {
-        confirm('Do you want to generate XML for the selected tables? The selected tables are ' + this.gridOptions.api.getSelectedRows())
+        let tableValues = []
+        this.gridOptions.api.getSelectedRows().forEach(x => {
+          tableValues.push(x.tableId)
+        })
+        confirm('Do you want to generate XML for the selected tables? The selected tables are ' + tableValues)
       },
       iconClick (val) {
         // `event` is the native DOM event
         console.log(val)
-      },
-      isDisabled () {
-        if (this.gridOptions.api.getSelectedRows().length === 0) {
-          console.log(this.gridOptions.api.getSelectedRows().length)
-          return true
-        } else {
-          console.log(this.gridOptions.api.getSelectedRows().length)
-          return false
-        }
       },
       fetchTables () {
         this.$http.get('api/datasets/ALL/tables')
