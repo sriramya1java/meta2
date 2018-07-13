@@ -49,13 +49,13 @@
       'ag-grid-vue': AgGridVue,
       'edit-component': {
         router,
-        template: '<router-link to="/edittable">edit table</router-link>'
+        template: '<router-link to="/editnote">edit table</router-link>'
       },
       'delete-component': {
-        template: '<a @click="deleteTable"><i class="fa fa-trash"></i></a>',
+        template: '<a @click="deleteNote"><i class="fa fa-trash"></i></a>',
         methods: {
-          deleteTable () {
-            confirm('Do you want to delete the table')
+          deleteNote () {
+            confirm('Do you want to delete the note?')
           }
         }
       }

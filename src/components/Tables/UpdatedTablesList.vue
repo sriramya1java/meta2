@@ -87,7 +87,6 @@
       onRowSelected () {
         if (this.gridOptions.api.getSelectedRows().length > 0) {
           console.log(this.gridOptions.api.getSelectedRows().length)
-          console.log(this.gridOptions.api.getSelectedRows())
           this.checked = true
         } else {
           console.log(this.gridOptions.api.getSelectedRows().length)
@@ -133,7 +132,7 @@
           displayLabel: 'TENURE BY VEHICLES AVAILABLE BY AGE OF HOUSEHOLDER',
           lastUpdatdeBy: 'Matthew Curtiss',
           lastUpdated: '--',
-          lastDelivered: 'June 19, 2018 09:25:04 am'
+          lastDelivered: 'Dec 19, 2018 09:25:04 am'
         },
         {
           programId: 'PEP',
