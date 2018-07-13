@@ -166,8 +166,14 @@
     fetchNotes () {
       this.$http.get('api/programs/ALL/notes')
         .then(response => {
-          const data = response.json()
-          console.log(data)
+          return response.json()
+        })
+        .then(data => {
+          this.rowData = data
+          console.log(this.rowData)
+        }, (error) => {
+          console.log('printing error for http call')
+          console.log(error.status)
         })
     }
   }

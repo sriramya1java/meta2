@@ -106,8 +106,14 @@
       fetchTables () {
         this.$http.get('api/datasets/ALL/tables')
           .then(response => {
-            const data = response.json()
-            console.log(data)
+            return response.json()
+          })
+          .then(data => {
+            this.rowData = data
+            console.log(this.rowData)
+          }, (error) => {
+            console.log('printing error for http call')
+            console.log(error.status)
           })
       }
     },

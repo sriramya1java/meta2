@@ -22,12 +22,9 @@
     methods: {
       logout () {
         confirm(this.user + ' Do you want to logout?')
-      }
-    },
-    beforeCreate: function () {
-      console.log(this.$baseUrl)
-      fetchUser () // used to get the user dynamically when the api is turned on
-      {
+      },
+      // used to get the user dynamically when the api is turned on
+      fetchUser () {
         this.$http.get('/userinfo')
           .then(response => {
             console.log(response.status)
@@ -48,6 +45,9 @@
             }
           })
       }
+    },
+    beforeCreate: function () {
+      console.log(this.$baseUrl)
     }
   }
 </script>
