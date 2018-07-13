@@ -16,12 +16,29 @@
       return {
         user: 'DEEVI001', // comment this out when the api is turned on.
         userObj: ''
-        /* user: null // when the api is turned on */
       }
     },
     methods: {
       logout () {
-        confirm(this.user + ' Do you want to logout?')
+        let logOut = confirm(this.user + ' Do you want to logout?')
+        if (logOut === true) {
+          this.$http.get('http://localhost:8080/meta2/logout')
+            .then(response => {
+              console.log(response.status)
+              return response.json()
+            })
+            .then(data => {
+              this.logoutMsg = data.logout.msg
+              console.log(this.logoutMsg)
+            }, (error) => {
+              if (error.status === 401) {
+                console.log('session timed out' + error)
+              } if (error.status === 500) {
+                console.log('error' + error)
+              }
+              console.log(error)
+            })
+        }
       },
       // used to get the user dynamically when the api is turned on
       fetchUser () {
