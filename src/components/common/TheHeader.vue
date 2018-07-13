@@ -14,7 +14,8 @@
     name: 'Meta2Header',
     data () {
       return {
-        user: 'DEEVI001' // comment this out when the api is turned on.
+        user: 'DEEVI001', // comment this out when the api is turned on.
+        userObj: ''
         /* user: null // when the api is turned on */
       }
     },
@@ -25,21 +26,35 @@
     },
     beforeCreate: function () {
       console.log(this.$baseUrl)
-      /* fetchUser () // used to get the user dynamically when the api is turned on
+      fetchUser () // used to get the user dynamically when the api is turned on
       {
-        this.$http.get('userInfo')
+        this.$http.get('/userinfo')
           .then(response => {
-            const data = response.json()
-            console.log(data)
+            console.log(response.status)
+            return response.json()
           })
-      } */
+          .then(data => {
+            if (data !== null && data.user !== undefined) {
+              if (data.user !== null && data.user !== undefined) {
+                this.userObj = data.user.id
+                console.log(this.userObj)
+              }
+            }
+          }, (error) => {
+            console.log(error)
+            console.log(error.status)
+            if (error.status === 500) {
+              console.log('user not found')
+            }
+          })
+      }
     }
   }
 </script>
 <style scoped>
   img {
-    height: 80px;
-    width: 400px;
+    height: 50px;
+    width: 300px;
   }
   .col-8 {
     position: relative;

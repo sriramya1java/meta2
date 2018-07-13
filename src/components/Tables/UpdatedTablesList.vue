@@ -9,8 +9,7 @@
             </router-link>
           </div>
         </div>
-        <br>
-        <div class="row">
+        <div class="row" style="padding-top: 6px;">
           <div class="col-md-12">
             <ag-grid-vue style="width: 100%; height: 200px;"
                          class="ag-theme-balham"
