@@ -68,10 +68,10 @@
         return [
           {headerName: 'Edit', field: 'edit', cellRenderer: tableCellRenderer, suppressSorting: true},
           {headerName: 'Program ID', field: 'programId', icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}, sort: 'asc'},
-          {headerName: 'Dataset ID', field: 'datasetId'},
-          {headerName: 'Table ID', field: 'tableId'},
-          {headerName: 'Display Label', field: 'tableType'},
-          {headerName: 'Last Updated By', field: 'displayLabel'},
+          {headerName: 'Dataset ID', field: 'datasetId', icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}, sort: 'asc'},
+          {headerName: 'Table ID', field: 'tableId', icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}, sort: 'asc'},
+          {headerName: 'Display Label', field: 'tableType', icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}, sort: 'asc'},
+          {headerName: 'Last Updated By', field: 'displayLabel', icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}, sort: 'asc'},
           {headerName: 'Last Updated', field: 'lastUpdatdeBy'},
           {headerName: 'Last Delivered', field: 'lastDelivered'},
           {headerName: 'Delete', field: 'delete', cellRendererFramework: 'delete-component', suppressSorting: true},
@@ -121,6 +121,7 @@
       this.gridOptions = {
         enableColResize: true,
         enableSorting: true,
+        sortingOrder: ['asc', 'desc'],
         rowSelection: 'multiple',
         suppressRowClickSelection: true,
         columnDefs: this.createColDefs(),
@@ -245,11 +246,11 @@
   }
 </script>
 <style>
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    font-size: 13px;
+  /* .active-nav[data-v-0048ba58] {
+    background-color: grey;
+    color: #ffffff !important;
+  } */
+  button:disabled {
+    cursor: not-allowed;
   }
 </style>
