@@ -26,8 +26,11 @@
   }
 </script>
 <style scoped>
-  .container{
-    margin: auto;
-    width: 50%
+  .breadcrumb {
+    background-color: transparent;
+    padding-bottom: 0px;
+  }
+  .breadcrumb-item.active {
+    color: black;
   }
 </style>
