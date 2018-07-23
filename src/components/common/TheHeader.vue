@@ -5,7 +5,7 @@
     </div>
     <div class="col-4">
     Welcome: {{ user }}
-    <a href="./logout">Logout</a>
+    <a href="https://vuejs.org/" onclick="return confirm('Do you want to logout?')">Logout</a>
     </div>
   </div>
 </template>
