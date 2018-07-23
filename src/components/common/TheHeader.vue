@@ -61,11 +61,19 @@
               console.log('user not found')
             }
           })
+      },
+      getErrorHandling: function () {
+        this.$router.push({ path: '/errorhandling' })
       }
     },
     beforeCreate: function () {
       console.log(this.$baseUrl)
-    }
+    }/* ,
+    created: function () {
+      if (this.user === 'DEEVI001') {
+        this.getErrorHandling()
+      }
+    } */
   }
 </script>
 <style scoped>
