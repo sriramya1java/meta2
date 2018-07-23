@@ -5,7 +5,7 @@
     </div>
     <div class="col-4">
     Welcome: {{ user }}
-    <a href="#" @click="logout">Logout</a>
+    <a href="./logout">Logout</a>
     </div>
   </div>
 </template>
@@ -19,27 +19,6 @@
       }
     },
     methods: {
-      logout () {
-        let logOut = confirm(this.user + ' Do you want to logout?')
-        if (logOut === true) {
-          this.$http.get('http://localhost:8080/meta2/logout')
-            .then(response => {
-              console.log(response.status)
-              return response.json()
-            })
-            .then(data => {
-              this.logoutMsg = data.logout.msg
-              console.log(this.logoutMsg)
-            }, (error) => {
-              if (error.status === 401) {
-                console.log('session timed out' + error)
-              } if (error.status === 500) {
-                console.log('error' + error)
-              }
-              console.log(error)
-            })
-        }
-      },
       // used to get the user dynamically when the api is turned on
       fetchUser () {
         this.$http.get('/userinfo')

@@ -5,7 +5,7 @@ import UpdatedTablesList from '@/components/Tables/UpdatedTablesList'
 import CreateEditTable from '@/components/Tables/CreateEditTable'
 import UpdatedNotesList from '@/components/Notes/UpdatedNotesList'
 import CreateEditNote from '@/components/Notes/CreateEditNote'
-import NoUser from '@/components/ErrorHandling/NoUser'
+import ErrorHandling from '@/components/ErrorHandling/ErrorHandling'
 import BootstrapVue from 'bootstrap-vue'
 
 Vue.use(Router)
@@ -58,9 +58,12 @@ export default new Router({
       redirect: '/'
     },
     {
-      path: '/nouserfound',
-      name: 'nouserfound',
-      component: NoUser
+      path: '/errorhandling',
+      name: 'errorhandling',
+      component: ErrorHandling,
+      meta: {
+        breadCrumb: ''
+      }
     }
   ]
 })

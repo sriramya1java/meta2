@@ -27,10 +27,17 @@
       </nav>
     </div>-->
     <div class="container-fluid">
+     <!-- <span  v-if="pathVal !== 'errorhandling'">
+      <meta2-header></meta2-header>
+      </span> -->
       <meta2-header></meta2-header>
       <br>
+      <!-- <span  v-if="pathVal !== 'errorhandling'">
       <nav-bar></nav-bar>
-      <span><bread-crumbs></bread-crumbs></span>
+      </span> -->
+      <nav-bar></nav-bar>
+      <!-- <span v-if="pathVal !== 'errorhandling'"><bread-crumbs></bread-crumbs></span> -->
+      <bread-crumbs></bread-crumbs>
       <router-view></router-view>
       <meta2-footer></meta2-footer>
     </div>
@@ -51,7 +58,27 @@
       Meta2Header,
       NavBar,
       BreadCrumbs
-    }
+    },
+    data () {
+      return {
+        pathVal: ''
+      }
+    }/* ,
+    computed: {
+      crumbs () {
+        this.pathVal = this.$route.name
+        if (this.pathVal === 'editnote') {
+          this.pathVal = 'UpdatedNotesList'
+        } else if (this.pathVal === 'edittable') {
+          this.pathVal = 'UpdatedTablesList'
+        }
+        console.log('app : ' + this.pathVal)
+      }
+    },
+    watch: {
+      crumbs () {
+      }
+    } */
   }
 </script>
 <style>
@@ -63,8 +90,8 @@
     text-align: center;
     font-size: 15px;
     margin-top: 30px;
-    margin-left: 30px; /* this is not working at this point */
-    margin-right: 30px; /* this is not working at this point */
+ /*   margin-left: 30px; !* this is not working at this point *!
+    margin-right: 30px; !* this is not working at this point *! */
   }
   ul {
     list-style-type: none;
