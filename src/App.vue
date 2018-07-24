@@ -90,8 +90,8 @@
     text-align: center;
     font-size: 15px;
     margin-top: 30px;
- /*   margin-left: 30px; !* this is not working at this point *!
-    margin-right: 30px; !* this is not working at this point *! */
+    margin-left: 30px;
+    margin-right: 30px;
   }
   ul {
     list-style-type: none;

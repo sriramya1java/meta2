@@ -3,7 +3,7 @@
     <div  class="card" v-if="pathVal === 'UpdatedTablesList'">
       <div class="card-body">
         <div class="row">
-          <div class="col-md-12">
+          <div id="createTable">
             <router-link :to="{ name: 'edittable', params: { tableString: 'new' }, query: { debug: true }}">
               <button type="button" class="btn btn-primary float-left" tableString="new">Create a New Table ></button>
             </router-link>
@@ -21,7 +21,9 @@
           </div>
         </div>
         <div class="clearfix"></div>
-        <button type="button" class="btn btn-primary float-right" :disabled="!checked" @click='fileDelivery'>Create Delivery File</button>
+        <div id="createDelivery">
+          <button type="button" class="btn btn-primary float-right" :disabled="!checked" @click='fileDelivery'>Create Delivery File</button>
+        </div>
       </div>
     </div>
     <span v-if="pathVal === 'edittable'">
@@ -252,5 +254,8 @@
   } */
   button:disabled {
     cursor: not-allowed;
+  }
+  #createTable {
+    padding-left: 7px;
   }
 </style>

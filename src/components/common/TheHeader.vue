@@ -49,6 +49,7 @@
       console.log(this.$baseUrl)
     }/* ,
     created: function () {
+      this.fetchUser()
       if (this.user === 'DEEVI001') {
         this.getErrorHandling()
       }
