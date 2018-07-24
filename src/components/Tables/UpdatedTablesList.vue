@@ -3,7 +3,7 @@
     <div  class="card" v-if="pathVal === 'UpdatedTablesList'">
       <div class="card-body">
         <div class="row">
-          <div id="createTable">
+          <div id="create-table">
             <router-link :to="{ name: 'edittable', params: { tableString: 'new' }, query: { debug: true }}">
               <button type="button" class="btn btn-primary float-left" tableString="new">Create a New Table ></button>
             </router-link>
@@ -21,8 +21,8 @@
           </div>
         </div>
         <div class="clearfix"></div>
-        <div id="createDelivery">
-          <button type="button" class="btn btn-primary float-right" :disabled="!checked" @click='fileDelivery'>Create Delivery File</button>
+        <div id="create-delivery" class="row float-right">
+          <button type="button" class="btn btn-primary" :disabled="!checked" @click='fileDelivery'>Create Delivery File</button>
         </div>
       </div>
     </div>
@@ -68,16 +68,16 @@
     methods: {
       createColDefs () {
         return [
-          {headerName: 'Edit', field: 'edit', cellRenderer: tableCellRenderer, suppressSorting: true},
-          {headerName: 'Program ID', field: 'programId', icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}, sort: 'asc'},
-          {headerName: 'Dataset ID', field: 'datasetId', icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}, sort: 'asc'},
-          {headerName: 'Table ID', field: 'tableId', icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}, sort: 'asc'},
-          {headerName: 'Display Label', field: 'tableType', icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}, sort: 'asc'},
-          {headerName: 'Last Updated By', field: 'displayLabel', icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}, sort: 'asc'},
-          {headerName: 'Last Updated', field: 'lastUpdatdeBy'},
-          {headerName: 'Last Delivered', field: 'lastDelivered'},
-          {headerName: 'Delete', field: 'delete', cellRendererFramework: 'delete-component', suppressSorting: true},
-          {headerName: 'Deliver', field: 'deliver', suppressSorting: true, checkboxSelection: true, headerCheckboxSelection: true}
+          {headerName: 'Edit', field: 'edit', cellRenderer: tableCellRenderer, suppressMenu: true, width: 100},
+          {headerName: 'Program ID', cellStyle: {textAlign: 'left'}, field: 'programId', icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}, sort: 'asc', width: 150},
+          {headerName: 'Dataset ID', field: 'datasetId', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}, width: 150},
+          {headerName: 'Table ID', field: 'tableId', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}, width: 150},
+          {headerName: 'Display Label', field: 'tableType', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}, width: 150},
+          {headerName: 'Last Updated By', field: 'displayLabel', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}, width: 150},
+          {headerName: 'Last Updated', field: 'lastUpdatdeBy', width: 150, cellStyle: {textAlign: 'left'}},
+          {headerName: 'Last Delivered', field: 'lastDelivered', width: 150, cellStyle: {textAlign: 'left'}},
+          {headerName: 'Delete', field: 'delete', cellRendererFramework: 'delete-component', suppressSorting: true, width: 80, cellStyle: {textAlign: 'center'}},
+          {headerName: 'Deliver', field: 'deliver', suppressSorting: true, checkboxSelection: true, headerCheckboxSelection: true, width: 50, cellStyle: {textAlign: 'left'}}
         ]
       },
       onRowDataChanged () {
@@ -255,7 +255,10 @@
   button:disabled {
     cursor: not-allowed;
   }
-  #createTable {
+  #create-table {
     padding-left: 7px;
+  }
+  #create-delivery {
+      padding-right: 7px;
   }
 </style>
