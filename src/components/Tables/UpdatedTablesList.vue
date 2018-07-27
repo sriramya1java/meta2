@@ -68,16 +68,16 @@
     methods: {
       createColDefs () {
         return [
-          {headerName: 'Edit', field: 'edit', cellRenderer: tableCellRenderer, suppressMenu: true, width: 100},
-          {headerName: 'Program ID', cellStyle: {textAlign: 'left'}, field: 'programId', icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}, sort: 'asc', width: 150},
-          {headerName: 'Dataset ID', field: 'datasetId', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}, width: 150},
-          {headerName: 'Table ID', field: 'tableId', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}, width: 150},
-          {headerName: 'Display Label', field: 'tableType', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}, width: 150},
-          {headerName: 'Last Updated By', field: 'displayLabel', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}, width: 150},
+          {headerName: 'Edit', field: 'edit', cellRenderer: tableCellRenderer, suppressMenu: true, width: 80},
+          {headerName: 'Program ID', cellStyle: {textAlign: 'left'}, field: 'programId', icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}, sort: 'asc'},
+          {headerName: 'Dataset ID', field: 'datasetId', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}},
+          {headerName: 'Table ID', field: 'tableId', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}},
+          {headerName: 'Display Label', field: 'tableType', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}},
+          {headerName: 'Last Updated By', field: 'displayLabel', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}},
           {headerName: 'Last Updated', field: 'lastUpdatdeBy', width: 150, cellStyle: {textAlign: 'left'}},
           {headerName: 'Last Delivered', field: 'lastDelivered', width: 150, cellStyle: {textAlign: 'left'}},
           {headerName: 'Delete', field: 'delete', cellRendererFramework: 'delete-component', suppressSorting: true, width: 80, cellStyle: {textAlign: 'center'}},
-          {headerName: 'Deliver', field: 'deliver', suppressSorting: true, checkboxSelection: true, headerCheckboxSelection: true, width: 50, cellStyle: {textAlign: 'left'}}
+          {headerName: 'Deliver', field: 'deliver', suppressSorting: true, checkboxSelection: true, headerCheckboxSelection: true, width: 50}
         ]
       },
       onRowDataChanged () {

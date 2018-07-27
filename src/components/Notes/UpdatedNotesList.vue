@@ -3,7 +3,7 @@
     <div class="card" v-if="pathVal === 'UpdatedNotesList'">
       <div class="card-body">
         <div class="row">
-          <div class="col-md-12">
+          <div id="create-note">
             <router-link :to="{ name: 'editnote', params: { noteString: 'new' }, query: { debug: true }}">
               <button type="button" class="btn btn-primary float-left" noteString="new">Create a New Note ></button>
             </router-link>
@@ -62,14 +62,14 @@
     methods: {
       createColDefs () {
         return [
-          {headerName: 'Edit', field: 'edit', cellRenderer: noteCellRenderer, suppressSorting: true},
+          {headerName: 'Edit', field: 'edit', cellRenderer: noteCellRenderer, suppressSorting: true, suppressMenu: true, width: 100},
           {headerName: 'Program ID', field: 'programId', icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}, sort: 'asc'},
           {headerName: 'Note Title', field: 'noteString'},
           {headerName: 'Contents Preview', field: 'contentsPreview'},
-          {headerName: 'Position', field: 'c'},
+          {headerName: 'Position', field: 'c', width: 100},
           {headerName: 'Last Updated By', field: 'lastUpdatedBy'},
           {headerName: 'Last Updated', field: 'lastUpdated'},
-          {headerName: 'Delete', field: 'delete', cellRendererFramework: 'delete-component', suppressSorting: true}
+          {headerName: 'Delete', field: 'delete', cellRendererFramework: 'delete-component', suppressSorting: true, width: 100, cellStyle: {textAlign: 'center'}}
         ]
       },
       onRowDataChanged () {
@@ -188,3 +188,8 @@
     }
   }
 </script>
+<style scoped>
+  #create-note {
+    padding-left: 7px;
+  }
+</style>
