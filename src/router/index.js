@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import VueBreadcrumbs from 'vue-2-breadcrumbs'
 import UpdatedTablesList from '@/components/Tables/UpdatedTablesList'
 import CreateEditTable from '@/components/Tables/CreateEditTable'
 import UpdatedNotesList from '@/components/Notes/UpdatedNotesList'
@@ -9,7 +8,6 @@ import ErrorHandling from '@/components/ErrorHandling/ErrorHandling'
 import BootstrapVue from 'bootstrap-vue'
 
 Vue.use(Router)
-Vue.use(VueBreadcrumbs)
 Vue.use(BootstrapVue)
 
 export default new Router({
