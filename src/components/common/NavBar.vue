@@ -36,6 +36,7 @@
         pathVal: ''
       }
     },
+    /* programmatic approach to dynamically load tables and notes page via Vue routing */
     methods: {
       getTablesList: function () {
         this.$router.push({ path: '/' })
@@ -47,6 +48,7 @@
         router.go(-1)
       }
     },
+    /* we are watching and keeping tracking of the navigation and passing that down to pathval for the purpose of diplaying breadcrumb. */
     computed: {
       crumbs () {
         this.pathVal = this.$route.name

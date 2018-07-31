@@ -26,19 +26,25 @@
         </ul>
       </nav>
     </div>-->
+    <!--uncomment the commented out code when you want to implement error handling page-->
     <div class="container-fluid">
-     <!-- <span  v-if="pathVal !== 'errorhandling'">
-      <meta2-header></meta2-header>
-      </span> -->
+      <!-- <span  v-if="pathVal !== 'errorhandling'">
+       <meta2-header></meta2-header>
+       </span> -->
+      <!--displays the meta2 logo, username and logout link-->
       <meta2-header></meta2-header>
       <br>
       <!-- <span  v-if="pathVal !== 'errorhandling'">
       <nav-bar></nav-bar>
       </span> -->
+      <!--displays the navbar which includes table tab and notes tab-->
       <nav-bar></nav-bar>
       <!-- <span v-if="pathVal !== 'errorhandling'"><bread-crumbs></bread-crumbs></span> -->
+      <!--displays the breadcrumbs according to the router navigation-->
       <bread-crumbs></bread-crumbs>
+      <!--displays the component based on navigation and the routers links mentioned in router index.js-->
       <router-view></router-view>
+      <!--displays the version number of the application-->
       <meta2-footer></meta2-footer>
     </div>
   </div>
@@ -63,7 +69,10 @@
       return {
         pathVal: ''
       }
-    }/* ,
+    }
+    /* watch for the path value to route the page to error handling page, as the login authentication is not handled by
+    * UI */
+    /* ,
     computed: {
       crumbs () {
         this.pathVal = this.$route.name

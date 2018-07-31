@@ -19,7 +19,8 @@
       }
     },
     methods: {
-      // used to get the user dynamically when the api is turned on
+      /* used to get the user dynamically when the api is turned on. handles the user api response, if the object is not empty
+       * fetches the id from the user object and displays it as username in the header component. */
       fetchUser () {
         this.$http.get('/userinfo')
           .then(response => {
@@ -41,13 +42,17 @@
             }
           })
       },
+      /* programmatic approach to route the user to error page if we get error response code. */
       getErrorHandling: function () {
         this.$router.push({ path: '/errorhandling' })
       }
     },
+    /* just for testing the baseURl of vue-resource in the component life cycle hook */
     beforeCreate: function () {
       console.log(this.$baseUrl)
-    }/* ,
+    }
+    /* this is to test whether error handling page is working or not */
+    /* ,
     created: function () {
       this.fetchUser()
       if (this.user === 'DEEVI001') {

@@ -46,10 +46,12 @@
     },
     components: {
       'ag-grid-vue': AgGridVue,
+      /* as of now router-link is not working in ag-grid-vue component, left it for in future use, if the bug is fixed. */
       'edit-component': {
         router,
         template: '<router-link to="/editnote">edit table</router-link>'
       },
+      /**/
       'delete-component': {
         template: '<a @click="deleteNote"><i class="fa fa-trash"></i></a>',
         methods: {
