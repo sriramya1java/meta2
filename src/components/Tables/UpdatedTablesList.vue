@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card v-if="pathVal === 'UpdatedTablesList'">
+    <v-container v-if="pathVal === 'UpdatedTablesList'" class="pa-0">
       <v-flex xs12 text-left>
         <v-btn :to="{ name: 'edittable', params: { tableString: 'new' }, query: { debug: true }}">Create a New Table</v-btn>
       </v-flex>
@@ -17,7 +17,7 @@
         <v-btn
                :disabled="!checked" @click='fileDelivery'>Create Delivery File</v-btn>
       </v-flex>
-    </v-card>
+    </v-container>
     <router-view></router-view>
     <!-- <div  class="card" v-if="pathVal === 'UpdatedTablesList'">
        <div class="card-body">

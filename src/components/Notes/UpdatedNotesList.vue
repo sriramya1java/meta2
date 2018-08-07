@@ -1,10 +1,7 @@
 <template>
   <div>
-    <v-card v-if="pathVal === 'UpdatedNotesList'">
+    <v-container v-if="pathVal === 'UpdatedNotesList'" class="pa-0">
       <v-flex xs12 text-left>
-        <!--<router-link :to="{ name: 'edittable', params: { tableString: 'new' }, query: { debug: true }}">
-          <v-btn flat color="blue" :to="{ name: 'edittable', params: { tableString: 'new' }, query: { debug: true }}">Create a New Table</v-btn>
-        </router-link>-->
         <v-btn :to="{ name: 'editnote', params: { noteString: 'new' }, query: { debug: true }}">Create a New Note</v-btn>
       </v-flex>
       <v-flex xs12 text-center class="pa-2">
@@ -15,7 +12,7 @@
                      :rowData="rowData">
         </ag-grid-vue>
       </v-flex>
-    </v-card>
+    </v-container>
     <router-view></router-view>
   </div>
   <!--<div>
