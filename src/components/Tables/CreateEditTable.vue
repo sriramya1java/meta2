@@ -1,8 +1,7 @@
 <template>
-<div class="hello">
-  <h5>{{ msg }}, your id is {{ id }}</h5>
+ <!-- <h5>{{ msg }}, your id is {{ id }}</h5>
   <h1 v-if="id === 'new'">This is create table page</h1>
-  <h1 v-else>this is edit table page</h1>
+  <h1 v-else>this is edit table page</h1>-->
   <!--<div>
     <div class="card">
       <div class="card-header">
@@ -104,14 +103,14 @@
     </div>
   </div>-->
   <v-container fluid>
-    <v-toolbar dense>
+    <v-toolbar dense color="grey lighten-1.5">
       <v-toolbar-title>
         Table Metadata
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn>Save</v-btn>
+      <v-btn dense>Save</v-btn>
     </v-toolbar>
-    <v-tabs color="cyan" dark slider-color="yellow">
+    <v-tabs color="grey" dark slider-color="white" class="pt-4">
       <v-tab ripple>
         Basic Metadata
       </v-tab>
@@ -141,7 +140,6 @@
     </v-tabs>
     <!--<router-view/>-->
   </v-container>
-</div>
 </template>
 
 <script>

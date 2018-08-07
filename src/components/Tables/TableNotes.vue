@@ -27,7 +27,7 @@
           </v-list>
         </v-card>
       </v-flex>
-      <v-flex xs2 text-center>
+      <v-flex xs1 text-center>
         <v-btn
           slot="activator"
           color="grey lighten-2"
@@ -68,6 +68,24 @@
           </v-list>
         </v-card>
       </v-flex>
+      <v-flex xs1>
+        <v-btn
+          slot="activator"
+          color="grey lighten-2"
+          dark
+          icon
+          @click="">
+          <v-icon>chevron_right</v-icon>
+        </v-btn><br>
+        <v-btn
+          slot="activator"
+          color="grey lighten-2"
+          dark
+          icon
+          @click="">
+          <v-icon>chevron_left</v-icon>
+        </v-btn>
+      </v-flex>
       <v-flex xs12>
         &nbsp;
       </v-flex>
@@ -97,7 +115,7 @@
           </v-list>
         </v-card>
       </v-flex>
-      <v-flex xs2>
+      <v-flex xs1>
         <v-btn
           slot="activator"
           color="grey lighten-2"
@@ -138,10 +156,25 @@
           </v-list>
         </v-card>
       </v-flex>
-      <v-flex xs12>
-        &nbsp;
+      <v-flex xs1>
+        <v-btn
+          slot="activator"
+          color="grey lighten-2"
+          dark
+          icon
+          @click="">
+          <v-icon>chevron_right</v-icon>
+        </v-btn><br>
+        <v-btn
+          slot="activator"
+          color="grey lighten-2"
+          dark
+          icon
+          @click="">
+          <v-icon>chevron_left</v-icon>
+        </v-btn>
       </v-flex>
-      <v-flex xs12 text-right>
+      <v-flex xs12 text-right class="pt-4">
         <v-btn>Save as Draft</v-btn>
       </v-flex>
     </v-layout>

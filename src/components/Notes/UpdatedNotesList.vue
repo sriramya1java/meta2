@@ -5,7 +5,7 @@
         <!--<router-link :to="{ name: 'edittable', params: { tableString: 'new' }, query: { debug: true }}">
           <v-btn flat color="blue" :to="{ name: 'edittable', params: { tableString: 'new' }, query: { debug: true }}">Create a New Table</v-btn>
         </router-link>-->
-        <v-btn flat color="blue" :to="{ name: 'editnote', params: { noteString: 'new' }, query: { debug: true }}">Create a New Note</v-btn>
+        <v-btn :to="{ name: 'editnote', params: { noteString: 'new' }, query: { debug: true }}">Create a New Note</v-btn>
       </v-flex>
       <v-flex xs12 text-center class="pa-2">
         <ag-grid-vue style="width: 100%; height: 200px;"
@@ -54,7 +54,6 @@
     data () {
       return {
         columnDefs: null,
-        rowData: null,
         gridOptions: null,
         tableId: null,
         pathVal: '',
@@ -116,60 +115,16 @@
           params.api.sizeColumnsToFit()
         }
       }
-      this.rowData = [
-        {
-          programId: 'ACS',
-          noteString: 'test1',
-          contentsPreview: 'meta testing',
-          position: 'header',
-          lastUpdatedBy: 'Matthew Curtiss',
-          lastUpdated: 'June 19, 2018 09:25:04 am'
-        },
-        {
-          programId: 'ACS',
-          noteString: 'test2',
-          contentsPreview: 'meta testing',
-          position: 'header',
-          lastUpdatedBy: 'Matthew Curtiss',
-          lastUpdated: 'June 19, 2018 09:25:04 am'
-        },
-        {
-          programId: 'ACS',
-          noteString: 'test3',
-          contentsPreview: 'meta testing',
-          position: 'header',
-          lastUpdatedBy: 'Matthew Curtiss',
-          lastUpdated: 'June 19, 2018 09:25:04 am'
-        },
-        {
-          programId: 'ACS',
-          noteString: 'test4',
-          contentsPreview: 'meta testing',
-          position: 'header',
-          lastUpdatedBy: 'Matthew Curtiss',
-          lastUpdated: 'June 19, 2018 09:25:04 am'
-        },
-        {
-          programId: 'ACS',
-          noteString: 'test5',
-          contentsPreview: 'meta testing',
-          position: 'header',
-          lastUpdatedBy: 'Matthew Curtiss',
-          lastUpdated: 'June 19, 2018 09:25:04 am'
-        },
-        {
-          programId: 'ACS',
-          noteString: 'test6',
-          contentsPreview: 'meta testing',
-          position: 'header',
-          lastUpdatedBy: 'Matthew Curtiss',
-          lastUpdated: 'June 19, 2018 09:25:04 am'
-        }
-      ]
     },
     computed: {
       crumbs () {
         this.pathVal = this.$route.name
+      },
+      rowData: {
+        get () {
+          console.log(this.$store.state.notesList)
+          return this.$store.state.notesList
+        }
       }
     },
     watch: {

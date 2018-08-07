@@ -2,7 +2,7 @@
   <div>
     <v-card v-if="pathVal === 'UpdatedTablesList'">
       <v-flex xs12 text-left>
-        <v-btn flat color="info" :to="{ name: 'edittable', params: { tableString: 'new' }, query: { debug: true }}">Create a New Table</v-btn>
+        <v-btn :to="{ name: 'edittable', params: { tableString: 'new' }, query: { debug: true }}">Create a New Table</v-btn>
       </v-flex>
       <v-flex xs12 text-center class="pa-2">
         <ag-grid-vue style="width: 100%; height: 200px;"
@@ -14,7 +14,7 @@
         </ag-grid-vue>
       </v-flex>
       <v-flex xs12 text-right>
-        <v-btn flat color="info"
+        <v-btn
                :disabled="!checked" @click='fileDelivery'>Create Delivery File</v-btn>
       </v-flex>
     </v-card>
@@ -59,7 +59,6 @@
     data () {
       return {
         columnDefs: null,
-        rowData: null,
         gridOptions: null,
         tableId: null,
         tablesResponse: [],
@@ -145,132 +144,16 @@
           params.api.sizeColumnsToFit()
         }
       }
-      this.rowData = [
-        {
-          programId: 'ACS',
-          datasetId: 'ACSDT1Y2016',
-          tableId: 'B25045',
-          tableType: 'HIERARCHICAL1',
-          displayLabel: 'TENURE BY VEHICLES AVAILABLE BY AGE OF HOUSEHOLDER',
-          lastUpdatedBy: 'Matthew Curtiss',
-          lastUpdated: '--',
-          lastDelivered: 'Dec 19, 2018 09:25:04 am'
-        },
-        {
-          programId: 'PEP',
-          datasetId: 'POPESTCHARAGEGROUPS2016',
-          tableId: 'PEPAGESEX',
-          tableType: 'HIERARCHICAL1',
-          displayLabel: 'Annual Estimates of the Resident Population for Selected Age Groups by Sex for the United States, St...',
-          lastUpdatedBy: 'Matthew Curtiss',
-          lastUpdated: '--',
-          lastDelivered: 'June 28, 2018 02:48:01 pm'
-        },
-        {
-          programId: 'ACS',
-          datasetId: 'ACSDT1Y2016',
-          tableId: 'B25045',
-          tableType: 'HIERARCHICAL1',
-          displayLabel: 'TENURE BY VEHICLES AVAILABLE BY AGE OF HOUSEHOLDER',
-          lastUpdatedBy: 'Matthew Curtiss',
-          lastUpdated: '--',
-          lastDelivered: 'Dec 19, 2018 09:25:04 am'
-        },
-        {
-          programId: 'PEP',
-          datasetId: 'POPESTCHARAGEGROUPS2016',
-          tableId: 'PEPAGESEX',
-          tableType: 'HIERARCHICAL1',
-          displayLabel: 'Annual Estimates of the Resident Population for Selected Age Groups by Sex for the United States, St...',
-          lastUpdatedBy: 'Matthew Curtiss',
-          lastUpdated: '--',
-          lastDelivered: 'June 28, 2018 02:48:01 pm'
-        },
-        {
-          programId: 'ACS',
-          datasetId: 'ACSDT1Y2016',
-          tableId: 'B25045',
-          tableType: 'HIERARCHICAL1',
-          displayLabel: 'TENURE BY VEHICLES AVAILABLE BY AGE OF HOUSEHOLDER',
-          lastUpdatedBy: 'Matthew Curtiss',
-          lastUpdated: '--',
-          lastDelivered: 'Dec 19, 2018 09:25:04 am'
-        },
-        {
-          programId: 'PEP',
-          datasetId: 'POPESTCHARAGEGROUPS2016',
-          tableId: 'PEPAGESEX',
-          tableType: 'HIERARCHICAL1',
-          displayLabel: 'Annual Estimates of the Resident Population for Selected Age Groups by Sex for the United States, St...',
-          lastUpdatedBy: 'Matthew Curtiss',
-          lastUpdated: '--',
-          lastDelivered: 'June 28, 2018 02:48:01 pm'
-        },
-        {
-          programId: 'ACS',
-          datasetId: 'ACSDT1Y2016',
-          tableId: 'B25045',
-          tableType: 'HIERARCHICAL1',
-          displayLabel: 'TENURE BY VEHICLES AVAILABLE BY AGE OF HOUSEHOLDER',
-          lastUpdatedBy: 'Matthew Curtiss',
-          lastUpdated: '--',
-          lastDelivered: 'Dec 19, 2018 09:25:04 am'
-        },
-        {
-          programId: 'PEP',
-          datasetId: 'POPESTCHARAGEGROUPS2016',
-          tableId: 'PEPAGESEX',
-          tableType: 'HIERARCHICAL1',
-          displayLabel: 'Annual Estimates of the Resident Population for Selected Age Groups by Sex for the United States, St...',
-          lastUpdatedBy: 'Matthew Curtiss',
-          lastUpdated: '--',
-          lastDelivered: 'June 28, 2018 02:48:01 pm'
-        },
-        {
-          programId: 'ACS',
-          datasetId: 'ACSDT1Y2016',
-          tableId: 'B25045',
-          tableType: 'HIERARCHICAL1',
-          displayLabel: 'TENURE BY VEHICLES AVAILABLE BY AGE OF HOUSEHOLDER',
-          lastUpdatedBy: 'Matthew Curtiss',
-          lastUpdated: '--',
-          lastDelivered: 'Dec 19, 2018 09:25:04 am'
-        },
-        {
-          programId: 'PEP',
-          datasetId: 'POPESTCHARAGEGROUPS2016',
-          tableId: 'PEPAGESEX',
-          tableType: 'HIERARCHICAL1',
-          displayLabel: 'Annual Estimates of the Resident Population for Selected Age Groups by Sex for the United States, St...',
-          lastUpdatedBy: 'Matthew Curtiss',
-          lastUpdated: '--',
-          lastDelivered: 'June 28, 2018 02:48:01 pm'
-        },
-        {
-          programId: 'ACS',
-          datasetId: 'ACSDT1Y2016',
-          tableId: 'B25045',
-          tableType: 'HIERARCHICAL1',
-          displayLabel: 'TENURE BY VEHICLES AVAILABLE BY AGE OF HOUSEHOLDER',
-          lastUpdatedBy: 'Matthew Curtiss',
-          lastUpdated: '--',
-          lastDelivered: 'Dec 19, 2018 09:25:04 am'
-        },
-        {
-          programId: 'PEP',
-          datasetId: 'POPESTCHARAGEGROUPS2016',
-          tableId: 'PEPAGESEX',
-          tableType: 'HIERARCHICAL1',
-          displayLabel: 'Annual Estimates of the Resident Population for Selected Age Groups by Sex for the United States, St...',
-          lastUpdatedBy: 'Matthew Curtiss',
-          lastUpdated: '--',
-          lastDelivered: 'June 28, 2018 02:48:01 pm'
-        }
-      ]
     },
     computed: {
       crumbs () {
         this.pathVal = this.$route.name
+      },
+      rowData: {
+        get () {
+          console.log(this.$store.state.tablesList)
+          return this.$store.state.tablesList
+        }
       }
     },
     watch: {

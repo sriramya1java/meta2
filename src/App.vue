@@ -3,15 +3,12 @@
     <v-app>
       <v-toolbar app>
         <meta2-header></meta2-header>
-        <!--<bread-crumbs></bread-crumbs>-->
       </v-toolbar>
-        <v-container fluid>
-          <v-content>
-          <nav-bar></nav-bar>
-            <br>
-          <router-view></router-view>
-          </v-content>
-        </v-container>
+      <v-content>
+        <nav-bar></nav-bar>
+        <bread-crumbs></bread-crumbs>
+        <router-view></router-view>
+      </v-content>
       <v-footer app>
         <meta2-footer></meta2-footer>
       </v-footer>

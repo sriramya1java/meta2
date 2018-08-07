@@ -1,5 +1,5 @@
 <template>
-    <v-tabs color="blue" dark slider-color="yellow">
+    <v-tabs color="grey" dark slider-color="white">
     <v-tab ripple to="/">
       Tables
     </v-tab>
