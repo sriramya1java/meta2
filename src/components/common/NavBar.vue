@@ -1,19 +1,13 @@
 <template>
-  <div>
-    <!-- <nav class="navbar navbar-expand-lg border rounded">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-          <li>
-            <a class="nav-link" :class="pathVal === 'UpdatedTablesList' ? 'active-nav' : ''" @click="getTablesList" id="navbarUpdatedTablesList" role="button"> Tables</a>
-          </li>
-          <li>
-            <a class="nav-link" :class="pathVal === 'UpdatedNotesList' ? 'active-nav' : ''" @click="getNotesList" id="navbarUpdatedNotesList" role="button">Notes</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <br>-->
-    <nav class="navbar navbar-full navbar-dark bg-primary border rounded">
+    <v-tabs color="blue" dark slider-color="yellow">
+    <v-tab ripple to="/">
+      Tables
+    </v-tab>
+    <v-tab ripple to="/updatedNotesList">
+      Notes
+    </v-tab>
+    </v-tabs>
+    <!--<nav class="navbar navbar-full navbar-dark bg-primary border rounded">
       <div>
         <ul class="navbar-nav" style="display: inline;">
           <li>
@@ -24,8 +18,7 @@
           </li>
         </ul>
       </div>
-    </nav>
-  </div>
+    </nav>-->
 </template>
 <script>
   import router from '../../router/index'

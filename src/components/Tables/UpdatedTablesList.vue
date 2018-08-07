@@ -1,42 +1,59 @@
 <template>
-  <div id="app2">
-    <div  class="card" v-if="pathVal === 'UpdatedTablesList'">
-      <div class="card-body">
-        <div class="row">
-          <div id="create-table">
-            <router-link :to="{ name: 'edittable', params: { tableString: 'new' }, query: { debug: true }}">
-              <button type="button" class="btn btn-primary float-left" tableString="new">Create a New Table ></button>
-            </router-link>
-          </div>
-        </div>
-        <div class="row" style="padding-top: 6px;">
-          <div class="col-md-12">
-            <ag-grid-vue style="width: 100%; height: 200px;"
-                         class="ag-theme-balham"
-                         :gridOptions="gridOptions"
-                         :rowDataChanged="onRowDataChanged"
-                         :rowSelected="onRowSelected"
-                         :rowData="rowData">
-            </ag-grid-vue>
-          </div>
-        </div>
-        <div class="clearfix"></div>
-        <div id="create-delivery" class="row float-right">
-          <button type="button" class="btn btn-primary" :disabled="!checked" @click='fileDelivery'>Create Delivery File</button>
-        </div>
-      </div>
-    </div>
-    <span v-if="pathVal === 'edittable'">
-      <router-view></router-view>
-    </span>
+  <div>
+    <v-card v-if="pathVal === 'UpdatedTablesList'">
+      <v-flex xs12 text-left>
+        <v-btn flat color="info" :to="{ name: 'edittable', params: { tableString: 'new' }, query: { debug: true }}">Create a New Table</v-btn>
+      </v-flex>
+      <v-flex xs12 text-center class="pa-2">
+        <ag-grid-vue style="width: 100%; height: 200px;"
+                     class="ag-theme-balham"
+                     :gridOptions="gridOptions"
+                     :rowDataChanged="onRowDataChanged"
+                     :rowSelected="onRowSelected"
+                     :rowData="rowData">
+        </ag-grid-vue>
+      </v-flex>
+      <v-flex xs12 text-right>
+        <v-btn flat color="info"
+               :disabled="!checked" @click='fileDelivery'>Create Delivery File</v-btn>
+      </v-flex>
+    </v-card>
+    <router-view></router-view>
+    <!-- <div  class="card" v-if="pathVal === 'UpdatedTablesList'">
+       <div class="card-body">
+         <div class="row">
+           <div id="create-table">
+             <router-link :to="{ name: 'edittable', params: { tableString: 'new' }, query: { debug: true }}">
+               <button type="button" class="btn btn-primary float-left" tableString="new">Create a New Table ></button>
+             </router-link>
+           </div>
+         </div>
+         <div class="row" style="padding-top: 6px;">
+           <div class="col-md-12">
+             <ag-grid-vue style="width: 100%; height: 200px;"
+                          class="ag-theme-balham"
+                          :gridOptions="gridOptions"
+                          :rowDataChanged="onRowDataChanged"
+                          :rowSelected="onRowSelected"
+                          :rowData="rowData">
+             </ag-grid-vue>
+           </div>
+         </div>
+         <div class="clearfix"></div>
+         <div id="create-delivery" class="row float-right">
+           <button type="button" class="btn btn-primary" :disabled="!checked" @click='fileDelivery'>Create Delivery File</button>
+         </div>
+       </div>
+     </div>
+     <span v-if="pathVal === 'edittable'">
+       <router-view></router-view>
+     </span> -->
   </div>
 </template>
 <script>
   import {AgGridVue} from 'ag-grid-vue'
   import Vue from 'vue'
-  import VueRouter from 'vue-router'
 
-  const router = new VueRouter()
   export default {
     name: 'App',
     data () {
@@ -52,10 +69,6 @@
     },
     components: {
       'ag-grid-vue': AgGridVue,
-      'edit-component': {
-        router,
-        template: '<router-link to="/edittable">edit table</router-link>'
-      },
       'delete-component': {
         template: '<a @click="deleteTable"><i class="fa fa-trash"></i></a>',
         methods: {
@@ -68,16 +81,17 @@
     methods: {
       createColDefs () {
         return [
-          {headerName: 'Edit', field: 'edit', cellRenderer: tableCellRenderer, suppressMenu: true, width: 80},
+          {headerName: 'Edit', field: 'edit', cellRenderer: tableCellRenderer, suppressMenu: true},
           {headerName: 'Program ID', cellStyle: {textAlign: 'left'}, field: 'programId', icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}, sort: 'asc'},
           {headerName: 'Dataset ID', field: 'datasetId', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}},
           {headerName: 'Table ID', field: 'tableId', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}},
-          {headerName: 'Display Label', field: 'tableType', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}},
-          {headerName: 'Last Updated By', field: 'displayLabel', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}},
-          {headerName: 'Last Updated', field: 'lastUpdatdeBy', width: 150, cellStyle: {textAlign: 'left'}},
-          {headerName: 'Last Delivered', field: 'lastDelivered', width: 150, cellStyle: {textAlign: 'left'}},
-          {headerName: 'Delete', field: 'delete', cellRendererFramework: 'delete-component', suppressSorting: true, width: 80, cellStyle: {textAlign: 'center'}},
-          {headerName: 'Deliver', field: 'deliver', suppressSorting: true, checkboxSelection: true, headerCheckboxSelection: true, width: 50}
+          {headerName: 'Table Type', field: 'tableType', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}},
+          {headerName: 'Display Label', field: 'displayLabel', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}},
+          {headerName: 'Last Updated By', field: 'lastUpdatedBy', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}},
+          {headerName: 'Last Updated', field: 'lastUpdated', cellStyle: {textAlign: 'left'}},
+          {headerName: 'Last Delivered', field: 'lastDelivered', cellStyle: {textAlign: 'left'}},
+          {headerName: 'Delete', field: 'delete', cellRenderer: 'delete-component', suppressSorting: true, cellStyle: {textAlign: 'center'}},
+          {headerName: 'Deliver', field: 'deliver', suppressSorting: true, checkboxSelection: true, headerCheckboxSelection: true}
         ]
       },
       onRowDataChanged () {
@@ -138,7 +152,7 @@
           tableId: 'B25045',
           tableType: 'HIERARCHICAL1',
           displayLabel: 'TENURE BY VEHICLES AVAILABLE BY AGE OF HOUSEHOLDER',
-          lastUpdatdeBy: 'Matthew Curtiss',
+          lastUpdatedBy: 'Matthew Curtiss',
           lastUpdated: '--',
           lastDelivered: 'Dec 19, 2018 09:25:04 am'
         },
@@ -148,9 +162,19 @@
           tableId: 'PEPAGESEX',
           tableType: 'HIERARCHICAL1',
           displayLabel: 'Annual Estimates of the Resident Population for Selected Age Groups by Sex for the United States, St...',
-          lastUpdatdeBy: 'Matthew Curtiss',
+          lastUpdatedBy: 'Matthew Curtiss',
           lastUpdated: '--',
           lastDelivered: 'June 28, 2018 02:48:01 pm'
+        },
+        {
+          programId: 'ACS',
+          datasetId: 'ACSDT1Y2016',
+          tableId: 'B25045',
+          tableType: 'HIERARCHICAL1',
+          displayLabel: 'TENURE BY VEHICLES AVAILABLE BY AGE OF HOUSEHOLDER',
+          lastUpdatedBy: 'Matthew Curtiss',
+          lastUpdated: '--',
+          lastDelivered: 'Dec 19, 2018 09:25:04 am'
         },
         {
           programId: 'PEP',
@@ -158,9 +182,19 @@
           tableId: 'PEPAGESEX',
           tableType: 'HIERARCHICAL1',
           displayLabel: 'Annual Estimates of the Resident Population for Selected Age Groups by Sex for the United States, St...',
-          lastUpdatdeBy: 'Matthew Curtiss',
+          lastUpdatedBy: 'Matthew Curtiss',
           lastUpdated: '--',
           lastDelivered: 'June 28, 2018 02:48:01 pm'
+        },
+        {
+          programId: 'ACS',
+          datasetId: 'ACSDT1Y2016',
+          tableId: 'B25045',
+          tableType: 'HIERARCHICAL1',
+          displayLabel: 'TENURE BY VEHICLES AVAILABLE BY AGE OF HOUSEHOLDER',
+          lastUpdatedBy: 'Matthew Curtiss',
+          lastUpdated: '--',
+          lastDelivered: 'Dec 19, 2018 09:25:04 am'
         },
         {
           programId: 'PEP',
@@ -168,9 +202,19 @@
           tableId: 'PEPAGESEX',
           tableType: 'HIERARCHICAL1',
           displayLabel: 'Annual Estimates of the Resident Population for Selected Age Groups by Sex for the United States, St...',
-          lastUpdatdeBy: 'Matthew Curtiss',
+          lastUpdatedBy: 'Matthew Curtiss',
           lastUpdated: '--',
           lastDelivered: 'June 28, 2018 02:48:01 pm'
+        },
+        {
+          programId: 'ACS',
+          datasetId: 'ACSDT1Y2016',
+          tableId: 'B25045',
+          tableType: 'HIERARCHICAL1',
+          displayLabel: 'TENURE BY VEHICLES AVAILABLE BY AGE OF HOUSEHOLDER',
+          lastUpdatedBy: 'Matthew Curtiss',
+          lastUpdated: '--',
+          lastDelivered: 'Dec 19, 2018 09:25:04 am'
         },
         {
           programId: 'PEP',
@@ -178,9 +222,19 @@
           tableId: 'PEPAGESEX',
           tableType: 'HIERARCHICAL1',
           displayLabel: 'Annual Estimates of the Resident Population for Selected Age Groups by Sex for the United States, St...',
-          lastUpdatdeBy: 'Matthew Curtiss',
+          lastUpdatedBy: 'Matthew Curtiss',
           lastUpdated: '--',
           lastDelivered: 'June 28, 2018 02:48:01 pm'
+        },
+        {
+          programId: 'ACS',
+          datasetId: 'ACSDT1Y2016',
+          tableId: 'B25045',
+          tableType: 'HIERARCHICAL1',
+          displayLabel: 'TENURE BY VEHICLES AVAILABLE BY AGE OF HOUSEHOLDER',
+          lastUpdatedBy: 'Matthew Curtiss',
+          lastUpdated: '--',
+          lastDelivered: 'Dec 19, 2018 09:25:04 am'
         },
         {
           programId: 'PEP',
@@ -188,9 +242,19 @@
           tableId: 'PEPAGESEX',
           tableType: 'HIERARCHICAL1',
           displayLabel: 'Annual Estimates of the Resident Population for Selected Age Groups by Sex for the United States, St...',
-          lastUpdatdeBy: 'Matthew Curtiss',
+          lastUpdatedBy: 'Matthew Curtiss',
           lastUpdated: '--',
           lastDelivered: 'June 28, 2018 02:48:01 pm'
+        },
+        {
+          programId: 'ACS',
+          datasetId: 'ACSDT1Y2016',
+          tableId: 'B25045',
+          tableType: 'HIERARCHICAL1',
+          displayLabel: 'TENURE BY VEHICLES AVAILABLE BY AGE OF HOUSEHOLDER',
+          lastUpdatedBy: 'Matthew Curtiss',
+          lastUpdated: '--',
+          lastDelivered: 'Dec 19, 2018 09:25:04 am'
         },
         {
           programId: 'PEP',
@@ -198,27 +262,7 @@
           tableId: 'PEPAGESEX',
           tableType: 'HIERARCHICAL1',
           displayLabel: 'Annual Estimates of the Resident Population for Selected Age Groups by Sex for the United States, St...',
-          lastUpdatdeBy: 'Matthew Curtiss',
-          lastUpdated: '--',
-          lastDelivered: 'June 28, 2018 02:48:01 pm'
-        },
-        {
-          programId: 'PEP',
-          datasetId: 'POPESTCHARAGEGROUPS2016',
-          tableId: 'PEPAGESEX',
-          tableType: 'HIERARCHICAL1',
-          displayLabel: 'Annual Estimates of the Resident Population for Selected Age Groups by Sex for the United States, St...',
-          lastUpdatdeBy: 'Matthew Curtiss',
-          lastUpdated: '--',
-          lastDelivered: 'June 28, 2018 02:48:01 pm'
-        },
-        {
-          programId: 'PEP',
-          datasetId: 'POPESTCHARAGEGROUPS2016',
-          tableId: 'PEPAGESEX',
-          tableType: 'HIERARCHICAL1',
-          displayLabel: 'Annual Estimates of the Resident Population for Selected Age Groups by Sex for the United States, St...',
-          lastUpdatdeBy: 'Matthew Curtiss',
+          lastUpdatedBy: 'Matthew Curtiss',
           lastUpdated: '--',
           lastDelivered: 'June 28, 2018 02:48:01 pm'
         }
@@ -248,10 +292,6 @@
   }
 </script>
 <style>
-  /* .active-nav[data-v-0048ba58] {
-    background-color: grey;
-    color: #ffffff !important;
-  } */
   button:disabled {
     cursor: not-allowed;
   }
@@ -259,6 +299,6 @@
     padding-left: 7px;
   }
   #create-delivery {
-      padding-right: 7px;
+    padding-right: 7px;
   }
 </style>

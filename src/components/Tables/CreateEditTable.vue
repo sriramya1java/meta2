@@ -3,7 +3,7 @@
   <h5>{{ msg }}, your id is {{ id }}</h5>
   <h1 v-if="id === 'new'">This is create table page</h1>
   <h1 v-else>this is edit table page</h1>
-  <div>
+  <!--<div>
     <div class="card">
       <div class="card-header">
         <strong class="float-left">Table Metadata</strong>
@@ -85,7 +85,7 @@
             </div>
             <div class="col-4">
               <b-btn v-b-modal.modalPrevent>Launch demo modal</b-btn>
-              <!-- Modal Component -->
+              &lt;!&ndash; Modal Component &ndash;&gt;
               <b-modal id="modalPrevent"
                        ref="modal"
                        title="Submit your name"
@@ -102,14 +102,57 @@
         </form>
       </div>
     </div>
-  </div>
+  </div>-->
+  <v-container fluid>
+    <v-toolbar dense>
+      <v-toolbar-title>
+        Table Metadata
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn>Save</v-btn>
+    </v-toolbar>
+    <v-tabs color="cyan" dark slider-color="yellow">
+      <v-tab ripple>
+        Basic Metadata
+      </v-tab>
+      <v-tab ripple>
+        Table Notes
+      </v-tab>
+      <v-tab ripple>
+        Dimensions
+      </v-tab>
+      <v-tab-item>
+        <v-card flat>
+          <v-card-text>
+            <table-basic-metadata></table-basic-metadata>
+          </v-card-text>
+        </v-card>
+      </v-tab-item>
+      <v-tab-item>
+        <v-card flat>
+          <v-card-text><table-notes></table-notes></v-card-text>
+        </v-card>
+      </v-tab-item>
+      <v-tab-item>
+        <v-card flat>
+          <v-card-text>contents for item3 go here</v-card-text>
+        </v-card>
+      </v-tab-item>
+    </v-tabs>
+    <!--<router-view/>-->
+  </v-container>
 </div>
 </template>
 
 <script>
   import router from '../../router/index'
+  import TableBasicMetadata from './TableBasicMetadata.vue'
+  import TableNotes from './TableNotes.vue'
 
   export default {
+    components: {
+      TableNotes,
+      TableBasicMetadata},
     name: 'CreateEditTable',
     data () {
       return {

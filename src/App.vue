@@ -1,52 +1,21 @@
 <template>
   <div id="app">
-    <!--<div>
-      <div>
-        <div class="row">
-          <div class="col">
-            <img src="./assets/meta2logo.png" style="margin-bottom: 10px; width: 60%; height:100%;">
-          </div>
-          <div class="col">
-            2 of 3
-          </div>
-          <div class="col">
-            3 of 3
-          </div>
-      </div>
-      </div>
-
-      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #d3d3d3;">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <router-link class="nav-link" to="/">Tables</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/notes">Notes</router-link>
-          </li>
-        </ul>
-      </nav>
-    </div>-->
-    <!--uncomment the commented out code when you want to implement error handling page-->
-    <div class="container-fluid">
-      <!-- <span  v-if="pathVal !== 'errorhandling'">
-       <meta2-header></meta2-header>
-       </span> -->
-      <!--displays the meta2 logo, username and logout link-->
-      <meta2-header></meta2-header>
-      <br>
-      <!-- <span  v-if="pathVal !== 'errorhandling'">
-      <nav-bar></nav-bar>
-      </span> -->
-      <!--displays the navbar which includes table tab and notes tab-->
-      <nav-bar></nav-bar>
-      <!-- <span v-if="pathVal !== 'errorhandling'"><bread-crumbs></bread-crumbs></span> -->
-      <!--displays the breadcrumbs according to the router navigation-->
-      <bread-crumbs></bread-crumbs>
-      <!--displays the component based on navigation and the routers links mentioned in router index.js-->
-      <router-view></router-view>
-      <!--displays the version number of the application-->
-      <meta2-footer></meta2-footer>
-    </div>
+    <v-app>
+      <v-toolbar app>
+        <meta2-header></meta2-header>
+        <!--<bread-crumbs></bread-crumbs>-->
+      </v-toolbar>
+        <v-container fluid>
+          <v-content>
+          <nav-bar></nav-bar>
+            <br>
+          <router-view></router-view>
+          </v-content>
+        </v-container>
+      <v-footer app>
+        <meta2-footer></meta2-footer>
+      </v-footer>
+    </v-app>
   </div>
 </template>
 <script>

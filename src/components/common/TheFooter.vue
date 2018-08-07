@@ -1,7 +1,8 @@
 <template>
-  <div class="row">
-    {{ version }}
-  </div>
+  <v-footer class="pa-3">
+    <v-spacer></v-spacer>
+    <div>{{ version }}</div>
+  </v-footer>
 </template>
 <script>
   export default {
@@ -14,8 +15,4 @@
   }
 </script>
 <style scoped>
-  .row {
-    color: #808080;
-    margin-left: 3px;
-  }
 </style>

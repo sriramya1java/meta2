@@ -1,5 +1,24 @@
 <template>
   <div>
+    <v-card v-if="pathVal === 'UpdatedNotesList'">
+      <v-flex xs12 text-left>
+        <!--<router-link :to="{ name: 'edittable', params: { tableString: 'new' }, query: { debug: true }}">
+          <v-btn flat color="blue" :to="{ name: 'edittable', params: { tableString: 'new' }, query: { debug: true }}">Create a New Table</v-btn>
+        </router-link>-->
+        <v-btn flat color="blue" :to="{ name: 'editnote', params: { noteString: 'new' }, query: { debug: true }}">Create a New Note</v-btn>
+      </v-flex>
+      <v-flex xs12 text-center class="pa-2">
+        <ag-grid-vue style="width: 100%; height: 200px;"
+                     class="ag-theme-balham"
+                     :gridOptions="gridOptions"
+                     :rowDataChanged="onRowDataChanged"
+                     :rowData="rowData">
+        </ag-grid-vue>
+      </v-flex>
+    </v-card>
+    <router-view></router-view>
+  </div>
+  <!--<div>
     <div class="card" v-if="pathVal === 'UpdatedNotesList'">
       <div class="card-body">
         <div class="row">
@@ -25,14 +44,12 @@
     <span v-if="pathVal === 'editnote'">
         <router-view></router-view>
     </span>
-  </div>
+  </div>-->
 </template>
 <script>
   import {AgGridVue} from 'ag-grid-vue'
   import Vue from 'vue'
-  import VueRouter from 'vue-router'
 
-  const router = new VueRouter()
   export default {
     data () {
       return {
@@ -46,14 +63,8 @@
     },
     components: {
       'ag-grid-vue': AgGridVue,
-      /* as of now router-link is not working in ag-grid-vue component, left it for in future use, if the bug is fixed. */
-      'edit-component': {
-        router,
-        template: '<router-link to="/editnote">edit table</router-link>'
-      },
-      /**/
       'delete-component': {
-        template: '<a @click="deleteNote"><i class="fa fa-trash"></i></a>',
+        template: '<a @click="deleteNote"><v-icon>trash</v-icon></a>',
         methods: {
           deleteNote () {
             confirm('Do you want to delete the note?')
@@ -64,14 +75,14 @@
     methods: {
       createColDefs () {
         return [
-          {headerName: 'Edit', field: 'edit', cellRenderer: noteCellRenderer, suppressSorting: true, suppressMenu: true, width: 100},
+          {headerName: 'Edit', field: 'edit', cellRenderer: noteCellRenderer, suppressSorting: true, suppressMenu: true},
           {headerName: 'Program ID', field: 'programId', icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}, sort: 'asc'},
-          {headerName: 'Note Title', field: 'noteString'},
-          {headerName: 'Contents Preview', field: 'contentsPreview'},
-          {headerName: 'Position', field: 'c', width: 100},
+          {headerName: 'Note Title', field: 'noteString', icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}},
+          {headerName: 'Contents Preview', field: 'contentsPreview', icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}},
+          {headerName: 'Position', field: 'c', icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}},
           {headerName: 'Last Updated By', field: 'lastUpdatedBy'},
           {headerName: 'Last Updated', field: 'lastUpdated'},
-          {headerName: 'Delete', field: 'delete', cellRendererFramework: 'delete-component', suppressSorting: true, width: 100, cellStyle: {textAlign: 'center'}}
+          {headerName: 'Delete', field: 'delete', cellRenderer: 'delete-component', suppressSorting: true, cellStyle: {textAlign: 'center'}}
         ]
       },
       onRowDataChanged () {

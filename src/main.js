@@ -1,49 +1,20 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import {
-  Vuetify,
-  VApp,
-  VNavigationDrawer,
-  VFooter,
-  VList,
-  VBtn,
-  VIcon,
-  VGrid,
-  VToolbar,
-  transitions
-} from 'vuetify'
-import '../node_modules/vuetify/src/stylus/app.styl'
 import '../static/jquery-3.3.1.slim'
 import '../static/bootstrap'
 import '../static/popper.min'
 import '../node_modules/ag-grid/dist/styles/ag-grid.css'
 import '../node_modules/ag-grid/dist/styles/ag-theme-balham.css'
 import VueResource from 'vue-resource'
+import 'vuetify/dist/vuetify.min.css'
+import Vuetify from 'vuetify'
+import Vuex from 'vuex'
+import store from '../store/store.js'
 
-Vue.use(Vuetify, {
-  components: {
-    VApp,
-    VNavigationDrawer,
-    VFooter,
-    VList,
-    VBtn,
-    VIcon,
-    VGrid,
-    VToolbar,
-    transitions
-  },
-  theme: {
-    primary: '#ee44aa',
-    secondary: '#424242',
-    accent: '#82B1FF',
-    error: '#FF5252',
-    info: '#2196F3',
-    success: '#4CAF50',
-    warning: '#FFC107'
-  }
-})
 Vue.use(VueResource)
+Vue.use(Vuetify)
+Vue.use(Vuex)
 
 Vue.config.productionTip = false
 Vue.http.options.root = '/meta2'
@@ -53,5 +24,6 @@ Vue.prototype.$baseUrl = '/meta2'
 new Vue({
   el: '#app',
   router,
+  store,
   render: h => h(App)
 })
