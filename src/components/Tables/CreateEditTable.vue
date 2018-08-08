@@ -169,7 +169,6 @@
     },
     created () {
       this.id = this.$route.params.tableString
-      console.log(JSON.parse(this.id))
     },
     methods: {
       navigate () {

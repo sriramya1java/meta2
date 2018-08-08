@@ -188,12 +188,12 @@
         items: [
           { icon: 'note', iconClass: 'grey lighten-1 white--text', title: 'Header Note1' },
           { icon: 'note', iconClass: 'grey lighten-1 white--text', title: 'Header Note2' },
-          { icon: 'note', iconClass: 'grey lighten-1 white--text', title: 'Header Note2' }
+          { icon: 'note', iconClass: 'grey lighten-1 white--text', title: 'Header Note3' }
         ],
         footerItems: [
           { icon: 'note', iconClass: 'grey lighten-1 white--text', title: 'Footer Note1' },
           { icon: 'note', iconClass: 'grey lighten-1 white--text', title: 'Footer Note2' },
-          { icon: 'note', iconClass: 'grey lighten-1 white--text', title: 'Footer Note2' }
+          { icon: 'note', iconClass: 'grey lighten-1 white--text', title: 'Footer Note3' }
         ]
       }
     }

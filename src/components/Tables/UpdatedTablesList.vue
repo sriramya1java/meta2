@@ -89,7 +89,7 @@
           {headerName: 'Last Updated By', field: 'lastUpdatedBy', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}},
           {headerName: 'Last Updated', field: 'lastUpdated', cellStyle: {textAlign: 'left'}},
           {headerName: 'Last Delivered', field: 'lastDelivered', cellStyle: {textAlign: 'left'}},
-          {headerName: 'Delete', field: 'delete', cellRenderer: 'delete-component', suppressSorting: true, cellStyle: {textAlign: 'center'}},
+          {headerName: 'Delete', field: 'delete', cellRendererFramework: 'delete-component', suppressSorting: true, cellStyle: {textAlign: 'center'}},
           {headerName: 'Deliver', field: 'deliver', suppressSorting: true, checkboxSelection: true, headerCheckboxSelection: true}
         ]
       },

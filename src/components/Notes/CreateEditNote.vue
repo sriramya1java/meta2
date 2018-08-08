@@ -25,7 +25,6 @@
     },
     created () {
       this.id = this.$route.params.noteString
-      console.log(JSON.parse(this.id))
     },
     methods: {
       navigate () {

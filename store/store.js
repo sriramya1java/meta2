@@ -9,7 +9,7 @@ export default new Vuex.Store({
     tableTypes: ['Hierarchical', 'Detailed', 'Another Table Type'],
     datasets: ['ACS2017', 'ACS2019', 'ACS2000', 'POP1900', 'PEP2004'],
     tableUniverse: '',
-    headerNotes: ['HeaderNote1', 'HeaderNote2', 'HeaderNote3', 'HeaderNote1', 'HeaderNote1', 'HeaderNote1'],
+    headerNotes: ['HeaderNote1', 'HeaderNote2', 'HeaderNote3', 'HeaderNote4', 'HeaderNote5', 'HeaderNote6'],
     tablesList: [{
       programId: 'ACS',
       datasetId: 'ACSDT1Y2016',
