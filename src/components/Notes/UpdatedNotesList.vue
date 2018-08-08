@@ -60,10 +60,10 @@
     components: {
       'ag-grid-vue': AgGridVue,
       'delete-component': {
-        template: '<a @click="deleteNote"><v-icon>trash</v-icon></a>',
+        template: '<a @click="deleteNote"><i class="fa fa-trash"></i></a>',
         methods: {
           deleteNote () {
-            confirm('Do you want to delete the note?')
+            confirm('Do you want to delete the Note?')
           }
         }
       }
