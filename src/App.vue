@@ -85,3 +85,7 @@
   @import '../src/assets/custom-bootstrap.scss';
   @import '../node_modules/font-awesome/scss/font-awesome.scss';
 </style>
+
+<style lang="css">
+  @import '../static/material-icons.css';
+</style>
