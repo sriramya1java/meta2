@@ -1,13 +1,38 @@
 <template>
   <v-layout row wrap align-center>
-    <v-flex xs8 text-left>
+    <v-flex xs6 text-left>
       <img src="../../assets/meta2logo.png">
     </v-flex>
+    <v-flex xs1>
+        <v-btn
+          color="dark"
+          flat
+          value="table"
+          to="/">
+          <span>Tables</span>
+        </v-btn>
+    </v-flex>
+    <v-flex xs1>
+      <v-btn
+        color="dark"
+        flat
+        value="notes"
+        to="/updatedNotesList">
+        <span>Notes</span>
+      </v-btn>
+    </v-flex>
     <v-flex xs2 text-right>
-      Welcome: {{ user }}
+      <v-text
+        color="dark"
+        flat
+        value="person">
+        Welcome: {{ user }}
+        <v-icon>person</v-icon>
+      </v-text>
     </v-flex>
     <v-flex xs2>
-      <a href="https://vuejs.org/" onclick="return confirm('Do you want to logout?')">Logout</a>
+        <a href="https://vuejs.org/" onclick="return confirm('Do you want to logout?')">Logout</a>
+        <v-icon>logout</v-icon>
     </v-flex>
   </v-layout>
 </template>

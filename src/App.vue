@@ -5,8 +5,8 @@
         <meta2-header></meta2-header>
       </v-toolbar>
       <v-content>
-        <nav-bar></nav-bar>
-        <bread-crumbs></bread-crumbs>
+        <!--<nav-bar></nav-bar>-->
+        <!--<bread-crumbs></bread-crumbs>-->
         <router-view></router-view>
       </v-content>
       <v-footer app>

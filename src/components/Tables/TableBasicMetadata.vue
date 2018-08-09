@@ -6,7 +6,9 @@
       </v-flex>
       <v-flex xs4>
         <v-text-field
-          label="Table ID"></v-text-field>
+          label="Table ID"
+          id="tableName"
+        required></v-text-field>
       </v-flex>
       <v-flex xs6>
         <span>(* = required)</span>
@@ -99,7 +101,7 @@
         </v-dialog>
       </v-flex>
       <v-flex xs12 text-right>
-        <v-btn>Save as Draft</v-btn>
+        <v-btn>Save</v-btn>
       </v-flex>
       <!--<router-view></router-view>-->
     </v-layout>

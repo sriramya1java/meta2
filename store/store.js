@@ -19,8 +19,8 @@ export default new Vuex.Store({
       lastUpdatedBy: 'Matthew Curtiss',
       lastUpdated: '--',
       lastDelivered: 'Dec 19, 2018 09:25:04 am'
-    }, {
-        programId: 'PEP',
+    },
+      { programId: 'PEP',
         datasetId: 'POPESTCHARAGEGROUPS2016',
         tableId: 'PEPAGESEX',
         tableType: 'HIERARCHICAL1',
@@ -150,14 +150,16 @@ export default new Vuex.Store({
         position: 'header',
         lastUpdatedBy: 'Matthew Curtiss',
         lastUpdated: 'June 19, 2018 09:25:04 am'
-      }, {
+      },
+      {
         programId: 'ACS',
         noteString: 'test5',
         contentsPreview: 'meta testing',
         position: 'header',
         lastUpdatedBy: 'Matthew Curtiss',
         lastUpdated: 'June 19, 2018 09:25:04 am'
-      }, {
+      },
+      {
         programId: 'ACS',
         noteString: 'test6',
         contentsPreview: 'meta testing',

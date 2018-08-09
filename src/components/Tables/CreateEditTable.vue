@@ -103,13 +103,7 @@
     </div>
   </div>-->
   <v-container fluid>
-    <v-toolbar dense color="grey lighten-1.5">
-      <v-toolbar-title>
-        Table Metadata
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn dense>Save</v-btn>
-    </v-toolbar>
+    <h3 class="text-left">Table Metadata</h3>
     <v-tabs color="grey" dark slider-color="white" class="pt-4">
       <v-tab ripple>
         Basic Metadata
