@@ -7,7 +7,7 @@
       <v-flex xs4>
         <v-text-field
           label="Table ID"
-          id="tableName"
+          v-model="tableName"
         required></v-text-field>
       </v-flex>
       <v-flex xs6>
@@ -143,6 +143,16 @@
           console.log(tableUniverse)
           this.$store.dispatch('updateTableUniverse', tableUniverse)
         }
+      },
+      tableName: {
+        get () {
+          return this.$store.state.tableName
+        },
+        set (tableName) {
+          console.log('this is table Name setter')
+          console.log(tableName)
+          // this.$store.dispatch('updateTableUniverse', tableUniverse)
+        }
       }
     },
     methods: {
@@ -158,20 +168,6 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  h1, h2 {
-    font-weight: normal;
-  }
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-  a {
-    color: #42b983;
-  }
   span {
     color:#ff0000;
   }

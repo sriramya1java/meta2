@@ -80,10 +80,10 @@
     methods: {
       createColDefs () {
         return [
+          {headerName: 'Table ID', field: 'tableId', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}},
           {headerName: 'Edit', field: 'edit', cellRenderer: tableCellRenderer, suppressMenu: true},
           {headerName: 'Program ID', cellStyle: {textAlign: 'left'}, field: 'programId', icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}, sort: 'asc'},
           {headerName: 'Dataset ID', field: 'datasetId', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}},
-          {headerName: 'Table ID', field: 'tableId', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}},
           {headerName: 'Table Type', field: 'tableType', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}},
           {headerName: 'Display Label', field: 'displayLabel', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}},
           {headerName: 'Last Updated By', field: 'lastUpdatedBy', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}},
@@ -134,6 +134,7 @@
     },
     created () {
       this.gridOptions = {
+        enableFilter: true,
         enableColResize: true,
         enableSorting: true,
         sortingOrder: ['asc', 'desc'],
@@ -169,7 +170,8 @@
       let aTag = document.createElement('a')
       let abc = JSON.stringify(params.data)
       aTag.setAttribute('href', '#/edittable/' + abc)
-      aTag.innerHTML = '<i class="fa fa-edit">'
+      aTag.innerHTML = abc
+      console.log(abc)
       return aTag
     }
   }
