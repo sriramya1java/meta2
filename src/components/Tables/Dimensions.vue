@@ -20,7 +20,8 @@
     </v-flex>
     <v-spacer></v-spacer>
     <v-flex xs4 sm4 offset-sm0>
-      <v-card class="grow" height="100px">
+      <v-subheader>Horizontal Axis</v-subheader>
+      <v-card class="grow">
         <v-list>
           <draggable v-model="exampleList1" :options="{group:'people'}" class="dragArea">
             <v-list-tile
@@ -34,6 +35,7 @@
         </v-list>
       </v-card>
       <v-divider></v-divider>
+      <v-subheader>Vertical Axis</v-subheader>
       <v-card class="grow">
         <v-list>
           <draggable v-model="exampleList2" :options="{group:'people'}" class="dragArea">
@@ -48,6 +50,7 @@
         </v-list>
       </v-card>
       <v-divider></v-divider>
+      <v-subheader>GEO Axis</v-subheader>
       <v-card class="grow">
         <v-list>
           <draggable v-model="exampleList3" :options="{group:'people'}" class="dragArea">
@@ -94,7 +97,4 @@
   }
 </script>
 <style scoped>
-  .list2 {
-    min-height: 100px !important;
-  }
 </style>
