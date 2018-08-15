@@ -128,7 +128,7 @@
       </v-tab-item>
       <v-tab-item>
         <v-card flat>
-          <v-card-text>contents for item3 go here</v-card-text>
+          <v-card-text><dimensions></dimensions></v-card-text>
         </v-card>
       </v-tab-item>
     </v-tabs>
@@ -140,9 +140,11 @@
   import router from '../../router/index'
   import TableBasicMetadata from './TableBasicMetadata.vue'
   import TableNotes from './TableNotes.vue'
+  import Dimensions from './Dimensions.vue'
 
   export default {
     components: {
+      Dimensions,
       TableNotes,
       TableBasicMetadata},
     name: 'CreateEditTable',

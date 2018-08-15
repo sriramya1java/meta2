@@ -1,6 +1,6 @@
 <template>
   <v-layout row wrap align-center>
-    <v-flex xs6 text-left>
+    <v-flex xs3 text-left>
       <img src="../../assets/meta2logo.png">
     </v-flex>
     <v-flex xs1>
@@ -21,6 +21,7 @@
         <span>Notes</span>
       </v-btn>
     </v-flex>
+    <v-spacer></v-spacer>
     <v-flex xs2 text-right>
       <v-text
         color="dark"

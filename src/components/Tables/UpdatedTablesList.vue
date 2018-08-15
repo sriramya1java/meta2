@@ -80,7 +80,7 @@
     methods: {
       createColDefs () {
         return [
-          {headerName: 'Table ID', field: 'tableId', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}},
+          /* {headerName: 'Table ID', field: 'tableId', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}}, */
           {headerName: 'Edit', field: 'edit', cellRenderer: tableCellRenderer, suppressMenu: true},
           {headerName: 'Program ID', cellStyle: {textAlign: 'left'}, field: 'programId', icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}, sort: 'asc'},
           {headerName: 'Dataset ID', field: 'datasetId', cellStyle: {textAlign: 'left'}, icons: {sortAscending: '<i class="fa fa-sort-alpha-asc"/>', sortDescending: '<i class="fa fa-sort-alpha-desc"/>'}},
@@ -134,7 +134,6 @@
     },
     created () {
       this.gridOptions = {
-        enableFilter: true,
         enableColResize: true,
         enableSorting: true,
         sortingOrder: ['asc', 'desc'],
@@ -168,7 +167,7 @@
   function tableCellRenderer (params) {
     if (params !== undefined && params !== null) {
       let aTag = document.createElement('a')
-      let abc = JSON.stringify(params.data)
+      let abc = JSON.stringify(params.data.tableId)
       aTag.setAttribute('href', '#/edittable/' + abc)
       aTag.innerHTML = abc
       console.log(abc)
@@ -177,13 +176,7 @@
   }
 </script>
 <style>
-  button:disabled {
+  v-btn:disabled {
     cursor: not-allowed;
-  }
-  #create-table {
-    padding-left: 7px;
-  }
-  #create-delivery {
-    padding-right: 7px;
   }
 </style>
