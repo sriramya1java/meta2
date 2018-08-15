@@ -6,6 +6,8 @@ import '../static/bootstrap'
 import '../static/popper.min'
 import '../node_modules/ag-grid/dist/styles/ag-grid.css'
 import '../node_modules/ag-grid/dist/styles/ag-theme-balham.css'
+import '../node_modules/multiselect-two-sides/dist/js/multiselect'
+
 import VueResource from 'vue-resource'
 import 'vuetify/dist/vuetify.min.css'
 import Vuetify from 'vuetify'
