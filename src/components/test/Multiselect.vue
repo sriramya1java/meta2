@@ -57,6 +57,7 @@
               this.rightOptions.push(x)
             }
           })
+            // emptying the array
           this.leftOptions = []
           this.showalert = false
         },
