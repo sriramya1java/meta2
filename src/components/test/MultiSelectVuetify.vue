@@ -1,67 +1,95 @@
 <template>
-  <div>
-    <div class="row align-items-center justify-content-center">
-      <div class="col-xs-3 alert alert-warning" v-if="showalert" style="margin: 10px;" role="alert">
-        Please select at lease one option
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-5">
-        <select class="form-control" id="leftOptions" v-model="leftSelected" multiple="multiple" style="min-height: 505px;background:#f8f8f8; color: #0d47a1">
-          <option v-for="optionLeft in leftOptions" v-bind:value="optionLeft">{{ optionLeft.countryCode }}</option>
-        </select>
-      </div>
-      <div class="col-xs-7">
-        <div class="row">
-          <div class="col-xs-2">
-            <button type="button" id="multiselect_rightAll" class="btn btn-block" v-on:click="multiselect_rightAll()"><i class="glyphicon glyphicon-forward"></i></button>
-            <button type="button" id="multiselect_rightSelected" class="btn btn-block"  v-on:click="multiselect_rightSelected()"><i class="glyphicon glyphicon-chevron-right"></i></button>
-            <button type="button" id="multiselect_leftSelected" class="btn btn-block" v-on:click="multiselect_leftSelected()"><i class="glyphicon glyphicon-chevron-left"></i></button>
-            <button type="button" id="multiselect_leftAll" class="btn btn-block"  v-on:click="multiselect_leftAll()"><i class="glyphicon glyphicon-backward"></i></button>
-          </div>
-          <div class="col-xs-10 text-left">
-            <h7>vertical axis:</h7>
-            <select class="form-control" id="dataset_id" v-model="rightSelected"  multiple="multiple" style="min-height: 140px;background:#f8f8f8; color: #ef6c00;">
-              <option v-for="optionRight in rightOptions" v-bind:value="optionRight">{{ optionRight.countryCode }}</option>
-            </select>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-2">
-            <button type="button" id="multiselect_rightAll1" class="btn btn-block" v-on:click="multiselect_rightAll_one()"><i class="glyphicon glyphicon-forward"></i></button>
-            <button type="button" id="multiselect_rightSelected1" class="btn btn-block"  v-on:click="multiselect_rightSelected_one()"><i class="glyphicon glyphicon-chevron-right"></i></button>
-            <button type="button" id="multiselect_leftSelected1" class="btn btn-block" v-on:click="multiselect_leftSelected_one()"><i class="glyphicon glyphicon-chevron-left"></i></button>
-            <button type="button" id="multiselect_leftAll1" class="btn btn-block"  v-on:click="multiselect_leftAll_one()"><i class="glyphicon glyphicon-backward"></i></button>
-          </div>
-          <div class="col-xs-10 text-left">
-            <h7>horizontal axis:</h7>
-            <select class="form-control" id="dataset_id1" v-model="rightSelected1"  multiple="multiple" style="min-height: 140px;background:#f8f8f8; color: #ef6c00;">
-              <option v-for="optionRight1 in rightOptions1" v-bind:value="optionRight1">{{ optionRight1.countryCode }}</option>
-            </select>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-2">
-            <button type="button" id="multiselect_rightAll2" class="btn btn-block" v-on:click="multiselect_rightAll_two()"><i class="glyphicon glyphicon-forward"></i></button>
-            <button type="button" id="multiselect_rightSelected2" class="btn btn-block"  v-on:click="multiselect_rightSelected_two()"><i class="glyphicon glyphicon-chevron-right"></i></button>
-            <button type="button" id="multiselect_leftSelected2" class="btn btn-block" v-on:click="multiselect_leftSelected_two()"><i class="glyphicon glyphicon-chevron-left"></i></button>
-            <button type="button" id="multiselect_leftAll2" class="btn btn-block"  v-on:click="multiselect_leftAll_two()"><i class="glyphicon glyphicon-backward"></i></button>
-          </div>
-          <div class="col-xs-10 text-left">
-            <h7>outside of table:</h7>
-            <select class="form-control" id="dataset_id2" v-model="rightSelected2"  multiple="multiple" style="min-height: 140px;background:#f8f8f8; color: #ef6c00;">
-              <option v-for="optionRight2 in rightOptions2" v-bind:value="optionRight2">{{ optionRight2.countryCode }}</option>
-            </select>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <v-container fluid>
+    <v-alert :value="showalert">Please select at lease one option</v-alert>
+    <v-form>
+      <v-layout row text-center>
+        <v-flex xs5>
+          <v-subheader>Dimensions</v-subheader>
+          <select id="leftOptions" class="form-control" v-model="leftSelected" multiple="multiple" style="min-height: 505px;background:#f8f8f8; color: #0d47a1">
+            <option v-for="optionLeft in leftOptions" v-bind:value="optionLeft">{{ optionLeft.countryCode }}</option>
+          </select>
+        </v-flex>
+        <v-flex xs7>
+          <v-layout row text-center>
+            <v-flex xs2>
+              <v-btn slot="activator" color="grey lighten-2" dark icon v-on:click="multiselect_rightSelected()">
+                <v-icon>chevron_right</v-icon>
+              </v-btn><br>
+              <v-btn slot="activator" color="grey lighten-2" dark icon v-on:click="multiselect_leftSelected()">
+                <v-icon>chevron_left</v-icon>
+              </v-btn>
+            </v-flex>
+            <v-flex xs7>
+              <v-subheader>vertical axis:</v-subheader>
+                <select class="form-control" id="dataset_id" v-model="rightSelected"  multiple="multiple" style="min-height: 140px;background:#f8f8f8; color: #ef6c00;">
+                  <option v-for="optionRight in rightOptions" v-bind:value="optionRight">{{ optionRight.countryCode }}</option>
+                </select>
+            </v-flex>
+            <v-flex xs2>
+              <v-btn slot="activator" color="grey lighten-2" dark icon v-on:click="listboxMove('rightOptions', 'up')">
+                <v-icon>expand_less</v-icon>
+              </v-btn><br>
+              <v-btn slot="activator" color="grey lighten-2" dark icon v-on:click="multiselect_leftSelected()">
+                <v-icon>expand_more</v-icon>
+              </v-btn>
+            </v-flex>
+          </v-layout>
+          <v-layout row text-center>
+            <v-flex xs2>
+              <v-btn slot="activator" color="grey lighten-2" dark icon v-on:click="multiselect_rightSelected_one()">
+                <v-icon>chevron_right</v-icon>
+              </v-btn><br>
+              <v-btn slot="activator" color="grey lighten-2" dark icon v-on:click="multiselect_leftSelected_one()">
+                <v-icon>chevron_left</v-icon>
+              </v-btn>
+            </v-flex>
+            <v-flex xs7>
+              <v-subheader>horizontal axis:</v-subheader>
+              <select class="form-control" id="dataset_id1" v-model="rightSelected1"  multiple="multiple" style="min-height: 140px;background:#f8f8f8; color: #ef6c00;">
+                <option v-for="optionRight1 in rightOptions1" v-bind:value="optionRight1">{{ optionRight1.countryCode }}</option>
+              </select>
+            </v-flex>
+            <v-flex xs2>
+              <v-btn slot="activator" color="grey lighten-2" dark icon v-on:click="multiselect_rightSelected()">
+                <v-icon>expand_less</v-icon>
+              </v-btn><br>
+              <v-btn slot="activator" color="grey lighten-2" dark icon v-on:click="multiselect_leftSelected()">
+                <v-icon>expand_more</v-icon>
+              </v-btn>
+            </v-flex>
+          </v-layout>
+          <v-layout row text-center>
+            <v-flex xs2>
+              <v-btn slot="activator" color="grey lighten-2" dark icon v-on:click="multiselect_rightSelected_two()">
+                <v-icon>chevron_right</v-icon>
+              </v-btn><br>
+              <v-btn slot="activator" color="grey lighten-2" dark icon v-on:click="multiselect_leftSelected_two()">
+                <v-icon>chevron_left</v-icon>
+              </v-btn>
+            </v-flex>
+            <v-flex xs7>
+              <v-subheader>outside of the table:</v-subheader>
+              <select class="form-control" id="dataset_id2" v-model="rightSelected2"  multiple="multiple" style="min-height: 140px;background:#f8f8f8; color: #ef6c00;">
+                <option v-for="optionRight2 in rightOptions2" v-bind:value="optionRight2">{{ optionRight2.countryCode }}</option>
+              </select>
+            </v-flex>
+            <v-flex xs2>
+              <v-btn slot="activator" color="grey lighten-2" dark icon v-on:click="multiselect_rightSelected()">
+                <v-icon>expand_less</v-icon>
+              </v-btn><br>
+              <v-btn slot="activator" color="grey lighten-2" dark icon v-on:click="multiselect_leftSelected()">
+                <v-icon>expand_more</v-icon>
+              </v-btn>
+            </v-flex>
+          </v-layout>
+        </v-flex>
+      </v-layout>
+    </v-form>
+  </v-container>
 </template>
-
 <script>
   export default {
-    name: 'multiselect',
+    name: 'multiselectvuetify',
     data () {
       return {
         leftOptions: [
@@ -454,6 +482,28 @@
             this.leftOptions.push(x)
           }
         })
+      },
+      listboxMove: function (listId, direction) {
+        var listbox = listId
+        console.log(listId)
+        var selIndex = listbox.selectedIndex
+        this.showalert = this.rightSelected.length === 0
+        var increment = -1
+        if (direction === 'up') {
+          increment = -1
+        } else {
+          increment = 1
+        }
+        if ((selIndex + increment) < 0 || (selIndex + increment) > (listbox.options.length - 1)) {
+          return
+        }
+        var selValue = listbox.options[selIndex].value
+        var selText = listbox.options[selIndex].text
+        listbox.options[selIndex].value = listbox.options[selIndex + increment].value
+        listbox.options[selIndex].text = listbox.options[selIndex + increment].text
+        listbox.options[selIndex + increment].value = selValue
+        listbox.options[selIndex + increment].text = selText
+        listbox.selectedIndex = selIndex + increment
       }
     }
   }

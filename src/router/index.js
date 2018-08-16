@@ -6,6 +6,7 @@ import UpdatedNotesList from '@/components/Notes/UpdatedNotesList'
 import CreateEditNote from '@/components/Notes/CreateEditNote'
 import ErrorHandling from '@/components/ErrorHandling/ErrorHandling'
 import Multiselect from '@/components/test/Multiselect'
+import MultiSelectVuetify from '@/components/test/MultiSelectVuetify'
 import BootstrapVue from 'bootstrap-vue'
 
 Vue.use(Router)
@@ -56,6 +57,14 @@ export default new Router({
       path: '/multiselect',
       name: 'multiselect',
       component: Multiselect,
+      meta: {
+        breadCrumb: ''
+      }
+    },
+    {
+      path: '/multiselectvuetify',
+      name: 'multiselectvuetify',
+      component: MultiSelectVuetify,
       meta: {
         breadCrumb: ''
       }
