@@ -50,7 +50,9 @@
       methods: {
         multiselect_rightAll: function () {
           this.leftOptions.forEach(x => {
+              // checking if option already exists
             const rightIndex = this.rightOptions.findIndex(z => z === x)
+              //  if option already exists it does not push
             if (!(rightIndex > -1)) {
               this.rightOptions.push(x)
             }
