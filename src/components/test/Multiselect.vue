@@ -6,12 +6,12 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-5">
+      <div class="col-xs-6">
         <select class="form-control" id="leftOptions" v-model="leftSelected" multiple="multiple" style="min-height: 505px;background:#f8f8f8; color: #0d47a1">
           <option v-for="optionLeft in leftOptions" v-bind:value="optionLeft">{{ optionLeft.countryCode }}</option>
         </select>
       </div>
-      <div class="col-xs-5">
+      <div class="col-xs-6">
         <div class="row">
           <div class="col-xs-2">
             <button type="button" id="multiselect_rightAll" class="btn btn-block" v-on:click="multiselect_rightAll()"><i class="glyphicon glyphicon-forward"></i></button>
