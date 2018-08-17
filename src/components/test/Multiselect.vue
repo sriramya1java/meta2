@@ -26,8 +26,8 @@
             </select>
           </div>
           <div class="col-xs-2" style="margin-top: 50px">
-            <button type="button" class="btn btn-block" v-on:click="moveDown(rightSelected[0])"><i class="glyphicon glyphicon-chevron-down"></i></button>
-            <button type="button" class="btn btn-block" v-on:click="moveUp(rightSelected[0])"><i class="glyphicon glyphicon-chevron-up"></i></button>
+            <button type="button" class="btn btn-block" v-on:click="moveElementInArray(1)"><i class="glyphicon glyphicon-chevron-down"></i></button>
+            <button type="button" class="btn btn-block" v-on:click="moveElementInArray(-1)"><i class="glyphicon glyphicon-chevron-up"></i></button>
           </div>
         </div>
         <div class="row">
@@ -467,19 +467,24 @@
           }
         })
       },
-      moveUp: function (element) {
-        let index = this.rightOptions.findIndex(y => y.name === element.name)
-        if (index === 0) {
-          return
+      moveElementInArray: function (positionChange) {
+        let oldIndex = this.rightOptions.findIndex(y => y.name === this.rightSelected[0].name)
+        if (oldIndex > -1) {
+          let newIndex = (oldIndex + positionChange)
+
+          if (newIndex < 0) {
+            newIndex = 0
+          } else if (newIndex >= this.rightOptions.length) {
+            newIndex = this.rightOptions.length
+          }
+
+          let arrayClone = this.rightOptions.slice()
+          arrayClone.splice(oldIndex, 1)
+          arrayClone.splice(newIndex, 0, this.rightSelected[0])
+          this.rightOptions = arrayClone
+          return this.rightOptions
         }
-        [this.rightOptions[index], this.rightOptions[index - 1]] = [this.rightOptions[index - 1], this.rightOptions[index]]
-      },
-      moveDown: function (element) {
-        let index = this.rightOptions.findIndex(y => y.name === element.name)
-        if (index === this.rightOptions.length - 1) {
-          return
-        }
-        [this.rightOptions[index], this.rightOptions[index + 1]] = [this.rightOptions[index + 1], this.rightOptions[index]]
+        return this.rightOptions
       }
     },
     computed: {
