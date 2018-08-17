@@ -7,13 +7,13 @@
     </div>
     <div class="row">
       <div class="col-xs-6">
-        <select class="form-control" id="leftOptions" v-model="leftSelected" multiple="multiple" style="min-height: 505px;background:#f8f8f8; color: #0d47a1">
+        <select class="form-control" id="leftOptions" v-model="leftSelected" multiple="multiple" style="min-height: 95%;background:#f8f8f8; color: #0d47a1">
           <option v-for="optionLeft in leftOptions" v-bind:value="optionLeft">{{ optionLeft.countryCode }}</option>
         </select>
       </div>
       <div class="col-xs-6">
         <div class="row">
-          <div class="col-xs-2">
+          <div class="col-xs-2" style="padding: 25px;">
             <button type="button" id="multiselect_rightAll" class="btn btn-block" v-on:click="multiselect_rightAll()"><i class="glyphicon glyphicon-forward"></i></button>
             <button type="button" id="multiselect_rightSelected" class="btn btn-block"  v-on:click="multiselect_rightSelected()"><i class="glyphicon glyphicon-chevron-right"></i></button>
             <button type="button" id="multiselect_leftSelected" class="btn btn-block" v-on:click="multiselect_leftSelected()"><i class="glyphicon glyphicon-chevron-left"></i></button>
@@ -31,7 +31,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-xs-2">
+          <div class="col-xs-2" style="padding: 25px;">
             <button type="button" id="multiselect_rightAll1" class="btn btn-block" v-on:click="multiselect_rightAll_one()"><i class="glyphicon glyphicon-forward"></i></button>
             <button type="button" id="multiselect_rightSelected1" class="btn btn-block"  v-on:click="multiselect_rightSelected_one()"><i class="glyphicon glyphicon-chevron-right"></i></button>
             <button type="button" id="multiselect_leftSelected1" class="btn btn-block" v-on:click="multiselect_leftSelected_one()"><i class="glyphicon glyphicon-chevron-left"></i></button>
@@ -49,7 +49,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-xs-2">
+          <div class="col-xs-2" style="padding: 25px;">
             <button type="button" id="multiselect_rightAll2" class="btn btn-block" v-on:click="multiselect_rightAll_two()"><i class="glyphicon glyphicon-forward"></i></button>
             <button type="button" id="multiselect_rightSelected2" class="btn btn-block"  v-on:click="multiselect_rightSelected_two()"><i class="glyphicon glyphicon-chevron-right"></i></button>
             <button type="button" id="multiselect_leftSelected2" class="btn btn-block" v-on:click="multiselect_leftSelected_two()"><i class="glyphicon glyphicon-chevron-left"></i></button>
