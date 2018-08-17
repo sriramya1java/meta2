@@ -26,8 +26,8 @@
             </select>
           </div>
           <div class="col-xs-2" style="margin-top: 50px">
-            <button type="button" class="btn btn-block"><i class="glyphicon glyphicon-chevron-down"></i></button>
-            <button type="button" class="btn btn-block"><i class="glyphicon glyphicon-chevron-up"></i></button>
+            <button type="button" class="btn btn-block" v-on:click="moveDown(rightSelected[0])"><i class="glyphicon glyphicon-chevron-down"></i></button>
+            <button type="button" class="btn btn-block" v-on:click="moveUp(rightSelected[0])"><i class="glyphicon glyphicon-chevron-up"></i></button>
           </div>
         </div>
         <div class="row">
@@ -466,6 +466,20 @@
             this.leftOptions.push(x)
           }
         })
+      },
+      moveUp: function (element) {
+        let index = this.rightOptions.findIndex(y => y.name === element.name)
+        if (index === 0) {
+          return
+        }
+        [this.rightOptions[index], this.rightOptions[index - 1]] = [this.rightOptions[index - 1], this.rightOptions[index]]
+      },
+      moveDown: function (element) {
+        let index = this.rightOptions.findIndex(y => y.name === element.name)
+        if (index === this.rightOptions.length - 1) {
+          return
+        }
+        [this.rightOptions[index], this.rightOptions[index + 1]] = [this.rightOptions[index + 1], this.rightOptions[index]]
       }
     },
     computed: {
