@@ -23,13 +23,13 @@
     </v-flex>
     <v-spacer></v-spacer>
     <v-flex xs2 text-right>
-      <v-text
+      <v-subheader
         color="dark"
         flat
         value="person">
         Welcome: {{ user }}
         <v-icon>person</v-icon>
-      </v-text>
+      </v-subheader>
     </v-flex>
     <v-flex xs2>
         <a href="https://vuejs.org/" onclick="return confirm('Do you want to logout?')">Logout</a>

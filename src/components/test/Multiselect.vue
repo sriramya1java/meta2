@@ -7,24 +7,28 @@
     </div>
     <div class="row">
       <div class="col-xs-6">
-        <select class="form-control" id="leftOptions" v-model="leftSelected" multiple="multiple" style="min-height: 95%;background:#f8f8f8; color: #0d47a1">
-          <option v-for="optionLeft in sortedLeftOptions" v-bind:value="optionLeft">{{ optionLeft.name }}</option>
+        <select class="form-control" id="dimensionsList" v-model="dimensionsSelected" multiple="multiple" style="min-height: 95%;background:#f8f8f8; color: #0d47a1">
+          <option v-for="optionLeft in dimensionsList" v-bind:value="optionLeft">{{ optionLeft.name }}</option>
         </select>
       </div>
       <div class="col-xs-6">
         <div class="row">
           <div class="col-xs-2" style="padding: 25px;">
-            <button type="button" id="multiselect_rightAll" class="btn btn-block" v-on:click="multiselect_rightAll()"><i class="glyphicon glyphicon-forward"></i></button>
-            <button type="button" id="multiselect_rightSelected" class="btn btn-block"  v-on:click="multiselect_rightSelected()"><i class="glyphicon glyphicon-chevron-right"></i></button>
-            <button type="button" id="multiselect_leftSelected" class="btn btn-block" v-on:click="multiselect_leftSelected()"><i class="glyphicon glyphicon-chevron-left"></i></button>
-            <button type="button" id="multiselect_leftAll" class="btn btn-block"  v-on:click="multiselect_leftAll()"><i class="glyphicon glyphicon-backward"></i></button>
+            <button type="button" id="multiselect_rightAll" class="btn btn-block" v-on:click="multiselect_rightAll(dimensionsList, verticalDimensionsList)"><i class="glyphicon glyphicon-forward"></i></button>
+            <button type="button" id="multiselect_rightSelected" class="btn btn-block"  v-on:click="multiselect_rightSelected(dimensionsSelected, dimensionsList, verticalDimensionsList)"><i class="glyphicon glyphicon-chevron-right"></i></button>
+            <button type="button" id="multiselect_leftSelected" class="btn btn-block" v-on:click="multiselect_leftSelected(verticalDimensionsSelected, verticalDimensionsList, dimensionsList)"><i class="glyphicon glyphicon-chevron-left"></i></button>
+            <button type="button" id="multiselect_leftAll" class="btn btn-block"  v-on:click="multiselect_leftAll(verticalDimensionsList, dimensionsList, 'vertical')"><i class="glyphicon glyphicon-backward"></i></button>
           </div>
           <div class="col-xs-8 text-left">
             <h6>vertical axis:</h6>
-            <select class="form-control" id="dataset_id" v-model="rightSelected"  multiple="multiple" style="min-height: 140px;background:#f8f8f8; color: #ef6c00;">
-              <option v-for="optionRight in rightOptions" v-bind:value="optionRight">{{ optionRight.name }}</option>
+            <select class="form-control" id="verticalDimensionsList" v-model="verticalDimensionsSelected"  multiple="multiple" style="min-height: 140px;background:#f8f8f8; color: #ef6c00;">
+              <option v-for="optionRight in verticalDimensionsList" v-bind:value="optionRight">{{ optionRight.name }}</option>
             </select>
           </div>
+          <!-- <div class="col-xs-2" style="margin-top: 50px">
+            <button type="button" class="btn btn-block" v-on:click="moveElementInArray(1, verticalDimensionsList, verticalDimensionsSelected)"><i class="glyphicon glyphicon-chevron-down"></i></button>
+            <button type="button" class="btn btn-block" v-on:click="moveElementInArray(-1)"><i class="glyphicon glyphicon-chevron-up"></i></button>
+          </div> -->
           <div class="col-xs-2" style="margin-top: 50px">
             <button type="button" class="btn btn-block" v-on:click="moveElementInArray(1)"><i class="glyphicon glyphicon-chevron-down"></i></button>
             <button type="button" class="btn btn-block" v-on:click="moveElementInArray(-1)"><i class="glyphicon glyphicon-chevron-up"></i></button>
@@ -32,15 +36,15 @@
         </div>
         <div class="row">
           <div class="col-xs-2" style="padding: 25px;">
-            <button type="button" id="multiselect_rightAll1" class="btn btn-block" v-on:click="multiselect_rightAll_one()"><i class="glyphicon glyphicon-forward"></i></button>
-            <button type="button" id="multiselect_rightSelected1" class="btn btn-block"  v-on:click="multiselect_rightSelected_one()"><i class="glyphicon glyphicon-chevron-right"></i></button>
-            <button type="button" id="multiselect_leftSelected1" class="btn btn-block" v-on:click="multiselect_leftSelected_one()"><i class="glyphicon glyphicon-chevron-left"></i></button>
-            <button type="button" id="multiselect_leftAll1" class="btn btn-block"  v-on:click="multiselect_leftAll_one()"><i class="glyphicon glyphicon-backward"></i></button>
+            <button type="button" id="multiselect_rightAll1" class="btn btn-block" v-on:click="multiselect_rightAll(dimensionsList, horizontalDimensionsList)"><i class="glyphicon glyphicon-forward"></i></button>
+            <button type="button" id="multiselect_rightSelected1" class="btn btn-block"  v-on:click="multiselect_rightSelected(dimensionsSelected, dimensionsList, horizontalDimensionsList)"><i class="glyphicon glyphicon-chevron-right"></i></button>
+            <button type="button" id="multiselect_leftSelected1" class="btn btn-block" v-on:click="multiselect_leftSelected(horizontalDimensionsSelected, horizontalDimensionsList, dimensionsList)"><i class="glyphicon glyphicon-chevron-left"></i></button>
+            <button type="button" id="multiselect_leftAll1" class="btn btn-block"  v-on:click="multiselect_leftAll(horizontalDimensionsList, dimensionsList, 'horizontal')"><i class="glyphicon glyphicon-backward"></i></button>
           </div>
           <div class="col-xs-8 text-left">
             <h6>horizontal axis:</h6>
-            <select class="form-control" id="dataset_id1" v-model="rightSelected1"  multiple="multiple" style="min-height: 140px;background:#f8f8f8; color: #ef6c00;">
-              <option v-for="optionRight1 in rightOptions1" v-bind:value="optionRight1">{{ optionRight1.name }}</option>
+            <select class="form-control" id="horizontalDimensionsList" v-model="horizontalDimensionsSelected"  multiple="multiple" style="min-height: 140px;background:#f8f8f8; color: #ef6c00;">
+              <option v-for="optionRight1 in horizontalDimensionsList" v-bind:value="optionRight1">{{ optionRight1.name }}</option>
             </select>
           </div>
           <div class="col-xs-2" style="margin-top: 50px">
@@ -50,15 +54,15 @@
         </div>
         <div class="row">
           <div class="col-xs-2" style="padding: 25px;">
-            <button type="button" id="multiselect_rightAll2" class="btn btn-block" v-on:click="multiselect_rightAll_two()"><i class="glyphicon glyphicon-forward"></i></button>
-            <button type="button" id="multiselect_rightSelected2" class="btn btn-block"  v-on:click="multiselect_rightSelected_two()"><i class="glyphicon glyphicon-chevron-right"></i></button>
-            <button type="button" id="multiselect_leftSelected2" class="btn btn-block" v-on:click="multiselect_leftSelected_two()"><i class="glyphicon glyphicon-chevron-left"></i></button>
-            <button type="button" id="multiselect_leftAll2" class="btn btn-block"  v-on:click="multiselect_leftAll_two()"><i class="glyphicon glyphicon-backward"></i></button>
+            <button type="button" id="multiselect_rightAll2" class="btn btn-block" v-on:click="multiselect_rightAll(dimensionsList, outsideDimensionsList)"><i class="glyphicon glyphicon-forward"></i></button>
+            <button type="button" id="multiselect_rightSelected2" class="btn btn-block"  v-on:click="multiselect_rightSelected(dimensionsSelected, dimensionsList, outsideDimensionsList)"><i class="glyphicon glyphicon-chevron-right"></i></button>
+            <button type="button" id="multiselect_leftSelected2" class="btn btn-block" v-on:click="multiselect_leftSelected(outsideDimensionsSelected, outsideDimensionsList, dimensionsList)"><i class="glyphicon glyphicon-chevron-left"></i></button>
+            <button type="button" id="multiselect_leftAll2" class="btn btn-block"  v-on:click="multiselect_leftAll(outsideDimensionsList, dimensionsList, 'outside')"><i class="glyphicon glyphicon-backward"></i></button>
           </div>
           <div class="col-xs-8 text-left">
             <h6>outside of table:</h6>
-            <select class="form-control" id="dataset_id2" v-model="rightSelected2"  multiple="multiple" style="min-height: 140px;background:#f8f8f8; color: #ef6c00;">
-              <option v-for="optionRight2 in rightOptions2" v-bind:value="optionRight2">{{ optionRight2.name }}</option>
+            <select class="form-control" id="outsideDimensionsList" v-model="outsideDimensionsSelected"  multiple="multiple" style="min-height: 140px;background:#f8f8f8; color: #ef6c00;">
+              <option v-for="optionRight2 in outsideDimensionsList" v-bind:value="optionRight2">{{ optionRight2.name }}</option>
             </select>
           </div>
           <div class="col-xs-2" style="margin-top: 50px">
@@ -76,7 +80,7 @@
     name: 'multiselect',
     data () {
       return {
-        leftOptions: [
+        dimensionsList: [
           {'name': 'Afghanistan', 'countryCode': 'AF'},
           {'name': 'Aland Islands', 'countryCode': 'AX'},
           {'name': 'Albania', 'countryCode': 'AL'},
@@ -321,9 +325,13 @@
           {'name': 'Zambia', 'countryCode': 'ZM'},
           {'name': 'Zimbabwe', 'countryCode': 'ZW'}
         ],
-        rightOptions: [],
-        rightOptions1: [],
-        rightOptions2: [],
+        verticalDimensionsList: [],
+        horizontalDimensionsList: [],
+        outsideDimensionsList: [],
+        verticalDimensionsSelected: [],
+        horizontalDimensionsSelected: [],
+        outsideDimensionsSelected: [],
+        dimensionsSelected: [],
         leftSelected: [],
         rightSelected: [],
         rightSelected1: [],
@@ -332,157 +340,94 @@
       }
     },
     methods: {
-      multiselect_rightAll: function () {
-        this.leftOptions.forEach(x => {
+      multiselect_rightAll: function (leftList, rightList) {
+        leftList.forEach(x => {
           // checking if option already exists
-          const rightIndex = this.rightOptions.findIndex(z => z === x)
+          const rightIndex = rightList.findIndex(z => z === x)
           //  if option already exists it does not push
           if (!(rightIndex > -1)) {
-            this.rightOptions.push(x)
+            rightList.push(x)
           }
         })
         // emptying the array
-        this.leftOptions = []
+        leftList = []
+        this.dimensionsList = leftList // not sure of this step.
         this.showalert = false
       },
-      multiselect_leftAll: function () {
-        this.rightOptions.forEach(x => {
-          const rightIndex = this.leftOptions.findIndex(z => z === x)
+      multiselect_leftAll: function (rightList, leftList, axes) {
+        rightList.forEach(x => {
+          const rightIndex = leftList.findIndex(z => z === x)
           if (!(rightIndex > -1)) {
-            this.leftOptions.push(x)
+            leftList.push(x)
           }
         })
-        this.rightOptions = []
+        // emptying the array
+        rightList = []
+        if (axes === 'vertical') {
+          this.verticalDimensionsList = rightList
+        } else if (axes === 'horizontal') {
+          this.horizontalDimensionsList = rightList
+        } else if (axes === 'outside') {
+          this.outsideDimensionsList = rightList
+        }
         this.showalert = false
       },
-      multiselect_rightSelected: function () {
-        this.showalert = this.leftSelected.length === 0
-        this.leftSelected.forEach(x => {
-          const leftIndex = this.leftOptions.findIndex(y => y === x)
-          this.leftOptions.splice(leftIndex, 1)
-          const rightIndex = this.rightOptions.findIndex(z => z === x)
+      multiselect_rightSelected: function (dimensionsSelected, dimensionsList, axesDimensionsList) {
+        this.showalert = dimensionsSelected.length === 0
+        dimensionsSelected.forEach(x => {
+          const leftIndex = dimensionsList.findIndex(y => y === x)
+          dimensionsList.splice(leftIndex, 1)
+          const rightIndex = axesDimensionsList.findIndex(z => z === x)
           if (!(rightIndex > -1)) {
-            this.rightOptions.push(x)
+            axesDimensionsList.push(x)
           }
         })
       },
-      multiselect_leftSelected: function () {
-        this.showalert = this.rightSelected.length === 0
-        this.rightSelected.forEach(x => {
-          const rightIndex = this.rightOptions.findIndex(y => y === x)
-          this.rightOptions.splice(rightIndex, 1)
-          const leftIndex = this.leftOptions.findIndex(z => z === x)
+      multiselect_leftSelected: function (axesDimensionsSelected, axesDimensionsList, dimensionsList) {
+        this.showalert = axesDimensionsSelected.length === 0
+        axesDimensionsSelected.forEach(x => {
+          const rightIndex = axesDimensionsList.findIndex(y => y === x)
+          axesDimensionsList.splice(rightIndex, 1)
+          const leftIndex = dimensionsList.findIndex(z => z === x)
           if (!(leftIndex > -1)) {
-            this.leftOptions.push(x)
+            dimensionsList.push(x)
           }
         })
       },
-      multiselect_rightAll_one: function () {
-        this.leftOptions.forEach(x => {
-          // checking if option already exists
-          const rightIndex1 = this.rightOptions1.findIndex(z => z === x)
-          //  if option already exists it does not push
-          if (!(rightIndex1 > -1)) {
-            this.rightOptions1.push(x)
-          }
-        })
-        // emptying the array
-        this.leftOptions = []
-        this.showalert = false
-      },
-      multiselect_leftAll_one: function () {
-        this.rightOptions1.forEach(x => {
-          const rightIndex1 = this.leftOptions.findIndex(z => z === x)
-          if (!(rightIndex1 > -1)) {
-            this.leftOptions.push(x)
-          }
-        })
-        this.rightOptions1 = []
-        this.showalert = false
-      },
-      multiselect_rightSelected_one: function () {
-        this.showalert = this.leftSelected.length === 0
-        this.leftSelected.forEach(x => {
-          const leftIndex1 = this.leftOptions.findIndex(y => y === x)
-          this.leftOptions.splice(leftIndex1, 1)
-          const rightIndex1 = this.rightOptions1.findIndex(z => z === x)
-          if (!(rightIndex1 > -1)) {
-            this.rightOptions1.push(x)
-          }
-        })
-      },
-      multiselect_leftSelected_one: function () {
-        this.showalert = this.rightSelected1.length === 0
-        this.rightSelected1.forEach(x => {
-          const rightIndex1 = this.rightOptions1.findIndex(y => y === x)
-          this.rightOptions1.splice(rightIndex1, 1)
-          const leftIndex1 = this.leftOptions.findIndex(z => z === x)
-          if (!(leftIndex1 > -1)) {
-            this.leftOptions.push(x)
-          }
-        })
-      },
-      multiselect_rightAll_two: function () {
-        this.leftOptions.forEach(x => {
-          // checking if option already exists
-          const rightIndex2 = this.rightOptions2.findIndex(z => z === x)
-          //  if option already exists it does not push
-          if (!(rightIndex2 > -1)) {
-            this.rightOptions2.push(x)
-          }
-        })
-        // emptying the array
-        this.leftOptions = []
-        this.showalert = false
-      },
-      multiselect_leftAll_two: function () {
-        this.rightOptions2.forEach(x => {
-          const rightIndex2 = this.leftOptions.findIndex(z => z === x)
-          if (!(rightIndex2 > -1)) {
-            this.leftOptions.push(x)
-          }
-        })
-        this.rightOptions2 = []
-        this.showalert = false
-      },
-      multiselect_rightSelected_two: function () {
-        this.showalert = this.leftSelected.length === 0
-        this.leftSelected.forEach(x => {
-          const leftIndex2 = this.leftOptions.findIndex(y => y === x)
-          this.leftOptions.splice(leftIndex2, 1)
-          const rightIndex2 = this.rightOptions1.findIndex(z => z === x)
-          if (!(rightIndex2 > -1)) {
-            this.rightOptions2.push(x)
-          }
-        })
-      },
-      multiselect_leftSelected_two: function () {
-        this.showalert = this.rightSelected2.length === 0
-        this.rightSelected2.forEach(x => {
-          const rightIndex2 = this.rightOptions2.findIndex(y => y === x)
-          this.rightOptions2.splice(rightIndex2, 1)
-          const leftIndex2 = this.leftOptions.findIndex(z => z === x)
-          if (!(leftIndex2 > -1)) {
-            this.leftOptions.push(x)
-          }
-        })
-      },
-      moveElementInArray: function (positionChange) {
-        let oldIndex = this.rightOptions.findIndex(y => y.name === this.rightSelected[0].name)
+      /* this code is not working list and selected ones are getting undefined...
+      moveElementInArray: function (positionChange, verticalDimensionsList, verticalDimensionsSelected) {
+        let oldIndex = verticalDimensionsList.findIndex(y => y.name === verticalDimensionsSelected[0].name)
         if (oldIndex > -1) {
           let newIndex = (oldIndex + positionChange)
 
           if (newIndex < 0) {
             newIndex = 0
-          } else if (newIndex >= this.rightOptions.length) {
-            newIndex = this.rightOptions.length
+          } else if (newIndex >= verticalDimensionsList.length) {
+            newIndex = verticalDimensionsList.length
           }
 
-          let arrayClone = this.rightOptions.slice()
+          let arrayClone = verticalDimensionsList.slice()
           arrayClone.splice(oldIndex, 1)
-          arrayClone.splice(newIndex, 0, this.rightSelected[0])
-          this.rightOptions = arrayClone
-          return this.rightOptions
+          arrayClone.splice(newIndex, 0, verticalDimensionsSelected[0])
+          verticalDimensionsList = arrayClone
+          return verticalDimensionsList
+        }
+        return verticalDimensionsList
+      }, */
+      moveElementInArray: function (positionChange) {
+        let oldIndex = this.verticalDimensionsList.findIndex(y => y.name === this.verticalDimensionsSelected[0].name)
+        if (oldIndex > -1) {
+          let newIndex = (oldIndex + positionChange)
+          if (newIndex < 0) {
+            newIndex = 0
+          } else if (newIndex >= this.verticalDimensionsList.length) {
+            newIndex = this.verticalDimensionsList.length
+          }
+          let arrayClone = this.verticalDimensionsList.slice()
+          arrayClone.splice(oldIndex, 1)
+          arrayClone.splice(newIndex, 0, this.verticalDimensionsSelected[0])
+          this.verticalDimensionsList = arrayClone
+          return this.verticalDimensionsList
         }
         return this.rightOptions
       }
