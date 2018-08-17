@@ -11,7 +11,7 @@
           <option v-for="optionLeft in leftOptions" v-bind:value="optionLeft">{{ optionLeft.countryCode }}</option>
         </select>
       </div>
-      <div class="col-xs-7">
+      <div class="col-xs-5">
         <div class="row">
           <div class="col-xs-2">
             <button type="button" id="multiselect_rightAll" class="btn btn-block" v-on:click="multiselect_rightAll()"><i class="glyphicon glyphicon-forward"></i></button>
@@ -19,11 +19,15 @@
             <button type="button" id="multiselect_leftSelected" class="btn btn-block" v-on:click="multiselect_leftSelected()"><i class="glyphicon glyphicon-chevron-left"></i></button>
             <button type="button" id="multiselect_leftAll" class="btn btn-block"  v-on:click="multiselect_leftAll()"><i class="glyphicon glyphicon-backward"></i></button>
           </div>
-          <div class="col-xs-10 text-left">
-            <h7>vertical axis:</h7>
+          <div class="col-xs-8 text-left">
+            <h6>vertical axis:</h6>
             <select class="form-control" id="dataset_id" v-model="rightSelected"  multiple="multiple" style="min-height: 140px;background:#f8f8f8; color: #ef6c00;">
               <option v-for="optionRight in rightOptions" v-bind:value="optionRight">{{ optionRight.countryCode }}</option>
             </select>
+          </div>
+          <div class="col-xs-2" style="margin-top: 50px">
+            <button type="button" class="btn btn-block"><i class="glyphicon glyphicon-chevron-down"></i></button>
+            <button type="button" class="btn btn-block"><i class="glyphicon glyphicon-chevron-up"></i></button>
           </div>
         </div>
         <div class="row">
@@ -33,11 +37,15 @@
             <button type="button" id="multiselect_leftSelected1" class="btn btn-block" v-on:click="multiselect_leftSelected_one()"><i class="glyphicon glyphicon-chevron-left"></i></button>
             <button type="button" id="multiselect_leftAll1" class="btn btn-block"  v-on:click="multiselect_leftAll_one()"><i class="glyphicon glyphicon-backward"></i></button>
           </div>
-          <div class="col-xs-10 text-left">
-            <h7>horizontal axis:</h7>
+          <div class="col-xs-8 text-left">
+            <h6>horizontal axis:</h6>
             <select class="form-control" id="dataset_id1" v-model="rightSelected1"  multiple="multiple" style="min-height: 140px;background:#f8f8f8; color: #ef6c00;">
               <option v-for="optionRight1 in rightOptions1" v-bind:value="optionRight1">{{ optionRight1.countryCode }}</option>
             </select>
+          </div>
+          <div class="col-xs-2" style="margin-top: 50px">
+            <button type="button" class="btn btn-block"><i class="glyphicon glyphicon-chevron-down"></i></button>
+            <button type="button" class="btn btn-block"><i class="glyphicon glyphicon-chevron-up"></i></button>
           </div>
         </div>
         <div class="row">
@@ -47,11 +55,15 @@
             <button type="button" id="multiselect_leftSelected2" class="btn btn-block" v-on:click="multiselect_leftSelected_two()"><i class="glyphicon glyphicon-chevron-left"></i></button>
             <button type="button" id="multiselect_leftAll2" class="btn btn-block"  v-on:click="multiselect_leftAll_two()"><i class="glyphicon glyphicon-backward"></i></button>
           </div>
-          <div class="col-xs-10 text-left">
-            <h7>outside of table:</h7>
+          <div class="col-xs-8 text-left">
+            <h6>outside of table:</h6>
             <select class="form-control" id="dataset_id2" v-model="rightSelected2"  multiple="multiple" style="min-height: 140px;background:#f8f8f8; color: #ef6c00;">
               <option v-for="optionRight2 in rightOptions2" v-bind:value="optionRight2">{{ optionRight2.countryCode }}</option>
             </select>
+          </div>
+          <div class="col-xs-2" style="margin-top: 50px">
+            <button type="button" class="btn btn-block"><i class="glyphicon glyphicon-chevron-down"></i></button>
+            <button type="button" class="btn btn-block"><i class="glyphicon glyphicon-chevron-up"></i></button>
           </div>
         </div>
       </div>
