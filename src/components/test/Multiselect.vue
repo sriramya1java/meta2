@@ -466,12 +466,13 @@
             this.leftOptions.push(x)
           }
         })
-      },
-      sortArray: function (array) {
-        return array.sort((a, b) => a.name.localeCompare(b.name))
       }
     },
     computed: {
+        /**
+         *
+         * @returns *[] sorted leftOptions array
+         */
       sortedLeftOptions: function () {
         return this.leftOptions.sort((a, b) => a.name.localeCompare(b.name))
       }
