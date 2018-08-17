@@ -21,7 +21,7 @@
             </v-flex>
             <v-flex xs7>
               <v-subheader>vertical axis:</v-subheader>
-                <select class="form-control" id="dataset_id" v-model="rightSelected"  multiple="multiple" style="min-height: 140px;background:#f8f8f8; color: #ef6c00;">
+                <select id="dataset_id" v-model="rightSelected"  multiple="multiple" style="min-height: 140px;background:#f8f8f8; color: #ef6c00;">
                   <option v-for="optionRight in rightOptions" v-bind:value="optionRight">{{ optionRight.countryCode }}</option>
                 </select>
             </v-flex>
