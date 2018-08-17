@@ -2,7 +2,7 @@
   <div>
     <div class="row align-items-center justify-content-center">
       <div class="col-xs-3 alert alert-warning" v-if="showalert" style="margin: 10px;" role="alert">
-        Please select at lease one option
+        Please select at lease one option!!!
       </div>
     </div>
     <div class="row">
