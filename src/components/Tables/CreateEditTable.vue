@@ -111,10 +111,10 @@
       <v-tab ripple>
         Table Notes
       </v-tab>
-      <v-tab ripple>
+      <v-tab ripple to="/multiselect">
         Dimensions
       </v-tab>
-      <v-tab-item>
+      <!--<v-tab-item>
         <v-card flat>
           <v-card-text>
             <table-basic-metadata></table-basic-metadata>
@@ -128,11 +128,11 @@
       </v-tab-item>
       <v-tab-item>
         <v-card flat>
-          <v-card-text><dimensions></dimensions></v-card-text>
+          <router-view/>
         </v-card>
-      </v-tab-item>
+      </v-tab-item>-->
     </v-tabs>
-    <!--<router-view/>-->
+    <router-view/>
   </v-container>
 </template>
 
