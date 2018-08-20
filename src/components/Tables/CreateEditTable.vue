@@ -104,14 +104,14 @@
   </div>-->
   <v-container fluid>
     <h3 class="text-left">Table Metadata</h3>
-    <v-tabs color="grey" dark slider-color="white" class="pt-4">
-      <v-tab ripple>
+  <v-tabs color="grey" dark slider-color="white" class="pt-4">
+      <v-tab ripple fixed-tabs>
         Basic Metadata
       </v-tab>
       <v-tab ripple>
         Table Notes
       </v-tab>
-      <v-tab ripple to="/multiselect">
+      <v-tab ripple to="multiselect">
         Dimensions
       </v-tab>
       <!--<v-tab-item>
@@ -132,7 +132,6 @@
         </v-card>
       </v-tab-item>-->
     </v-tabs>
-    <router-view/>
   </v-container>
 </template>
 
