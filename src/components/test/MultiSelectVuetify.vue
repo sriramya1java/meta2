@@ -5,7 +5,7 @@
       <v-layout row text-center>
         <v-flex xs5>
           <v-subheader>Dimensions</v-subheader>
-          <select id="leftOptions" class="form-control" v-model="leftSelected" multiple="multiple" style="min-height: 505px;background:#f8f8f8; color: #0d47a1">
+          <select id="leftOptions" class="form-control" v-model="leftSelected" multiple="multiple" style="min-height: 505px;background:red; color: #0d47a1">
             <option v-for="optionLeft in leftOptions" v-bind:value="optionLeft">{{ optionLeft.countryCode }}</option>
           </select>
         </v-flex>

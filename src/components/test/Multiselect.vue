@@ -7,7 +7,7 @@
     </div>
     <div class="row">
       <div class="col-xs-6">
-        <select class="form-control" id="dimensionsList" v-model="dimensionsSelected" multiple="multiple" style="min-height: 95%;background:#f8f8f8; color: #0d47a1">
+        <select class="form-control" id="dimensionsList" v-model="dimensionsSelected" multiple="multiple" style="min-height: 95%;background:#ffffff; color: #0d47a1">
           <option v-for="optionLeft in dimensionsList" v-bind:value="optionLeft">{{ optionLeft.name }}</option>
         </select>
       </div>
@@ -22,7 +22,7 @@
           <div class="col-xs-8 text-left">
             <h6>vertical axis:</h6>
             <select class="form-control" id="verticalDimensionsList" v-model="verticalDimensionsSelected"  multiple="multiple" style="min-height: 140px;background:#f8f8f8; color: #ef6c00;">
-              <option v-for="optionRight in verticalDimensionsList" v-bind:value="optionRight">{{ optionRight.name }}</option>
+              <option v-for="optionRight in verticalDimensionsList" v-bind:value="optionRight">{{ optionRight.name }}<categories></categories></option>
             </select>
           </div>
           <!-- <div class="col-xs-2" style="margin-top: 50px">
@@ -76,8 +76,12 @@
 </template>
 
 <script>
+  import Categories from '@/components/test/Categories'
   export default {
     name: 'multiselect',
+    components: {
+      Categories
+    },
     data () {
       return {
         dimensionsList: [
