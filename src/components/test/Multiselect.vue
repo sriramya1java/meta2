@@ -21,8 +21,8 @@
           </div>
           <div class="col-xs-8 text-left">
             <h6>vertical axis:</h6>
-            <select class="form-control" id="verticalDimensionsList" v-model="verticalDimensionsSelected"  multiple="multiple" style="min-height: 140px;background:#f8f8f8; color: #ef6c00;">
-              <option v-for="optionRight in verticalDimensionsList" v-bind:value="optionRight">{{ optionRight.name }}<categories></categories></option>
+            <select class="form-control glyphicon" id="verticalDimensionsList" v-model="verticalDimensionsSelected"  multiple="multiple" style="min-height: 140px;background:#f8f8f8; color: #ef6c00;">
+              <option v-for="optionRight in verticalDimensionsList" v-bind:value="optionRight"  v-on:click="alertLog()">{{ optionRight.name }} &#xe065;</option>
             </select>
           </div>
           <!-- <div class="col-xs-2" style="margin-top: 50px">
@@ -434,6 +434,9 @@
           return this.verticalDimensionsList
         }
         return this.rightOptions
+      },
+      alertLog: function () {
+        alert('clicked')
       }
     },
     computed: {
@@ -447,3 +450,16 @@
     }
   }
 </script>
+<style type="text/css">
+  .list-vertical {
+    height: 140px;
+    overflow-y: scroll;
+    margin: 0;
+    min-height: 140px;
+    background:#f8f8f8;
+    color: #ef6c00;
+  }
+  .list-vertical li {
+    margin-bottom: 6px;
+  }
+</style>
