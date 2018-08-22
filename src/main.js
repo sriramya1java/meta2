@@ -6,14 +6,15 @@ import '../static/bootstrap'
 import '../static/popper.min'
 import '../node_modules/ag-grid/dist/styles/ag-grid.css'
 import '../node_modules/ag-grid/dist/styles/ag-theme-balham.css'
-import '../node_modules/multiselect-two-sides/dist/js/multiselect'
 
 import VueResource from 'vue-resource'
 import 'vuetify/dist/vuetify.min.css'
 import Vuetify from 'vuetify'
 import Vuex from 'vuex'
 import store from '../store/store.js'
+import VueDragTree from 'vue-drag-tree'
 
+Vue.component('vue-drag-tree', VueDragTree)
 Vue.use(VueResource)
 Vue.use(Vuetify)
 Vue.use(Vuex)

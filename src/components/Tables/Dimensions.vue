@@ -68,12 +68,8 @@
   </v-layout>
 </template>
 <script>
-  import draggable from 'vuedraggable'
   export default {
     name: 'Dimensions',
-    components: {
-      draggable
-    },
     data () {
       return {
         exampleList: [

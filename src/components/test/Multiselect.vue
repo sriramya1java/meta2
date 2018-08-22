@@ -32,6 +32,14 @@
           <div class="col-xs-2" style="margin-top: 50px">
             <button type="button" class="btn btn-block" v-on:click="moveElementInArray(1)"><i class="glyphicon glyphicon-chevron-down"></i></button>
             <button type="button" class="btn btn-block" v-on:click="moveElementInArray(-1)"><i class="glyphicon glyphicon-chevron-up"></i></button>
+            <v-dialog v-model="dialog" width="1000">
+              <v-btn slot="activator" color="grey lighten-2" dark icon><v-icon>edit</v-icon></v-btn>
+              <v-card>
+                <v-card-title class="headline grey lighten-2" primary-title>Categories</v-card-title>
+                <v-card-text>drag and drop categories
+                <categories></categories></v-card-text>
+              </v-card>
+            </v-dialog>
           </div>
         </div>
         <div class="row">
@@ -340,7 +348,8 @@
         rightSelected: [],
         rightSelected1: [],
         rightSelected2: [],
-        showalert: false
+        showalert: false,
+        dialog: false
       }
     },
     methods: {
