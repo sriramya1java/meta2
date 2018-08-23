@@ -363,8 +363,8 @@
           }
         })
         // emptying the array
-        leftList = []
-        this.dimensionsList = leftList // not sure of this step.
+        // leftList = []
+        // this.dimensionsList = leftList // not sure of this step.
         this.showalert = false
       },
       multiselect_leftAll: function (rightList, leftList, axes) {
@@ -375,21 +375,21 @@
           }
         })
         // emptying the array
-        rightList = []
+       /* rightList = []
         if (axes === 'vertical') {
           this.verticalDimensionsList = rightList
         } else if (axes === 'horizontal') {
           this.horizontalDimensionsList = rightList
         } else if (axes === 'outside') {
           this.outsideDimensionsList = rightList
-        }
+        } */
         this.showalert = false
       },
       multiselect_rightSelected: function (dimensionsSelected, dimensionsList, axesDimensionsList) {
         this.showalert = dimensionsSelected.length === 0
         dimensionsSelected.forEach(x => {
-          const leftIndex = dimensionsList.findIndex(y => y === x)
-          dimensionsList.splice(leftIndex, 1)
+          // const leftIndex = dimensionsList.findIndex(y => y === x)
+          // dimensionsList.splice(leftIndex, 1)
           const rightIndex = axesDimensionsList.findIndex(z => z === x)
           if (!(rightIndex > -1)) {
             axesDimensionsList.push(x)
@@ -399,8 +399,8 @@
       multiselect_leftSelected: function (axesDimensionsSelected, axesDimensionsList, dimensionsList) {
         this.showalert = axesDimensionsSelected.length === 0
         axesDimensionsSelected.forEach(x => {
-          const rightIndex = axesDimensionsList.findIndex(y => y === x)
-          axesDimensionsList.splice(rightIndex, 1)
+          // const rightIndex = axesDimensionsList.findIndex(y => y === x)
+          // axesDimensionsList.splice(rightIndex, 1)
           const leftIndex = dimensionsList.findIndex(z => z === x)
           if (!(leftIndex > -1)) {
             dimensionsList.push(x)
