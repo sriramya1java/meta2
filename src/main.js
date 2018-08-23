@@ -12,10 +12,7 @@ import 'vuetify/dist/vuetify.min.css'
 import Vuetify from 'vuetify'
 import Vuex from 'vuex'
 import store from '../store/store.js'
-import VueDragTree from 'vue-drag-tree'
-import 'vue-drag-tree/dist/vue-drag-tree.min.css'
 
-Vue.use(VueDragTree)
 Vue.use(VueResource)
 Vue.use(Vuetify)
 Vue.use(Vuex)

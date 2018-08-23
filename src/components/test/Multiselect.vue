@@ -37,7 +37,7 @@
               <v-card>
                 <v-card-title class="headline grey lighten-2" primary-title>Categories</v-card-title>
                 <v-card-text>drag and drop categories
-                <categories></categories></v-card-text>
+                <hello></hello></v-card-text>
               </v-card>
             </v-dialog>
           </div>
@@ -84,11 +84,11 @@
 </template>
 
 <script>
-  import Categories from '@/components/test/Categories'
+  import Hello from '@/components/test/dragdrop/Hello'
   export default {
     name: 'multiselect',
     components: {
-      Categories
+      Hello
     },
     data () {
       return {
