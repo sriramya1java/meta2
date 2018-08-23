@@ -10,6 +10,9 @@
       </div>
 
       <div class='showSec'>
+        <pre>{{formatData1}}</pre>
+      </div>
+      <div class='showSec'>
         <pre>{{formatData}}</pre>
       </div>
     </div>
@@ -62,45 +65,16 @@ export default {
           {'name': 'USA', 'countryCode': 'IN', children: []}
       ],
       data1: [
-            {
-                name: 'Node 0-0',
-                id: 0,
-                children: [
-                    {
-                        name: 'Node 1-1',
-                        id: 3,
-                        children: [
-                            {
-                                name: 'Node 2-1',
-                                id: 4,
-                                children: []
-                            },
-                            {
-                                name: 'Node 2-2',
-                                id: 10,
-                                children: []
-                            }
-                        ]
-                    },
-                    {
-                        name: 'Node 1-2',
-                        id: 13,
-                        children: []
-                    }
-                ]
-            },
-            {
-                name: 'Node 0-1',
-                id: 14,
-                children: []
-            },
-            {'name': 'USA', 'countryCode': 'IN', children: []}
-        ]
+            {'name': 'Categories', 'countryCode': '', children: []}
+      ]
     }
   },
   computed: {
     formatData () {
       return JSON.stringify(this.data, null, 2)
+    },
+    formatData1 () {
+      return JSON.stringify(this.data1, null, 2)
     }
   },
   methods: {

@@ -93,13 +93,13 @@ const exchangeData = (rootCom, from, to) => {
 
   // If it is a linear relationship, but not a father and son
   if (isLinealRelation(from, to)) {
-    const fromParentModel = from.$parent.model
+    // const fromParentModel = from.$parent.model
     const toModel = to.model
 
     // First remove from from its parent node information;
-    fromParentModel.children = fromParentModel.children.filter(
+    /* fromParentModel.children = fromParentModel.children.filter(
       item => item.id !== newFrom.id
-    )
+    ) */
 
     // Then the from node is added to the last bit in the to node.
     toModel.children = toModel.children.concat([newFrom])
@@ -107,13 +107,13 @@ const exchangeData = (rootCom, from, to) => {
   }
 
   // Two nodes (wireless relationship), throw the from node into the to node.
-  const fromParentModel = from.$parent.model
+  // const fromParentModel = from.$parent.model
   const toModel = to.model
   // First remove from from its parent node information
-  if (from.$parent.$options._componentTag === 'vue-drag-tree') {
-    /**
+  /* if (from.$parent.$options._componentTag === 'vue-drag-tree') {
+    /!**
      * Find the parent component (data source header) of the vue-drag-tree and modify the data here.
-     */
+     *!/
     from.$parent.newData = from.$parent.newData.filter(
       item => item.id !== newFrom.id
     )
@@ -121,7 +121,7 @@ const exchangeData = (rootCom, from, to) => {
     fromParentModel.children = fromParentModel.children.filter(
       item => item.id !== newFrom.id
     )
-  }
+  } */
 
   // Then the from node is added to the last bit in the to node.
   if (!toModel.children) {
