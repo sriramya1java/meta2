@@ -1,9 +1,14 @@
 <template>
   <div class='main'>
-    <div class='container'>
+    <div class='container' style="width: 100% ">
       <div class='treeSelf'>
         <vue-drag-tree :data='data' :allowDrag='allowDrag' ontoggle="true" :allowDrop='allowDrop' :defaultText='"New Node"' @current-clicked='curNodeClicked' @drag="dragHandler" @drag-enter="dragEnterHandler" @drag-leave="dragLeaveHandler" @drag-over="dragOverHandler" @drag-end="dragEndHandler" @drop="dropHandler"></vue-drag-tree>
       </div>
+
+      <div class='treeSelf'>
+        <vue-drag-tree :data='data1' :allowDrag='allowDrag' ontoggle="true" :allowDrop='allowDrop' :defaultText='"New Node"' @current-clicked='curNodeClicked' @drag="dragHandler" @drag-enter="dragEnterHandler" @drag-leave="dragLeaveHandler" @drag-over="dragOverHandler" @drag-end="dragEndHandler" @drop="dropHandler"></vue-drag-tree>
+      </div>
+
       <div class='showSec'>
         <pre>{{formatData}}</pre>
       </div>
@@ -55,7 +60,42 @@ export default {
           children: []
         },
           {'name': 'USA', 'countryCode': 'IN', children: []}
-      ]
+      ],
+      data1: [
+            {
+                name: 'Node 0-0',
+                id: 0,
+                children: [
+                    {
+                        name: 'Node 1-1',
+                        id: 3,
+                        children: [
+                            {
+                                name: 'Node 2-1',
+                                id: 4,
+                                children: []
+                            },
+                            {
+                                name: 'Node 2-2',
+                                id: 10,
+                                children: []
+                            }
+                        ]
+                    },
+                    {
+                        name: 'Node 1-2',
+                        id: 13,
+                        children: []
+                    }
+                ]
+            },
+            {
+                name: 'Node 0-1',
+                id: 14,
+                children: []
+            },
+            {'name': 'USA', 'countryCode': 'IN', children: []}
+        ]
     }
   },
   computed: {
@@ -98,6 +138,7 @@ export default {
 <style scoped>
 .main {
   display: flex;
+  width: 100%;
   flex-direction: column;
   font-size: 35px;
   align-items: center;
@@ -132,13 +173,13 @@ ul {
 .treeSelf {
   border: 3px solid #e5e9f2;
   color: white;
-  width: 40%;
+  width: 60%;
   text-align: left;
   padding: 1rem;
 }
 .showSec {
   border: 3px solid #e5e9f2;
-  width: 40%;
+  width: 60%;
   text-align: left;
   padding: 1rem;
   font-size: 15px;
