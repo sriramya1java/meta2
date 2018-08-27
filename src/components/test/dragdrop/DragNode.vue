@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class='treeMargin' v-show="open" v-if="isFolder">
-      <item v-for="item2 in model.children" :allowDrag='allowDrag' :allowDrop='allowDrop' :depth='increaseDepth' :model="item2" :key='item2.id' :defaultText='defaultText'>
+      <item v-for="item2 in model.children" :allowDrag='allowDrag' :allowDrop='allowDrop' :depth='increaseDepth' :model="item2" :key='item2.key' :fromWhere='fromWhere' :defaultText='defaultText'>
       </item>
     </div>
   </div>
@@ -51,6 +51,11 @@
       depth: {
         type: Number,
         default: 0
+      },
+      fromWhere: {
+            // Default text displayed when adding a node．
+        type: String,
+        default: this.fromWhere
       }
     },
     computed: {
@@ -181,7 +186,8 @@
           return
         }
         toData = this
-        exchangeData(rootTree, fromData, toData)
+        console.log('fromWhere', this.fromWhere)
+        exchangeData(rootTree, fromData, toData, this.fromWhere)
         rootTree.emitDrop(this.model, this, e)
       },
       dragEnd (e) {

@@ -2,19 +2,22 @@
   <div class='main'>
     <div class='container' style="width: 100% ">
       <div class='treeSelf'>
-        <vue-drag-tree :data='data' :allowDrag='allowDrag' ontoggle="true" :allowDrop='allowDrop' :defaultText='"New Node"' @current-clicked='curNodeClicked' @drag="dragHandler" @drag-enter="dragEnterHandler" @drag-leave="dragLeaveHandler" @drag-over="dragOverHandler" @drag-end="dragEndHandler" @drop="dropHandler"></vue-drag-tree>
+        <vue-drag-tree :data='data' :allowDrag='allowDrag' ontoggle="true" :allowDrop='allowDrop' :fromWhere='left' :defaultText='"New Node"' @current-node-clicked='curNodeClicked' @drag="dragHandler" @drag-enter="dragEnterHandler" @drag-leave="dragLeaveHandler" @drag-over="dragOverHandler" @drag-end="dragEndHandler" @drop="dropHandler"></vue-drag-tree>
       </div>
 
       <div class='treeSelf'>
-        <vue-drag-tree :data='data1' :allowDrag='allowDrag' ontoggle="true" :allowDrop='allowDrop' :defaultText='"New Node"' @current-clicked='curNodeClicked' @drag="dragHandler" @drag-enter="dragEnterHandler" @drag-leave="dragLeaveHandler" @drag-over="dragOverHandler" @drag-end="dragEndHandler" @drop="dropHandler"></vue-drag-tree>
+        <vue-drag-tree :data='data1' :allowDrag='allowDrag' ontoggle="true" :allowDrop='allowDropRight' :fromWhere='right' :defaultText='"New Node"' @current-node-clicked='curNodeClicked' @drag="dragHandler" @drag-enter="dragEnterHandler" @drag-leave="dragLeaveHandler" @drag-over="dragOverHandler" @drag-end="dragEndHandler" @drop="dropHandler"></vue-drag-tree>
       </div>
 
-      <div class='showSec'>
+     <!-- <div class='showSec'>
         <pre>{{formatData1}}</pre>
       </div>
       <div class='showSec'>
         <pre>{{formatData}}</pre>
-      </div>
+      </div>-->
+        <!--<div class='showSec'>
+            <pre>{{formatData1}}</pre>
+        </div>-->
     </div>
   </div>
 </template>
@@ -29,6 +32,8 @@ export default {
   data () {
     return {
       en: false,
+      left: 'left',
+      right: 'right',
       data: [
         {
           name: 'Node 0-0',
@@ -82,28 +87,38 @@ export default {
       return true
     },
     allowDrop (model, component) {
+      return false
+    },
+    allowDropRight (model, component) {
       return true
     },
     curNodeClicked (model, component) {
-      console.log('curNodeClicked', model, component)
+     // console.log('curNodeClicked', model, component)
     },
     dragHandler (model, component, e) {
-      console.log('dragHandler: ', model, component, e)
+      // console.log('dragHandler: ', model)
     },
     dragEnterHandler (model, component, e) {
-      console.log('dragEnterHandler: ', model, component, e)
+      // console.log('dragEnterHandler: ', model, component, e)
     },
     dragLeaveHandler (model, component, e) {
-      console.log('dragLeaveHandler: ', model, component, e)
+      // console.log('dragLeaveHandler: ', model, component, e)
     },
     dragOverHandler (model, component, e) {
-      console.log('dragOverHandler: ', model, component, e)
+      // console.log('dragOverHandler: ', model, component, e)
     },
     dragEndHandler (model, component, e) {
-      console.log('dragEndHandler: ', model, component, e)
+      // console.log('dragEndHandler: ', model, component, e)
     },
     dropHandler (model, component, e) {
-      console.log('dropHandler: ', model, component, e)
+     // console.log('dropHandler: ', model, component, e)
+      const list = model.children
+        // change the id
+      if (list && list !== undefined) {
+        list.forEach(x => {
+          x.key = Math.floor(Math.random() * 1000000000) + 1
+        })
+      }
     }
   }
 }
